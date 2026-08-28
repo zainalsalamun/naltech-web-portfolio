@@ -111,7 +111,12 @@ export default function Home() {
         <a className="nl-logo" href="#top"><img src="/naltech-logo.png" alt="" />NALTECH</a>
         <p>Web design & development studio<br />Jakarta, Indonesia</p>
         <div><a href="#services">Layanan</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></div>
-        <div><a href="mailto:hello@naltech.id">Email</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div>
+        <div className="nl-socials">
+          <a href="mailto:hello@naltech.id"><span>@</span>Email</a>
+          <a href="https://www.instagram.com/naltech.ai/" target="_blank" rel="noreferrer"><span>IG</span>Instagram</a>
+          <a href="https://www.tiktok.com/@naltech.ai" target="_blank" rel="noreferrer"><span>TT</span>TikTok</a>
+          <a href="https://www.facebook.com/share/1EUS6YwWAt/?mibextid=wwXIfr" target="_blank" rel="noreferrer"><span>FB</span>Facebook</a>
+        </div>
         <small>© 2026 Naltech Studio. All rights reserved.</small>
       </footer>
     </main>
