@@ -2,6 +2,7 @@ const projects = [
   { slug: 'senja-coffee', type: 'Food & Beverage', name: 'Senja Coffee', result: '+38% reservasi online', theme: 'coffee', number: '01' },
   { slug: 'ruang-arsitek', type: 'Architecture', name: 'Ruang Arsitek', result: '2.4× inquiry berkualitas', theme: 'space', number: '02' },
   { slug: 'lumiere-skincare', type: 'Beauty & Wellness', name: 'Lumière', result: '+46% product discovery', theme: 'lumiere', number: '03' },
+  { slug: 'naltech-pay', type: 'Fintech Concept', name: 'Naltech Pay', result: 'Product landing experience', theme: 'pay', number: '04' },
 ];
 
 const services = [
