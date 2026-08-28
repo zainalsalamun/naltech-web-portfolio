@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import MotionObserver from './MotionObserver';
 
 export const metadata: Metadata = {
   title: 'Naltech Pay — Concept Fintech Website by Naltech',
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function NaltechPayPage() {
   return (
     <main className="pay-page">
+      <MotionObserver />
       <div className="pay-demo-bar"><a href="/">← Kembali ke portfolio</a><span>Concept project by Naltech</span></div>
       <header className="pay-header">
         <a className="pay-logo" href="#top"><span>n</span>naltech pay</a>
@@ -39,40 +41,40 @@ export default function NaltechPayPage() {
       <section className="pay-rail" aria-label="Keunggulan produk"><p>Dirancang untuk transaksi yang lebih ringan</p><div><span>Transfer instan</span><span>Budget otomatis</span><span>Bayar tagihan</span><span>Proteksi 24/7</span><span>Tanpa biaya bulanan</span></div></section>
 
       <section id="features" className="pay-features pay-wrap">
-        <header className="pay-section-title"><p><span>01</span> Fitur utama</p><h2>Satu aplikasi.<br /><em>Banyak beresnya.</em></h2></header>
+        <header className="pay-section-title" data-reveal><p><span>01</span> Fitur utama</p><h2>Satu aplikasi.<br /><em>Banyak beresnya.</em></h2></header>
         <div className="pay-feature-grid">
-          <article className="pay-feature-main"><div className="pay-copy-block"><span>Transfer</span><h3>Kirim ke siapa saja,<br />selesai dalam hitungan detik.</h3><p>Transfer ke bank dan dompet digital tanpa langkah rumit. Simpan tujuan favorit untuk transaksi berikutnya.</p><a href="#download">Coba kirim uang ↗</a></div><div className="pay-transfer-ui"><div><small>Kirim uang</small><strong>Rp250.000</strong></div><p>Ke rekening</p><section><i>RA</i><span><b>Rani Aulia</b><small>Bank Nusantara · 8821</small></span><b>✓</b></section><button>Lanjutkan</button></div></article>
-          <article className="pay-feature-small budget"><span>Budget pintar</span><h3>Tahu uang pergi ke mana.</h3><p>Pengeluaran tersusun otomatis agar keputusan finansial terasa lebih mudah.</p><div className="pay-donut"><span>62%</span></div><small>Kebutuhan bulan ini</small></article>
-          <article className="pay-feature-small bills"><span>Tagihan</span><h3>Bayar tepat waktu,<br />tanpa mengingat semuanya.</h3><div className="pay-bill-list"><p><i>⌁</i><span>Internet rumah<small>Jatuh tempo 24 Sep</small></span><b>Rp389k</b></p><p><i>⚡</i><span>Listrik<small>Jatuh tempo 28 Sep</small></span><b>Rp246k</b></p></div></article>
+          <article className="pay-feature-main" data-reveal><div className="pay-copy-block"><span>Transfer</span><h3>Kirim ke siapa saja,<br />selesai dalam hitungan detik.</h3><p>Transfer ke bank dan dompet digital tanpa langkah rumit. Simpan tujuan favorit untuk transaksi berikutnya.</p><a href="#download">Coba kirim uang ↗</a></div><div className="pay-transfer-ui"><div><small>Kirim uang</small><strong>Rp250.000</strong></div><p>Ke rekening</p><section><i>RA</i><span><b>Rani Aulia</b><small>Bank Nusantara · 8821</small></span><b>✓</b></section><button>Lanjutkan</button></div></article>
+          <article className="pay-feature-small budget" data-reveal><span>Budget pintar</span><h3>Tahu uang pergi ke mana.</h3><p>Pengeluaran tersusun otomatis agar keputusan finansial terasa lebih mudah.</p><div className="pay-donut"><span>62%</span></div><small>Kebutuhan bulan ini</small></article>
+          <article className="pay-feature-small bills" data-reveal><span>Tagihan</span><h3>Bayar tepat waktu,<br />tanpa mengingat semuanya.</h3><div className="pay-bill-list"><p><i>⌁</i><span>Internet rumah<small>Jatuh tempo 24 Sep</small></span><b>Rp389k</b></p><p><i>⚡</i><span>Listrik<small>Jatuh tempo 28 Sep</small></span><b>Rp246k</b></p></div></article>
         </div>
       </section>
 
       <section id="how" className="pay-how">
         <div className="pay-wrap">
-          <header className="pay-section-title inverse"><p><span>02</span> Cara kerja</p><h2>Mulai dalam<br /><em>tiga langkah.</em></h2></header>
+          <header className="pay-section-title inverse" data-reveal><p><span>02</span> Cara kerja</p><h2>Mulai dalam<br /><em>tiga langkah.</em></h2></header>
           <div className="pay-steps">
-            <article><span>01</span><div className="pay-step-visual"><i>☺</i><b>Buat akunmu</b><small>Kurang dari 2 menit</small></div><h3>Daftar dengan mudah</h3><p>Masukkan nomor ponsel dan ikuti proses verifikasi yang sederhana.</p></article>
-            <article><span>02</span><div className="pay-step-visual"><i>⌘</i><b>Hubungkan sumber dana</b><small>Aman dan terenkripsi</small></div><h3>Siapkan pembayaran</h3><p>Pilih rekening utama atau metode pembayaran yang paling nyaman.</p></article>
-            <article><span>03</span><div className="pay-step-visual"><i>↗</i><b>Siap digunakan</b><small>Kapan saja, di mana saja</small></div><h3>Transaksi tanpa drama</h3><p>Kirim, bayar, dan pantau seluruh aktivitas dari satu dashboard.</p></article>
+            <article data-reveal><span>01</span><div className="pay-step-visual"><i>☺</i><b>Buat akunmu</b><small>Kurang dari 2 menit</small></div><h3>Daftar dengan mudah</h3><p>Masukkan nomor ponsel dan ikuti proses verifikasi yang sederhana.</p></article>
+            <article data-reveal><span>02</span><div className="pay-step-visual"><i>⌘</i><b>Hubungkan sumber dana</b><small>Aman dan terenkripsi</small></div><h3>Siapkan pembayaran</h3><p>Pilih rekening utama atau metode pembayaran yang paling nyaman.</p></article>
+            <article data-reveal><span>03</span><div className="pay-step-visual"><i>↗</i><b>Siap digunakan</b><small>Kapan saja, di mana saja</small></div><h3>Transaksi tanpa drama</h3><p>Kirim, bayar, dan pantau seluruh aktivitas dari satu dashboard.</p></article>
           </div>
         </div>
       </section>
 
       <section className="pay-insight pay-wrap">
-        <div className="pay-insight-copy"><p className="pay-kicker"><span>●</span> Insight keuangan</p><h2>Lebih paham.<br /><em>Lebih terkendali.</em></h2><p>Naltech Pay merangkum kebiasaan transaksi menjadi insight yang mudah dipahami, supaya Anda bisa membuat keputusan lebih baik setiap hari.</p><ul><li><span>✓</span>Kategori otomatis untuk setiap transaksi</li><li><span>✓</span>Notifikasi saat pengeluaran mendekati batas</li><li><span>✓</span>Ringkasan mingguan yang mudah dibaca</li></ul></div>
-        <div className="pay-insight-ui"><header><div><small>Pengeluaran September</small><strong>Rp4.280.500</strong></div><span>30 hari ▾</span></header><div className="pay-chart"><i style={{height:'38%'}} /><i style={{height:'54%'}} /><i style={{height:'47%'}} /><i style={{height:'71%'}} /><i style={{height:'60%'}} /><i className="active" style={{height:'88%'}} /><i style={{height:'67%'}} /></div><div className="pay-chart-label"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span></div><section><p><i className="food">●</i><span>Makanan & minuman</span><b>Rp1.420.000</b></p><p><i className="transport">●</i><span>Transportasi</span><b>Rp840.500</b></p><p><i className="shopping">●</i><span>Belanja</span><b>Rp720.000</b></p></section></div>
+        <div className="pay-insight-copy" data-reveal><p className="pay-kicker"><span>●</span> Insight keuangan</p><h2>Lebih paham.<br /><em>Lebih terkendali.</em></h2><p>Naltech Pay merangkum kebiasaan transaksi menjadi insight yang mudah dipahami, supaya Anda bisa membuat keputusan lebih baik setiap hari.</p><ul><li><span>✓</span>Kategori otomatis untuk setiap transaksi</li><li><span>✓</span>Notifikasi saat pengeluaran mendekati batas</li><li><span>✓</span>Ringkasan mingguan yang mudah dibaca</li></ul></div>
+        <div className="pay-insight-ui" data-reveal><header><div><small>Pengeluaran September</small><strong>Rp4.280.500</strong></div><span>30 hari ▾</span></header><div className="pay-chart"><i style={{height:'38%'}} /><i style={{height:'54%'}} /><i style={{height:'47%'}} /><i style={{height:'71%'}} /><i style={{height:'60%'}} /><i className="active" style={{height:'88%'}} /><i style={{height:'67%'}} /></div><div className="pay-chart-label"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span></div><section><p><i className="food">●</i><span>Makanan & minuman</span><b>Rp1.420.000</b></p><p><i className="transport">●</i><span>Transportasi</span><b>Rp840.500</b></p><p><i className="shopping">●</i><span>Belanja</span><b>Rp720.000</b></p></section></div>
       </section>
 
       <section id="security" className="pay-security">
         <div className="pay-wrap pay-security-inner">
-          <div className="pay-shield" aria-hidden="true"><div><span>n</span><i>✓</i></div><p>Secured by design</p></div>
-          <div><p className="pay-kicker"><span>●</span> Keamanan berlapis</p><h2>Tenang di setiap<br /><em>transaksi.</em></h2><p>Konsep pengalaman ini menunjukkan bagaimana keamanan dapat dijelaskan dengan bahasa yang transparan dan mudah dipahami pengguna.</p><div className="pay-security-points"><article><span>◎</span><div><h3>Proteksi real-time</h3><p>Aktivitas tidak biasa ditandai secara otomatis.</p></div></article><article><span>◈</span><div><h3>Enkripsi data</h3><p>Informasi sensitif dilindungi di setiap lapisan.</p></div></article><article><span>⌁</span><div><h3>Kontrol di tanganmu</h3><p>Bekukan akses kapan saja langsung dari aplikasi.</p></div></article></div></div>
+          <div className="pay-shield" aria-hidden="true" data-reveal><div><span>n</span><i>✓</i></div><p>Secured by design</p></div>
+          <div data-reveal><p className="pay-kicker"><span>●</span> Keamanan berlapis</p><h2>Tenang di setiap<br /><em>transaksi.</em></h2><p>Konsep pengalaman ini menunjukkan bagaimana keamanan dapat dijelaskan dengan bahasa yang transparan dan mudah dipahami pengguna.</p><div className="pay-security-points"><article><span>◎</span><div><h3>Proteksi real-time</h3><p>Aktivitas tidak biasa ditandai secara otomatis.</p></div></article><article><span>◈</span><div><h3>Enkripsi data</h3><p>Informasi sensitif dilindungi di setiap lapisan.</p></div></article><article><span>⌁</span><div><h3>Kontrol di tanganmu</h3><p>Bekukan akses kapan saja langsung dari aplikasi.</p></div></article></div></div>
         </div>
       </section>
 
       <section className="pay-faq pay-wrap">
-        <header className="pay-section-title"><p><span>03</span> Pertanyaan umum</p><h2>Hal yang sering<br /><em>ditanyakan.</em></h2></header>
-        <div className="pay-faq-list">
+        <header className="pay-section-title" data-reveal><p><span>03</span> Pertanyaan umum</p><h2>Hal yang sering<br /><em>ditanyakan.</em></h2></header>
+        <div className="pay-faq-list" data-reveal>
           <details open><summary>Apakah Naltech Pay merupakan aplikasi finansial sungguhan?<b>+</b></summary><p>Belum. Ini adalah concept project untuk menunjukkan kemampuan Naltech merancang landing page produk fintech yang lengkap dan meyakinkan.</p></details>
           <details><summary>Apakah desain ini menyalin produk lain?<b>+</b></summary><p>Tidak. Struktur mengikuti pola umum landing page produk digital, sementara branding, konten, layout, dan seluruh elemen visual dibuat secara orisinal.</p></details>
           <details><summary>Bisakah konsep seperti ini dibuat untuk brand saya?<b>+</b></summary><p>Bisa. Naltech akan menyesuaikan strategi, identitas visual, fitur, dan kebutuhan teknis berdasarkan bisnis serta audiens Anda.</p></details>
@@ -80,7 +82,7 @@ export default function NaltechPayPage() {
         </div>
       </section>
 
-      <section id="download" className="pay-cta pay-wrap"><div><p>Concept project · Naltech Studio</p><h2>Urus uang lebih ringan.<br /><em>Mulai dari sini.</em></h2><a href="mailto:hello@naltech.id">Buat project seperti ini <span>↗</span></a></div><div className="pay-cta-phone"><span>n</span><strong>naltech pay</strong><small>money, made lighter.</small></div></section>
+      <section id="download" className="pay-cta pay-wrap"><div data-reveal><p>Concept project · Naltech Studio</p><h2>Urus uang lebih ringan.<br /><em>Mulai dari sini.</em></h2><a href="mailto:hello@naltech.id">Buat project seperti ini <span>↗</span></a></div><div className="pay-cta-phone" data-reveal><span>n</span><strong>naltech pay</strong><small>money, made lighter.</small></div></section>
 
       <footer className="pay-footer pay-wrap"><a className="pay-logo" href="#top"><span>n</span>naltech pay</a><p>Concept website by Naltech Studio.<br />Bukan produk finansial aktif.</p><div><a href="#features">Fitur</a><a href="#how">Cara kerja</a><a href="#security">Keamanan</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:hello@naltech.id">Mulai project</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
     </main>
