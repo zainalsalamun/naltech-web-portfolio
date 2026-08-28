@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 const demos = {
   'senja-coffee': { brand: 'SENJA', tag: 'Coffee · Eatery · Community', title: 'Ritual kecil,\nrasa yang tinggal.', body: 'Kopi pilihan, makanan yang dibuat dengan jujur, dan ruang untuk pulang sejenak.', action: 'Lihat menu', note: 'Setiap hari · 07.00—22.00', theme: 'coffee' },
@@ -10,6 +11,19 @@ type DemoSlug = keyof typeof demos;
 
 export function generateStaticParams() {
   return Object.keys(demos).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const demo = demos[slug as DemoSlug];
+  if (!demo) return {};
+  const title = `${demo.brand} — Demo Website by Naltech`;
+  return {
+    title,
+    description: demo.body,
+    openGraph: { title, description: demo.body, images: [] },
+    twitter: { title, description: demo.body, images: [] },
+  };
 }
 
 export default async function DemoPage({ params }: { params: Promise<{ slug: string }> }) {

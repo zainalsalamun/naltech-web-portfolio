@@ -14,17 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
-  title: 'Naltech — Website Studio',
-  description: 'Studio desain dan pengembangan website untuk brand yang ingin tampil berbeda.',
+  title: 'Naltech — Web Design & Development Studio',
+  description: 'Website profesional, cepat, dan siap membantu bisnis Anda mendatangkan lebih banyak pelanggan.',
   openGraph: {
-    title: 'Naltech — Website Studio',
-    description: 'Website yang membuat brand dipilih.',
+    title: 'Naltech — Web Design & Development Studio',
+    description: 'Website keren. Bisnis makin jalan.',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Naltech Website Studio' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Naltech — Website Studio',
-    description: 'Website yang membuat brand dipilih.',
+    title: 'Naltech — Web Design & Development Studio',
+    description: 'Website keren. Bisnis makin jalan.',
     images: ['/og.png'],
   },
 };
