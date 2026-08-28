@@ -24,7 +24,7 @@ export default function Home() {
     <main className="nl-page">
       <div className="nl-announcement">Slot project September sudah dibuka <a href="mailto:hello@naltech.id">Amankan jadwal →</a></div>
       <header className="nl-header shell">
-        <a className="nl-logo" href="#top" aria-label="Naltech home"><span>N</span>NALTECH</a>
+        <a className="nl-logo" href="#top" aria-label="Naltech home"><img src="/naltech-logo.png" alt="" />NALTECH</a>
         <nav className="nl-nav" aria-label="Navigasi utama"><a href="#services">Layanan</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></nav>
         <a className="nl-contact" href="mailto:hello@naltech.id">Konsultasi gratis <b>↗</b></a>
       </header>
@@ -108,7 +108,7 @@ export default function Home() {
       </section>
 
       <footer className="nl-footer shell">
-        <a className="nl-logo" href="#top"><span>N</span>NALTECH</a>
+        <a className="nl-logo" href="#top"><img src="/naltech-logo.png" alt="" />NALTECH</a>
         <p>Web design & development studio<br />Jakarta, Indonesia</p>
         <div><a href="#services">Layanan</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></div>
         <div><a href="mailto:hello@naltech.id">Email</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div>

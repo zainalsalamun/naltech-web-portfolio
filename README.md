@@ -95,7 +95,7 @@ app/
 ├── layout.tsx            # Metadata serta layout global
 └── page.tsx              # Landing page dan katalog Naltech
 public/
-├── favicon.svg
+├── naltech-logo.png      # Logo utama yang juga digunakan sebagai favicon
 └── og.png                # Gambar social preview
 ```
 

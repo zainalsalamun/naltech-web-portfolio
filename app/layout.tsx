@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: 'Naltech — Web Design & Development Studio',
   description: 'Website profesional, cepat, dan siap membantu bisnis Anda mendatangkan lebih banyak pelanggan.',
+  icons: {
+    icon: '/naltech-logo.png',
+    shortcut: '/naltech-logo.png',
+    apple: '/naltech-logo.png',
+  },
   openGraph: {
     title: 'Naltech — Web Design & Development Studio',
     description: 'Website keren. Bisnis makin jalan.',
