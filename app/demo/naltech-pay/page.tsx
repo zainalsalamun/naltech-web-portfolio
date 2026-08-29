@@ -82,9 +82,9 @@ export default function NaltechPayPage() {
         </div>
       </section>
 
-      <section id="download" className="pay-cta pay-wrap"><div data-reveal><p>Concept project · Naltech Studio</p><h2>Urus uang lebih ringan.<br /><em>Mulai dari sini.</em></h2><a href="mailto:hello@naltech.id">Buat project seperti ini <span>↗</span></a></div><div className="pay-cta-phone" data-reveal><span>n</span><strong>naltech pay</strong><small>money, made lighter.</small></div></section>
+      <section id="download" className="pay-cta pay-wrap"><div data-reveal><p>Concept project · Naltech Studio</p><h2>Urus uang lebih ringan.<br /><em>Mulai dari sini.</em></h2><a href="mailto:naltechai@gmail.com">Buat project seperti ini <span>↗</span></a></div><div className="pay-cta-phone" data-reveal><span>n</span><strong>naltech pay</strong><small>money, made lighter.</small></div></section>
 
-      <footer className="pay-footer pay-wrap"><a className="pay-logo" href="#top"><span>n</span>naltech pay</a><p>Concept website by Naltech Studio.<br />Bukan produk finansial aktif.</p><div><a href="#features">Fitur</a><a href="#how">Cara kerja</a><a href="#security">Keamanan</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:hello@naltech.id">Mulai project</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
+      <footer className="pay-footer pay-wrap"><a className="pay-logo" href="#top"><span>n</span>naltech pay</a><p>Concept website by Naltech Studio.<br />Bukan produk finansial aktif.</p><div><a href="#features">Fitur</a><a href="#how">Cara kerja</a><a href="#security">Keamanan</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Mulai project</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
     </main>
   );
 }

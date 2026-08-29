@@ -150,7 +150,7 @@ Container utama menggunakan kelas `.shell` dengan lebar maksimal sekitar `1280px
 | Portfolio | Grid 12 kolom dengan dua kartu per baris |
 | Process | Empat tahap dalam satu baris |
 | Results | Copy di kiri dan grid metrik 2×2 di kanan |
-| Testimonial | Quote besar dan terpusat |
+| Brand statement | Pernyataan prinsip kerja yang besar dan terpusat |
 | FAQ | Intro di kiri dan accordion di kanan |
 | Final CTA | Copy besar dengan elemen orb di kanan |
 | Footer | Empat kelompok informasi |
@@ -175,11 +175,11 @@ Visual hero dibuat menggunakan CSS, bukan screenshot biasa. Komponennya meliputi
 
 - Mockup browser dengan sedikit rotasi.
 - Radial glow biru di belakang browser.
-- Floating card untuk conversion rate.
-- Floating card untuk PageSpeed.
-- Badge waktu pengerjaan.
+- Floating card untuk prinsip mobile-first.
+- Floating card untuk struktur SEO-ready.
+- Badge support setelah website diluncurkan.
 
-Komposisi ini menunjukkan bahwa Naltech tidak hanya mendesain website, tetapi juga memperhatikan performa dan hasil.
+Komposisi ini menunjukkan fokus Naltech pada kualitas pengalaman, struktur website, dan pendampingan tanpa memakai klaim performa yang belum diverifikasi.
 
 ## Sistem kartu
 
@@ -201,7 +201,7 @@ Kartu portfolio memiliki:
 - Area visual setinggi sekitar `430px`.
 - Warna background yang mengikuti identitas masing-masing demo.
 - Browser mockup yang berotasi ringan.
-- Jenis project, nama, hasil, dan ikon panah.
+- Jenis project, nama, deskripsi konsep, dan ikon panah.
 - Gerakan mockup saat hover.
 
 Setiap kartu boleh memiliki identitas berbeda, tetapi struktur informasinya tetap konsisten.
@@ -252,11 +252,29 @@ Pada tablet dan mobile:
 - Hero berubah menjadi satu kolom.
 - Mockup browser dipindahkan ke bawah copy.
 - Service cards berubah dari empat menjadi dua lalu satu kolom.
-- Portfolio berubah menjadi satu kartu per baris.
+- Portfolio berubah menjadi carousel horizontal yang dapat digeser dan memakai scroll snap.
 - Process berubah dari empat menjadi dua lalu satu kolom.
 - Results dan FAQ berubah menjadi satu kolom.
 - Final CTA mempertahankan orb tetapi diposisikan sebagai elemen background.
 - Footer disusun menjadi dua atau satu kolom.
+
+## Kepercayaan dan informasi kontak
+
+Website utama hanya memakai pernyataan yang dapat dipertanggungjawabkan. Contoh portfolio ditandai sebagai concept project dan tidak memakai angka peningkatan bisnis atau testimonial klien yang belum diverifikasi.
+
+Kontak utama diarahkan ke:
+
+- WhatsApp: `081573550017`
+- Email: `naltechai@gmail.com`
+- Instagram: `@naltech.ai`
+- TikTok: `@naltech.ai`
+- Facebook: halaman sosial Naltech
+
+Section **Tentang Naltech** menjelaskan profil studio dan prinsip kerja tanpa mencantumkan identitas founder yang belum tersedia.
+
+## SEO dasar
+
+Website menyediakan metadata judul dan deskripsi, canonical URL, Open Graph, Twitter Card, aturan robots, sitemap untuk seluruh halaman demo, serta structured data `ProfessionalService`. Konfigurasi ini menjadi fondasi agar website lebih mudah dipahami mesin pencari dan tampil konsisten ketika dibagikan.
 
 ## Struktur konten
 

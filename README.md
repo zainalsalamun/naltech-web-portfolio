@@ -39,6 +39,7 @@ npm run lint
 - `/demo/naltech-pay` — contoh website fintech
 - `/demo/nalaride` — contoh website rental kendaraan
 - `/demo/karsa-coffee` — contoh website specialty coffee shop
+- `/demo/nara-atelier` — contoh website fashion atelier
 
 ## Dokumentasi desain
 
@@ -94,6 +95,12 @@ npm run build
 
 Website saat ini dipublikasikan melalui OpenAI Sites. Jangan mengubah atau menghapus `.openai/hosting.json` karena file tersebut menghubungkan source lokal dengan project hosting Naltech.
 
+Kontak bisnis yang ditampilkan pada website utama:
+
+- WhatsApp: `081573550017`
+- Email: `naltechai@gmail.com`
+- Instagram dan TikTok: `@naltech.ai`
+
 ## Struktur utama
 
 ```text
@@ -105,6 +112,8 @@ app/
 ├── demo/naltech-pay/          # Halaman khusus fintech
 ├── globals.css           # Styling katalog dan seluruh tema demo
 ├── layout.tsx            # Metadata serta layout global
+├── robots.ts             # Aturan akses crawler mesin pencari
+├── sitemap.ts            # Daftar URL utama dan seluruh halaman demo
 └── page.tsx              # Landing page dan katalog Naltech
 docs/
 ├── NALTECH-MAIN-WEBSITE-DESIGN-GUIDE.md # Dokumentasi website utama Naltech

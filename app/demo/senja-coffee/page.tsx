@@ -66,10 +66,10 @@ export default function SenjaCoffeePage() {
 
       <section id="visit" className="sj-visit sj-wrap">
         <header><p><span>05</span> Mampir ke Senja</p><h2>Temukan meja<br />favoritmu.</h2><a href="https://maps.google.com" target="_blank" rel="noreferrer">Buka di peta ↗</a></header>
-        <div className="sj-visit-card"><div><small>LOKASI</small><p>Jl. Cipete Raya No. 18<br />Jakarta Selatan 12410</p></div><div><small>JAM BUKA</small><p>Setiap hari<br />07.00—22.00</p></div><div><small>KONTAK</small><p>halo@senjacoffee.id<br />+62 812 2020 1919</p></div><a href="mailto:hello@naltech.id">Reservasi meja <span>↗</span></a><div className="sj-visit-sun"><i /><span>S</span></div></div>
+        <div className="sj-visit-card"><div><small>LOKASI</small><p>Jl. Cipete Raya No. 18<br />Jakarta Selatan 12410</p></div><div><small>JAM BUKA</small><p>Setiap hari<br />07.00—22.00</p></div><div><small>KONTAK</small><p>halo@senjacoffee.id<br />+62 812 2020 1919</p></div><a href="mailto:naltechai@gmail.com">Reservasi meja <span>↗</span></a><div className="sj-visit-sun"><i /><span>S</span></div></div>
       </section>
 
-      <footer className="sj-footer sj-wrap"><a className="sj-logo" href="#top">SENJA<span>●</span></a><p>Coffee · Eatery · Community<br />Dari pagi sampai senja.</p><div><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#origin">Biji kopi</a><a href="#visit">Kunjungi</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:hello@naltech.id">Buat project serupa</a></div><small>© 2026 Senja Coffee · Concept website by Naltech Studio · Bukan kedai aktif</small></footer>
+      <footer className="sj-footer sj-wrap"><a className="sj-logo" href="#top">SENJA<span>●</span></a><p>Coffee · Eatery · Community<br />Dari pagi sampai senja.</p><div><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#origin">Biji kopi</a><a href="#visit">Kunjungi</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Senja Coffee · Concept website by Naltech Studio · Bukan kedai aktif</small></footer>
     </main>
   );
 }

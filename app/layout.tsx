@@ -13,9 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://naltech-portfolio.embulpillow.chatgpt.site'),
   title: 'Naltech — Web Design & Development Studio',
   description: 'Website profesional, cepat, dan siap membantu bisnis Anda mendatangkan lebih banyak pelanggan.',
+  alternates: { canonical: '/' },
+  creator: 'Naltech',
+  publisher: 'Naltech',
   icons: {
     icon: '/naltech-logo.png',
     shortcut: '/naltech-logo.png',
@@ -32,6 +35,7 @@ export const metadata: Metadata = {
     description: 'Website keren. Bisnis makin jalan.',
     images: ['/og.png'],
   },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

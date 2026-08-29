@@ -56,7 +56,7 @@ export default function NaraAtelierPage() {
 
       <section id="newsletter" className="na-newsletter"><div className="na-wrap"><p>PRIVATE NOTES / EARLY ACCESS</p><h2>Stay close to<br /><em>what comes next.</em></h2><form><label><span>Email address</span><input type="email" placeholder="your@email.com" aria-label="Email address" /></label><button type="button">Join the list <span>↗</span></button></form><small>By subscribing, you agree to receive news from NARA Atelier.</small></div></section>
 
-      <footer className="na-footer na-wrap"><a className="na-logo" href="#top">NARA<span>ATELIER</span></a><p>Modern essentials designed in Jakarta.<br />Made with intention.</p><div><a href="#collection">Shop</a><a href="#lookbook">Lookbook</a><a href="#story">About</a><a href="#craft">Responsibility</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:hello@naltech.id">Create a project like this</a></div><small>© 2026 NARA Atelier · Concept website by Naltech Studio · Not an active fashion store</small></footer>
+      <footer className="na-footer na-wrap"><a className="na-logo" href="#top">NARA<span>ATELIER</span></a><p>Modern essentials designed in Jakarta.<br />Made with intention.</p><div><a href="#collection">Shop</a><a href="#lookbook">Lookbook</a><a href="#story">About</a><a href="#craft">Responsibility</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Create a project like this</a></div><small>© 2026 NARA Atelier · Concept website by Naltech Studio · Not an active fashion store</small></footer>
     </main>
   );
 }

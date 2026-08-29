@@ -76,7 +76,7 @@ export default function NalaRidePage() {
       <section className="ride-review"><div className="ride-wrap"><span>“</span><blockquote>Pesan malam, besok pagi mobil sudah sampai di hotel. Bersih, prosesnya jelas, dan timnya cepat merespons. Road trip jadi jauh lebih santai.</blockquote><div><strong>Nadia & Reza</strong><small>Jakarta · Sewa Aruna MPV selama 4 hari</small></div></div></section>
 
       <section id="faq" className="ride-faq ride-wrap">
-        <header><p><span>05</span> Pertanyaan umum</p><h2>Sebelum kamu<br /><em>berangkat.</em></h2><a href="mailto:hello@naltech.id">Masih ada pertanyaan? ↗</a></header>
+        <header><p><span>05</span> Pertanyaan umum</p><h2>Sebelum kamu<br /><em>berangkat.</em></h2><a href="mailto:naltechai@gmail.com">Masih ada pertanyaan? ↗</a></header>
         <div>
           <details open><summary>Apa saja syarat untuk menyewa kendaraan?<b>+</b></summary><p>Siapkan identitas resmi, SIM yang masih berlaku sesuai jenis kendaraan, dan dokumen pendukung yang diminta saat konfirmasi.</p></details>
           <details><summary>Apakah kendaraan bisa diantar ke bandara atau hotel?<b>+</b></summary><p>Bisa. Tentukan lokasi pengantaran pada saat pemesanan. Biaya pengantaran bergantung pada jarak dan area layanan.</p></details>
@@ -87,7 +87,7 @@ export default function NalaRidePage() {
 
       <section className="ride-cta ride-wrap"><div><p>Concept website · Naltech Studio</p><h2>Kendaraan siap.<br /><em>Kamu mau ke mana?</em></h2><a href="#booking">Cari kendaraan <span>↗</span></a></div><div className="ride-cta-road"><i /><i /><span>NR</span></div></section>
 
-      <footer className="ride-footer ride-wrap"><a className="ride-logo" href="#top"><span>NR</span>NalaRide</a><p>Concept rental website by Naltech Studio.<br />Bukan layanan rental kendaraan aktif.</p><div><a href="#fleet">Armada</a><a href="#benefits">Keunggulan</a><a href="#how">Cara sewa</a><a href="#faq">FAQ</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:hello@naltech.id">Buat project serupa</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
+      <footer className="ride-footer ride-wrap"><a className="ride-logo" href="#top"><span>NR</span>NalaRide</a><p>Concept rental website by Naltech Studio.<br />Bukan layanan rental kendaraan aktif.</p><div><a href="#fleet">Armada</a><a href="#benefits">Keunggulan</a><a href="#how">Cara sewa</a><a href="#faq">FAQ</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
     </main>
   );
 }
