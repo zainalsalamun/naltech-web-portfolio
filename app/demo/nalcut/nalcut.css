@@ -1,0 +1,1943 @@
+/* =========================================================
+   Nalcut Barbershop — Gentlemen's Grooming & Booking System
+   Designed & Engineered by Naltech Studio
+   Scoped Prefix: .ncb-
+   ========================================================= */
+
+:root {
+  --ncb-gold: #c89b3c;
+  --ncb-gold-light: #e5b95f;
+  --ncb-gold-soft: #fbf7ee;
+  --ncb-gold-tint: #f5ecd6;
+  --ncb-gold-glow: rgba(200, 155, 60, 0.28);
+  
+  --ncb-dark: #121212;
+  --ncb-espresso: #241812;
+  --ncb-espresso-dark: #1a110c;
+  --ncb-ink: #18181b;
+  --ncb-muted: #52525b;
+  --ncb-dim: #a1a1aa;
+  
+  --ncb-cream: #f8f4ec;
+  --ncb-cream-card: #fdfbf7;
+  --ncb-surface: #ffffff;
+  --ncb-border: #e4decb;
+  --ncb-border-light: #f0ece0;
+  
+  --ncb-radius-sm: 8px;
+  --ncb-radius-md: 16px;
+  --ncb-radius-lg: 24px;
+  --ncb-radius-xl: 32px;
+}
+
+.ncb-page {
+  background-color: var(--ncb-cream);
+  color: var(--ncb-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.ncb-wrap {
+  width: min(1260px, calc(100% - 6vw));
+  margin-inline: auto;
+}
+
+/* 1. Promo Ribbon */
+.ncb-promo-ribbon {
+  background: var(--ncb-espresso-dark);
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(200, 155, 60, 0.25);
+}
+
+.ncb-ribbon-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.ncb-ribbon-badge {
+  background: var(--ncb-gold);
+  color: #1a110c;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.04em;
+}
+
+.ncb-ribbon-content p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.ncb-ribbon-content code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.ncb-ribbon-link {
+  color: var(--ncb-gold-light);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+}
+
+.ncb-ribbon-link:hover {
+  text-decoration: underline;
+}
+
+/* 2. Top Demo Bar */
+.ncb-demo-bar {
+  background: var(--ncb-dark);
+  color: #fff;
+  padding: 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ncb-demo-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ncb-back-link {
+  color: var(--ncb-gold-light);
+  text-decoration: none;
+  font-weight: 750;
+}
+
+.ncb-back-link:hover {
+  text-decoration: underline;
+}
+
+.ncb-demo-inner span {
+  color: #71717a;
+}
+
+/* 3. Header */
+.ncb-header {
+  background: var(--ncb-cream-card);
+  border-bottom: 1px solid var(--ncb-border);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  box-shadow: 0 2px 14px rgba(36, 24, 18, 0.05);
+}
+
+.ncb-header-inner {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ncb-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ncb-ink);
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.ncb-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--ncb-espresso) 0%, var(--ncb-dark) 100%);
+  color: var(--ncb-gold);
+  border: 1px solid var(--ncb-gold);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px var(--ncb-gold-glow);
+}
+
+.ncb-logo-text strong {
+  color: var(--ncb-gold);
+}
+
+.ncb-logo-text small {
+  font-size: 11px;
+  color: var(--ncb-muted);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.ncb-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ncb-nav a {
+  color: var(--ncb-muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.ncb-nav a:hover {
+  color: var(--ncb-espresso);
+}
+
+.ncb-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ncb-btn-header-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ncb-ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ncb-border);
+  transition: all 0.2s;
+}
+
+.ncb-btn-header-wa:hover {
+  border-color: var(--ncb-gold);
+  background: var(--ncb-gold-soft);
+}
+
+.ncb-btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold-light);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--ncb-gold);
+  box-shadow: 0 4px 14px var(--ncb-gold-glow);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.ncb-btn-header-cta:hover {
+  background: var(--ncb-dark);
+  transform: translateY(-1px);
+}
+
+/* 4. Hero Section */
+.ncb-hero {
+  padding: 50px 0 70px;
+}
+
+.ncb-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.ncb-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ncb-gold-soft);
+  color: var(--ncb-espresso);
+  border: 1px solid var(--ncb-gold-tint);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.ncb-icon-gold {
+  color: var(--ncb-gold);
+}
+
+.ncb-hero-copy h1 {
+  font-size: clamp(38px, 4.8vw, 62px);
+  font-weight: 950;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+  color: var(--ncb-espresso-dark);
+}
+
+.ncb-hero-sub {
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--ncb-muted);
+  margin: 0 0 28px;
+}
+
+.ncb-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.ncb-btn-hero-primary {
+  background: var(--ncb-espresso);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ncb-gold);
+  box-shadow: 0 6px 20px var(--ncb-gold-glow);
+  transition: transform 0.15s, background 0.2s;
+}
+
+.ncb-btn-hero-primary:hover {
+  background: var(--ncb-dark);
+  transform: translateY(-2px);
+}
+
+.ncb-btn-hero-secondary {
+  background: var(--ncb-surface);
+  color: var(--ncb-ink);
+  border: 1.5px solid var(--ncb-border);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 14px 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.ncb-btn-hero-secondary:hover {
+  border-color: var(--ncb-gold);
+}
+
+.ncb-hero-info-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ncb-info-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ncb-surface);
+  border: 1px solid var(--ncb-border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ncb-muted);
+}
+
+.ncb-hero-visual-frame {
+  position: relative;
+  height: 440px;
+  border-radius: var(--ncb-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(36, 24, 18, 0.25);
+  border: 4px solid #ffffff;
+}
+
+.ncb-hero-visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ncb-hero-floating-status {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(18, 18, 18, 0.92);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 16px 20px;
+  border-radius: var(--ncb-radius-md);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+}
+
+.ncb-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ncb-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.ncb-hero-floating-status strong {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.ncb-hero-floating-status small {
+  font-size: 11px;
+  color: var(--ncb-gold-light);
+}
+
+/* 5. Section 01: Advantages 6-Grid */
+.ncb-advantages-section {
+  padding-block: 70px 60px;
+}
+
+.ncb-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ncb-section-head.center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ncb-section-head.center p {
+  margin: 10px 0 0;
+  color: var(--ncb-muted);
+  font-size: 15px;
+  max-width: 620px;
+}
+
+.ncb-badge-tag {
+  color: var(--ncb-gold);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ncb-section-head h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: var(--ncb-espresso-dark);
+}
+
+.ncb-section-head h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ncb-gold);
+}
+
+.ncb-advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.ncb-adv-card {
+  background: var(--ncb-cream-card);
+  border: 1.5px solid var(--ncb-border);
+  padding: 32px 24px;
+  border-radius: var(--ncb-radius-lg);
+  transition: transform 0.2s;
+}
+
+.ncb-adv-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ncb-gold);
+  box-shadow: 0 12px 30px var(--ncb-gold-glow);
+}
+
+.ncb-adv-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--ncb-espresso);
+  border: 1px solid var(--ncb-gold);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.ncb-adv-card h3 {
+  font-size: 18px;
+  font-weight: 850;
+  margin: 0 0 8px;
+  color: var(--ncb-ink);
+}
+
+.ncb-adv-card p {
+  color: var(--ncb-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 6. Section 02: Pricing List */
+.ncb-pricing-section {
+  padding-block: 80px;
+  background: #ffffff;
+  border-top: 1px solid var(--ncb-border);
+  border-bottom: 1px solid var(--ncb-border);
+}
+
+.ncb-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.ncb-price-item-card {
+  background: var(--ncb-cream-card);
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-lg);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.ncb-price-item-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ncb-gold);
+}
+
+.ncb-price-item-card.popular {
+  border-color: var(--ncb-gold);
+  background: var(--ncb-gold-soft);
+}
+
+.ncb-popular-tag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold-light);
+  border: 1px solid var(--ncb-gold);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.ncb-price-item-head h4 {
+  font-size: 16px;
+  font-weight: 850;
+  margin: 0 0 6px;
+  color: var(--ncb-ink);
+}
+
+.ncb-price-badge {
+  font-size: 20px;
+  font-weight: 950;
+  color: var(--ncb-espresso);
+}
+
+.ncb-duration-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--ncb-dim);
+  margin: 6px 0 12px;
+}
+
+.ncb-price-item-desc {
+  font-size: 13px;
+  color: var(--ncb-muted);
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.ncb-btn-choose-service {
+  background: var(--ncb-surface);
+  border: 1.5px solid var(--ncb-border);
+  color: var(--ncb-espresso);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 10px 16px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.ncb-btn-choose-service:hover {
+  background: var(--ncb-espresso);
+  color: #ffffff;
+  border-color: var(--ncb-espresso);
+}
+
+/* 7. Section 03: Barber Profiles */
+.ncb-barbers-section {
+  padding-block: 70px 60px;
+}
+
+.ncb-barbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.ncb-barber-profile-card {
+  background: var(--ncb-cream-card);
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-xl);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.ncb-barber-profile-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ncb-gold);
+  box-shadow: 0 16px 40px var(--ncb-gold-glow);
+}
+
+.ncb-barber-photo-box {
+  position: relative;
+  height: 280px;
+}
+
+.ncb-barber-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ncb-exp-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(6px);
+  color: var(--ncb-gold-light);
+  border: 1px solid rgba(200, 155, 60, 0.4);
+  font-size: 11px;
+  font-weight: 850;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.ncb-barber-info {
+  padding: 28px 24px;
+}
+
+.ncb-barber-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.ncb-barber-header-row h3 {
+  font-size: 19px;
+  font-weight: 900;
+  margin: 0;
+  color: var(--ncb-ink);
+}
+
+.ncb-barber-title {
+  font-size: 12px;
+  color: var(--ncb-muted);
+  font-weight: 750;
+}
+
+.ncb-rating-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--ncb-gold-soft);
+  border: 1px solid var(--ncb-gold-tint);
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.ncb-barber-spec-row {
+  margin-bottom: 10px;
+}
+
+.ncb-barber-spec-row small {
+  display: block;
+  font-size: 11px;
+  color: var(--ncb-dim);
+}
+
+.ncb-barber-spec-row strong {
+  font-size: 13px;
+  color: var(--ncb-gold);
+}
+
+.ncb-barber-desc {
+  font-size: 13px;
+  color: var(--ncb-muted);
+  line-height: 1.55;
+  margin: 0 0 20px;
+}
+
+.ncb-btn-book-barber {
+  background: var(--ncb-espresso);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 10px 16px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ncb-gold);
+  transition: all 0.2s;
+}
+
+.ncb-btn-book-barber:hover {
+  background: var(--ncb-dark);
+}
+
+/* 8. Section 04: Booking Widget Card */
+.ncb-booking-engine-section {
+  padding-block: 80px;
+  background: #ffffff;
+  border-top: 1px solid var(--ncb-border);
+  border-bottom: 1px solid var(--ncb-border);
+}
+
+.ncb-booking-wizard-card {
+  background: var(--ncb-cream-card);
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(36, 24, 18, 0.08);
+}
+
+.ncb-wizard-header {
+  padding: 36px 40px 20px;
+  border-bottom: 1px solid var(--ncb-border-light);
+  text-align: center;
+}
+
+.ncb-wizard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ncb-gold-soft);
+  color: var(--ncb-espresso);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.ncb-wizard-header h3 {
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0 0 6px;
+  color: var(--ncb-espresso-dark);
+}
+
+.ncb-wizard-header p {
+  font-size: 13px;
+  color: var(--ncb-muted);
+  margin: 0;
+}
+
+.ncb-wizard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.ncb-wizard-steps-col {
+  padding: 36px 40px;
+  border-right: 1px solid var(--ncb-border);
+}
+
+.ncb-step-box {
+  margin-bottom: 28px;
+}
+
+.ncb-step-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ncb-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold);
+  font-size: 12px;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+}
+
+.ncb-step-title h4 {
+  font-size: 15px;
+  font-weight: 850;
+  margin: 0;
+  color: var(--ncb-ink);
+}
+
+.ncb-step-title small {
+  font-size: 11px;
+  color: var(--ncb-muted);
+}
+
+.ncb-services-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.ncb-service-select-btn {
+  background: #ffffff;
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-md);
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ncb-service-select-btn:hover {
+  border-color: var(--ncb-gold);
+}
+
+.ncb-service-select-btn.active {
+  background: var(--ncb-gold-soft);
+  border-color: var(--ncb-gold);
+  box-shadow: 0 4px 12px var(--ncb-gold-glow);
+}
+
+.ncb-svc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ncb-svc-name {
+  font-size: 13px;
+  font-weight: 850;
+  color: var(--ncb-ink);
+}
+
+.ncb-circle-empty {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ncb-dim);
+}
+
+.ncb-svc-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.ncb-svc-meta strong {
+  color: var(--ncb-espresso);
+}
+
+.ncb-svc-meta span {
+  color: var(--ncb-dim);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Barber Select Grid */
+.ncb-barbers-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.ncb-barber-select-card {
+  background: #ffffff;
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-md);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.ncb-barber-select-card:hover {
+  border-color: var(--ncb-gold);
+}
+
+.ncb-barber-select-card.active {
+  background: var(--ncb-gold-soft);
+  border-color: var(--ncb-gold);
+}
+
+.ncb-barber-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--ncb-gold);
+  flex-shrink: 0;
+}
+
+.ncb-barber-details strong {
+  display: block;
+  font-size: 12px;
+  color: var(--ncb-ink);
+}
+
+.ncb-barber-role {
+  display: block;
+  font-size: 10px;
+  color: var(--ncb-gold);
+  font-weight: 750;
+}
+
+.ncb-barber-spec {
+  display: block;
+  font-size: 10px;
+  color: var(--ncb-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.ncb-barber-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* Date & Slot Buttons */
+.ncb-day-pills {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ncb-day-pill {
+  background: #ffffff;
+  border: 1px solid var(--ncb-border);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ncb-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ncb-day-pill.active {
+  background: var(--ncb-espresso);
+  color: #ffffff;
+  border-color: var(--ncb-espresso);
+}
+
+.ncb-time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.ncb-slot-btn {
+  background: #ffffff;
+  border: 1px solid var(--ncb-border);
+  padding: 8px 10px;
+  border-radius: var(--ncb-radius-sm);
+  font-size: 11px;
+  font-weight: 750;
+  color: var(--ncb-ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ncb-slot-btn.active {
+  background: var(--ncb-gold);
+  color: #1a110c;
+  border-color: var(--ncb-gold);
+  font-weight: 900;
+}
+
+/* Form Inputs */
+.ncb-form-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ncb-input-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--ncb-muted);
+  margin-bottom: 4px;
+}
+
+.ncb-text-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--ncb-radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--ncb-border);
+  color: var(--ncb-ink);
+  font-size: 12px;
+  outline: none;
+}
+
+.ncb-text-input:focus {
+  border-color: var(--ncb-gold);
+}
+
+/* Right Column: Ticket Summary */
+.ncb-summary-ticket-col {
+  padding: 36px 32px;
+  background: linear-gradient(135deg, var(--ncb-espresso-dark) 0%, var(--ncb-dark) 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ncb-ticket-head {
+  text-align: center;
+}
+
+.ncb-ticket-kicker {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--ncb-gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ncb-ticket-head h4 {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 6px;
+  color: #ffffff;
+}
+
+.ncb-ticket-code {
+  font-size: 11px;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  color: var(--ncb-gold-light);
+}
+
+.ncb-ticket-divider {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgba(200, 155, 60, 0.5) 0, rgba(200, 155, 60, 0.5) 6px, transparent 6px, transparent 12px);
+  margin: 20px 0;
+}
+
+.ncb-ticket-body {
+  display: grid;
+  gap: 12px;
+}
+
+.ncb-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.ncb-label {
+  color: var(--ncb-dim);
+}
+
+.ncb-val {
+  color: #ffffff;
+  font-weight: 750;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ncb-val-highlight {
+  color: var(--ncb-gold-light);
+  font-weight: 900;
+}
+
+.ncb-val-list {
+  color: #ffffff;
+  font-size: 11px;
+  text-align: right;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ncb-summary-total-box {
+  background: rgba(200, 155, 60, 0.15);
+  border: 1px solid rgba(200, 155, 60, 0.35);
+  padding: 14px;
+  border-radius: var(--ncb-radius-sm);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.ncb-summary-total-box span {
+  display: block;
+  font-size: 11px;
+  color: var(--ncb-gold-light);
+}
+
+.ncb-summary-total-box strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 950;
+  color: #ffffff;
+}
+
+.ncb-summary-total-box small {
+  font-size: 10px;
+  color: #d4d4d8;
+}
+
+.ncb-ticket-rules {
+  margin: 18px 0;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px 16px;
+  border-radius: var(--ncb-radius-sm);
+}
+
+.ncb-ticket-rules label {
+  font-size: 11px;
+  font-weight: 850;
+  color: var(--ncb-gold);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ncb-ticket-rules ul {
+  list-style: disc;
+  padding-left: 16px;
+  margin: 0;
+  font-size: 11px;
+  color: #d4d4d8;
+  line-height: 1.45;
+}
+
+.ncb-btn-ticket-wa {
+  background: var(--ncb-gold);
+  color: #1a110c;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 14px 18px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px var(--ncb-gold-glow);
+  transition: transform 0.15s;
+}
+
+.ncb-btn-ticket-wa:hover {
+  transform: translateY(-2px);
+}
+
+.ncb-ticket-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #a1a1aa;
+  margin-top: 8px;
+}
+
+/* 9. Section 05: Lookbook Gallery (HairstyleLookbook) */
+.ncb-lookbook-section {
+  padding-block: 70px 60px;
+}
+
+.ncb-lookbook-filter-tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.ncb-filter-pill {
+  background: #ffffff;
+  border: 1.5px solid var(--ncb-border);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ncb-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ncb-filter-pill:hover {
+  border-color: var(--ncb-gold);
+}
+
+.ncb-filter-pill.active {
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold-light);
+  border-color: var(--ncb-gold);
+}
+
+.ncb-lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.ncb-style-card {
+  background: #ffffff;
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s;
+}
+
+.ncb-style-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ncb-gold);
+  box-shadow: 0 12px 30px var(--ncb-gold-glow);
+}
+
+.ncb-style-image-box {
+  position: relative;
+  height: 240px;
+}
+
+.ncb-style-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ncb-style-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(18, 18, 18, 0.85);
+  color: var(--ncb-gold-light);
+  border: 1px solid rgba(200, 155, 60, 0.35);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.ncb-style-info {
+  padding: 22px;
+}
+
+.ncb-style-info h4 {
+  font-size: 16px;
+  font-weight: 850;
+  margin: 0 0 6px;
+  color: var(--ncb-ink);
+}
+
+.ncb-style-desc {
+  font-size: 12px;
+  color: var(--ncb-muted);
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.ncb-style-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  padding-block: 10px;
+  border-top: 1px solid var(--ncb-border-light);
+  border-bottom: 1px solid var(--ncb-border-light);
+  margin-bottom: 14px;
+}
+
+.ncb-barber-tag,
+.ncb-duration-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 750;
+  color: var(--ncb-muted);
+}
+
+.ncb-btn-choose-style {
+  background: var(--ncb-gold-soft);
+  border: 1px solid var(--ncb-gold-tint);
+  color: var(--ncb-espresso);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 8px 14px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.ncb-btn-choose-style:hover {
+  background: var(--ncb-espresso);
+  color: #ffffff;
+}
+
+/* 10. Section 06: Membership Packages */
+.ncb-membership-section {
+  padding-block: 80px;
+  background: #ffffff;
+  border-top: 1px solid var(--ncb-border);
+  border-bottom: 1px solid var(--ncb-border);
+}
+
+.ncb-membership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.ncb-member-card {
+  background: var(--ncb-cream-card);
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-lg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.ncb-member-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ncb-gold);
+}
+
+.ncb-member-card.highlight {
+  border-color: var(--ncb-gold);
+  background: var(--ncb-gold-soft);
+  box-shadow: 0 12px 30px var(--ncb-gold-glow);
+}
+
+.ncb-member-popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold-light);
+  border: 1px solid var(--ncb-gold);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.ncb-member-head h3 {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 6px;
+  color: var(--ncb-ink);
+}
+
+.ncb-member-price strong {
+  font-size: 26px;
+  font-weight: 950;
+  color: var(--ncb-espresso);
+}
+
+.ncb-member-price small {
+  font-size: 12px;
+  color: var(--ncb-muted);
+}
+
+.ncb-member-quota {
+  display: inline-block;
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold-light);
+  font-size: 11px;
+  font-weight: 850;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin: 8px 0 12px;
+}
+
+.ncb-member-desc {
+  font-size: 12px;
+  color: var(--ncb-muted);
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+
+.ncb-member-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 8px;
+}
+
+.ncb-member-perks li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--ncb-ink);
+}
+
+.ncb-btn-join-member {
+  background: var(--ncb-surface);
+  border: 1.5px solid var(--ncb-border);
+  color: var(--ncb-espresso);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 10px 16px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.ncb-member-card.highlight .ncb-btn-join-member {
+  background: var(--ncb-espresso);
+  color: var(--ncb-gold-light);
+  border-color: var(--ncb-gold);
+}
+
+.ncb-btn-join-member:hover {
+  border-color: var(--ncb-gold);
+}
+
+.ncb-loyalty-banner {
+  background: linear-gradient(135deg, var(--ncb-espresso-dark) 0%, var(--ncb-dark) 100%);
+  color: #ffffff;
+  border: 1px solid var(--ncb-gold);
+  border-radius: var(--ncb-radius-lg);
+  padding: 24px 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.ncb-loyalty-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ncb-loyalty-content h4 {
+  font-size: 16px;
+  font-weight: 900;
+  margin: 0 0 4px;
+  color: var(--ncb-gold-light);
+}
+
+.ncb-loyalty-content p {
+  font-size: 12px;
+  color: #d4d4d8;
+  margin: 0;
+}
+
+/* 11. Section 07: Location */
+.ncb-location-section {
+  padding-block: 70px 60px;
+}
+
+.ncb-location-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.ncb-loc-info-card,
+.ncb-loc-amenities-card {
+  background: var(--ncb-cream-card);
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-lg);
+  padding: 32px 28px;
+}
+
+.ncb-loc-info-card h4,
+.ncb-loc-amenities-card h4 {
+  font-size: 18px;
+  font-weight: 850;
+  margin: 0 0 14px;
+  color: var(--ncb-ink);
+}
+
+.ncb-loc-address,
+.ncb-loc-phone {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ncb-muted);
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.ncb-hours-table {
+  margin: 20px 0;
+  background: #ffffff;
+  border: 1px solid var(--ncb-border);
+  padding: 16px 18px;
+  border-radius: var(--ncb-radius-sm);
+}
+
+.ncb-hours-table label {
+  font-size: 11px;
+  font-weight: 850;
+  color: var(--ncb-gold);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ncb-hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding-block: 4px;
+}
+
+.ncb-hours-row span {
+  color: var(--ncb-muted);
+}
+
+.ncb-hours-row strong {
+  color: var(--ncb-ink);
+}
+
+.ncb-btn-loc-book {
+  background: var(--ncb-espresso);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 850;
+  padding: 12px 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ncb-gold);
+}
+
+.ncb-amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ncb-amenities-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--ncb-ink);
+}
+
+.ncb-link-more {
+  color: var(--ncb-espresso);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--ncb-gold);
+}
+
+/* 12. FAQ */
+.ncb-faq-section {
+  padding-block: 60px 90px;
+}
+
+.ncb-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 960px;
+}
+
+.ncb-faq-list details {
+  background: #ffffff;
+  border: 1.5px solid var(--ncb-border);
+  border-radius: var(--ncb-radius-md);
+  padding: 20px 26px;
+  transition: border-color 0.2s;
+}
+
+.ncb-faq-list details[open] {
+  border-color: var(--ncb-gold);
+  box-shadow: 0 6px 20px var(--ncb-gold-glow);
+}
+
+.ncb-faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 850;
+  color: var(--ncb-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.ncb-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.ncb-faq-list summary span {
+  color: var(--ncb-gold);
+  margin-right: 14px;
+  font-size: 14px;
+}
+
+.ncb-faq-list summary b {
+  font-size: 22px;
+  color: var(--ncb-dim);
+  transition: transform 0.2s;
+}
+
+.ncb-faq-list details[open] summary b {
+  transform: rotate(45deg);
+  color: var(--ncb-gold);
+}
+
+.ncb-faq-list details p {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--ncb-border-light);
+  color: var(--ncb-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* 13. Final CTA */
+.ncb-final-cta-section {
+  padding-bottom: 90px;
+}
+
+.ncb-final-cta-card {
+  background: linear-gradient(135deg, var(--ncb-espresso-dark) 0%, var(--ncb-dark) 100%);
+  color: #ffffff;
+  border-radius: var(--ncb-radius-xl);
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--ncb-gold);
+  box-shadow: 0 25px 60px rgba(36, 24, 18, 0.35);
+}
+
+.ncb-cta-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 155, 60, 0.35) 0%, transparent 70%);
+  right: -50px;
+  bottom: -50px;
+}
+
+.ncb-final-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.ncb-cta-tag {
+  color: var(--ncb-gold-light);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ncb-final-cta-inner h2 {
+  font-size: clamp(32px, 4.2vw, 50px);
+  font-weight: 950;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.ncb-final-cta-inner h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ncb-gold-light);
+}
+
+.ncb-final-cta-inner p {
+  color: #d4d4d8;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.ncb-cta-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ncb-btn-cta-wa {
+  background: var(--ncb-gold);
+  color: #1a110c;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px var(--ncb-gold-glow);
+  transition: transform 0.15s;
+}
+
+.ncb-btn-cta-wa:hover {
+  transform: translateY(-2px);
+}
+
+.ncb-btn-cta-portfolio {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.ncb-btn-cta-portfolio:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+/* 14. Footer */
+.ncb-footer {
+  border-top: 1px solid var(--ncb-border);
+  padding-block: 70px 40px;
+}
+
+.ncb-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.ncb-footer-col.brand p {
+  color: var(--ncb-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin-top: 14px;
+  max-width: 300px;
+}
+
+.ncb-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ncb-footer-col strong {
+  font-size: 14px;
+  color: var(--ncb-ink);
+  margin-bottom: 6px;
+}
+
+.ncb-footer-col a {
+  color: var(--ncb-muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.ncb-footer-col a:hover {
+  color: var(--ncb-espresso);
+}
+
+.ncb-address {
+  font-size: 12px;
+  color: var(--ncb-dim);
+  margin: 8px 0 0;
+}
+
+.ncb-footer-bottom {
+  border-top: 1px solid var(--ncb-border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ncb-muted);
+  font-size: 12px;
+}
+
+.ncb-footer-bottom a {
+  color: var(--ncb-ink);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 15. Responsive */
+@media (max-width: 1024px) {
+  .ncb-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ncb-wizard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ncb-wizard-steps-col {
+    border-right: none;
+    border-bottom: 1px solid var(--ncb-border);
+  }
+
+  .ncb-location-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .ncb-header-inner {
+    height: 72px;
+  }
+
+  .ncb-nav {
+    display: none;
+  }
+
+  .ncb-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ncb-footer-col.brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .ncb-hero {
+    padding: 35px 0 50px;
+  }
+
+  .ncb-wizard-steps-col,
+  .ncb-summary-ticket-col {
+    padding: 24px 18px;
+  }
+
+  .ncb-form-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .ncb-loyalty-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ncb-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ncb-footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ncb-final-cta-card {
+    padding: 40px 24px;
+  }
+}
