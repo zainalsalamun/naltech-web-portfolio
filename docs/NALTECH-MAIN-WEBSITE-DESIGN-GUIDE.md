@@ -260,7 +260,7 @@ Pada tablet dan mobile:
 
 ### Contact hub pada footer
 
-Footer memakai komposisi dua warna: area informasi dan navigasi berada di atas putih bersih, sedangkan kontak dan media sosial ditempatkan dalam panel dark navy. Di dalam panel tersebut, kartu WhatsApp memakai putih sebagai kontak utama dan kartu email tetap dark untuk menciptakan ritme visual yang jelas. Instagram, TikTok, dan Facebook dikelompokkan sebagai kartu sosial yang lebih ringkas. Border transparan, aksen electric blue, dan gerakan naik saat hover menjaga tampilannya selaras dengan komponen lain.
+Footer memakai komposisi terang: area informasi dan navigasi berada di atas putih bersih, sedangkan contact hub memakai pale blue agar tetap terpisah tanpa terasa berat. Seluruh kartu kontak menggunakan putih dengan teks navy dan aksen electric blue. Instagram, TikTok, dan Facebook dikelompokkan sebagai kartu sosial yang lebih ringkas. Border lembut dan gerakan naik saat hover menjaga tampilannya selaras dengan komponen lain.
 
 ## Kepercayaan dan informasi kontak
 
