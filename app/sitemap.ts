@@ -124,6 +124,60 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/stay/hero-villa.jpg`],
   },
+  {
+    path: '/demo/nalalaundry',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/laundry/hero-laundry.jpg`],
+  },
+  {
+    path: '/demo/nalafarm',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/farm/hero-farm.jpg`],
+  },
+  {
+    path: '/demo/laundro',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/laundro/hero-laundro.jpg`],
+  },
+  {
+    path: '/demo/motocare',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/motocare/hero-workshop.jpg`],
+  },
+  {
+    path: '/demo/acfix',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/acfix/hero-ac.jpg`],
+  },
+  {
+    path: '/demo/naltech-digital',
+    changeFrequency: 'weekly',
+    priority: 0.95,
+    images: [`${siteUrl}/tech/hero-dev.jpg`, `${siteUrl}/tech/banking-app.jpg`, `${siteUrl}/tech/pos-system.jpg`],
+  },
+  {
+    path: '/demo/nalcut',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/barber/hero-barber.jpg`, `${siteUrl}/barber/style-fade.jpg`, `${siteUrl}/barber/style-crop.jpg`],
+  },
+  {
+    path: '/demo/seraya-wedding',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/wedding/hero-wedding.jpg`, `${siteUrl}/wedding/case-ballroom.jpg`, `${siteUrl}/wedding/case-garden.jpg`],
+  },
+  {
+    path: '/demo/lensa-cerita',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/photo/hero-photo.jpg`, `${siteUrl}/photo/portfolio-grad-1.jpg`, `${siteUrl}/photo/portfolio-wedding-1.jpg`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

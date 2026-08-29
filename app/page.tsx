@@ -30,6 +30,15 @@ const projects = [
   { slug: 'nalainvest', type: 'Fintech & Investment', name: 'NalaInvest', result: 'Mutual fund marketplace experience', theme: 'invest', number: '16' },
   { slug: 'nalacode', type: 'Coding & Tech Bootcamp', name: 'NalaCode', result: 'Interactive coding academy experience', theme: 'code', number: '17' },
   { slug: 'nalastay', type: 'Hospitality & Vacation Rentals', name: 'NalaStay', result: 'Vacation rental & host experience', theme: 'stay', number: '18' },
+  { slug: 'nalalaundry', type: 'Daily Services & Laundry', name: 'NalaLaundry', result: 'Premium laundry & pickup experience', theme: 'laundry', number: '19' },
+  { slug: 'nalafarm', type: 'Healthy Food & UMKM Profile', name: 'NalaFarm', result: 'Gluten-free brand company profile', theme: 'farm', number: '20' },
+  { slug: 'laundro', type: 'On-Demand Laundry & Pickup', name: 'Laundro', result: 'Doorstep pickup laundry experience', theme: 'laundro', number: '21' },
+  { slug: 'motocare', type: 'Automotive & Workshop Service', name: 'MotoCare', result: 'Motorcycle repair & diagnostic experience', theme: 'motocare', number: '22' },
+  { slug: 'acfix', type: 'HVAC & Climate Service', name: 'ACFix', result: 'Air conditioning repair & cost estimator experience', theme: 'acfix', number: '23' },
+  { slug: 'naltech-digital', type: 'Mobile & Software Agency', name: 'Naltech Digital', result: 'Mobile app & web software solution', theme: 'digital', number: '24' },
+  { slug: 'nalcut', type: 'Gentlemen Grooming & Barbershop', name: 'Nalcut Barber', result: 'On-demand barbershop booking system', theme: 'barber', number: '25' },
+  { slug: 'seraya-wedding', type: 'Luxury Wedding Organizer', name: 'Seraya Wedding', result: 'Interactive wedding budget simulator & planning', theme: 'wedding', number: '26' },
+  { slug: 'lensa-cerita', type: 'Photography & Visual Studio', name: 'Lensa Cerita', result: 'Graduation, wedding, & product photo booking', theme: 'photo', number: '27' },
 ];
 
 const services = [
