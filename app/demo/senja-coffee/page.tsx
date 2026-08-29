@@ -4,8 +4,9 @@ import './senja.css';
 export const metadata: Metadata = {
   title: 'Senja Coffee — Coffee, Eatery & Community',
   description: 'Ritual kecil, rasa yang tinggal. Contoh website coffee shop oleh Naltech.',
-  openGraph: { title: 'Senja Coffee — Coffee, Eatery & Community', description: 'Ritual kecil, rasa yang tinggal.', images: [new URL('/senja/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
-  twitter: { title: 'Senja Coffee — Coffee, Eatery & Community', description: 'Ritual kecil, rasa yang tinggal.', images: [new URL('/senja/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
+  alternates: { canonical: '/demo/senja-coffee' },
+  openGraph: { title: 'Senja Coffee — Coffee, Eatery & Community', description: 'Ritual kecil, rasa yang tinggal.', images: [new URL('/senja/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  twitter: { title: 'Senja Coffee — Coffee, Eatery & Community', description: 'Ritual kecil, rasa yang tinggal.', images: [new URL('/senja/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
 };
 
 export default function SenjaCoffeePage() {

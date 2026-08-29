@@ -21,15 +21,16 @@ import {
 export const metadata: Metadata = {
   title: 'NalaJewels — Perhiasan Emas & Berlian Anak & Dewasa by Naltech',
   description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa. Dilengkapi visualisasi nyata pada model untuk kejelasan ukuran dan proporsi.',
+  alternates: { canonical: '/demo/nalajewels' },
   openGraph: {
     title: 'NalaJewels — Perhiasan Emas & Berlian Anak & Dewasa by Naltech',
     description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa dengan panduan foto pada model.',
-    images: [new URL('/jewelry/hero-mother-child.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/jewelry/hero-mother-child.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
   twitter: {
     title: 'NalaJewels — Perhiasan Emas & Berlian Anak & Dewasa by Naltech',
     description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa dengan panduan foto pada model.',
-    images: [new URL('/jewelry/hero-mother-child.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/jewelry/hero-mother-child.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
 };
 

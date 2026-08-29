@@ -95,6 +95,8 @@ npm run build
 
 Website saat ini dipublikasikan melalui OpenAI Sites. Jangan mengubah atau menghapus `.openai/hosting.json` karena file tersebut menghubungkan source lokal dengan project hosting Naltech.
 
+Domain utama untuk pengunjung dan mesin pencari adalah `https://studio.naltech.web.id`. Canonical URL, sitemap, robots, structured data, dan social preview harus selalu menggunakan domain ini.
+
 Kontak bisnis yang ditampilkan pada website utama:
 
 - WhatsApp: `081573550017`

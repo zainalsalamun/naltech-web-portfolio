@@ -4,8 +4,9 @@ import './nara.css';
 export const metadata: Metadata = {
   title: 'NARA Atelier — Modern Fashion Concept by Naltech',
   description: 'Contoh landing page fashion editorial modern yang dirancang oleh Naltech.',
-  openGraph: { title: 'NARA Atelier — Modern Fashion Concept by Naltech', description: 'Quiet forms. Bold presence.', images: [new URL('/fashion/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
-  twitter: { title: 'NARA Atelier — Modern Fashion Concept by Naltech', description: 'Quiet forms. Bold presence.', images: [new URL('/fashion/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
+  alternates: { canonical: '/demo/nara-atelier' },
+  openGraph: { title: 'NARA Atelier — Modern Fashion Concept by Naltech', description: 'Quiet forms. Bold presence.', images: [new URL('/fashion/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  twitter: { title: 'NARA Atelier — Modern Fashion Concept by Naltech', description: 'Quiet forms. Bold presence.', images: [new URL('/fashion/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
 };
 
 export default function NaraAtelierPage() {

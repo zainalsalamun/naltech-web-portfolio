@@ -4,8 +4,9 @@ import './karsa.css';
 export const metadata: Metadata = {
   title: 'Karsa Coffee — Specialty Coffee Concept by Naltech',
   description: 'Contoh landing page coffee shop hangat dan modern yang dirancang oleh Naltech.',
-  openGraph: { title: 'Karsa Coffee — Specialty Coffee Concept by Naltech', description: 'Kopi baik, ruang hangat, cerita yang tinggal.', images: [new URL('/coffee/hero-cafe.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
-  twitter: { title: 'Karsa Coffee — Specialty Coffee Concept by Naltech', description: 'Kopi baik, ruang hangat, cerita yang tinggal.', images: [new URL('/coffee/hero-cafe.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
+  alternates: { canonical: '/demo/karsa-coffee' },
+  openGraph: { title: 'Karsa Coffee — Specialty Coffee Concept by Naltech', description: 'Kopi baik, ruang hangat, cerita yang tinggal.', images: [new URL('/coffee/hero-cafe.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  twitter: { title: 'Karsa Coffee — Specialty Coffee Concept by Naltech', description: 'Kopi baik, ruang hangat, cerita yang tinggal.', images: [new URL('/coffee/hero-cafe.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
 };
 
 export default function KarsaCoffeePage() {

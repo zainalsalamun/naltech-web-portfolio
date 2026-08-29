@@ -6,15 +6,16 @@ import FoodAddressWidget from './FoodAddressWidget';
 export const metadata: Metadata = {
   title: 'NalaFood — Pesan Makanan Online Cepat, Hangat & Hemat by Naltech',
   description: 'Lapar? Pesan makanan favoritmu dari ribuan restoran terdekat. Contoh landing page pemesanan makanan online dirancang oleh Naltech.',
+  alternates: { canonical: '/demo/nalafood' },
   openGraph: {
     title: 'NalaFood — Pesan Makanan Online Cepat, Hangat & Hemat by Naltech',
     description: 'Pesan makanan favoritmu dari ribuan restoran terdekat dengan jaminan makanan tetap hangat.',
-    images: [new URL('/food/hero-spread.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/food/hero-spread.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
   twitter: {
     title: 'NalaFood — Pesan Makanan Online Cepat, Hangat & Hemat by Naltech',
     description: 'Pesan makanan favoritmu dari ribuan restoran terdekat dengan jaminan makanan tetap hangat.',
-    images: [new URL('/food/hero-spread.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/food/hero-spread.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
 };
 

@@ -5,7 +5,7 @@ Dokumen ini menjelaskan konsep visual, warna, tipografi, komposisi, komponen, da
 Website:
 
 - Lokal: `http://localhost:3000`
-- Online: `https://naltech-portfolio.embulpillow.chatgpt.site`
+- Online: `https://studio.naltech.web.id`
 
 ## Konsep utama
 

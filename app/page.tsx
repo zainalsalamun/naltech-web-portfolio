@@ -1,4 +1,7 @@
 import './home-themes.css';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = { alternates: { canonical: '/' } };
 
 const whatsappUrl = 'https://wa.me/6281573550017?text=Halo%20Naltech%2C%20saya%20ingin%20konsultasi%20tentang%20website.';
 const emailUrl = 'mailto:naltechai@gmail.com';
@@ -16,6 +19,7 @@ const projects = [
   { slug: 'nalahijab', type: 'Modest Fashion', name: 'NalaHijab', result: 'Hijab brand landing experience', theme: 'hijab', number: '10' },
   { slug: 'nalasablon', type: 'Printing & Packaging', name: 'NalaSablon', result: 'Screen printing & packaging experience', theme: 'sablon', number: '11' },
   { slug: 'nalajewels', type: 'Fine Jewelry', name: 'NalaJewels', result: 'Luxury jewelry brand experience', theme: 'jewels', number: '12' },
+  { slug: 'nalacatering', type: 'Wedding & Catering', name: 'NalaCatering', result: 'Luxury wedding & catering experience', theme: 'catering', number: '13' },
 ];
 
 const services = [
@@ -37,10 +41,15 @@ const structuredData = {
   '@type': 'ProfessionalService',
   name: 'Naltech',
   description: 'Web design dan development studio untuk bisnis yang ingin tampil profesional dan bertumbuh.',
-  url: 'https://naltech-portfolio.embulpillow.chatgpt.site',
+  url: 'https://studio.naltech.web.id',
+  logo: 'https://studio.naltech.web.id/naltech-logo.png',
+  image: 'https://studio.naltech.web.id/og.png',
   email: 'naltechai@gmail.com',
   telephone: '+6281573550017',
   areaServed: 'Indonesia',
+  address: { '@type': 'PostalAddress', addressLocality: 'Jakarta', addressCountry: 'ID' },
+  contactPoint: { '@type': 'ContactPoint', telephone: '+6281573550017', contactType: 'sales', availableLanguage: ['Indonesian'] },
+  serviceType: ['Web Design', 'Web Development', 'UI/UX Design', 'Landing Page', 'Company Profile Website'],
   sameAs: ['https://www.instagram.com/naltech.ai/', 'https://www.tiktok.com/@naltech.ai', 'https://www.facebook.com/share/1EUS6YwWAt/?mibextid=wwXIfr'],
 };
 

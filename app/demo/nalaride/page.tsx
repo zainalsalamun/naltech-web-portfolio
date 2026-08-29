@@ -3,8 +3,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'NalaRide — Vehicle Rental Concept by Naltech',
   description: 'Contoh landing page rental mobil dan motor yang dirancang oleh Naltech.',
-  openGraph: { title: 'NalaRide — Vehicle Rental Concept by Naltech', description: 'Jalan lebih jauh, tanpa repot.', images: [new URL('/rental/hero-suv.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
-  twitter: { title: 'NalaRide — Vehicle Rental Concept by Naltech', description: 'Jalan lebih jauh, tanpa repot.', images: [new URL('/rental/hero-suv.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')] },
+  alternates: { canonical: '/demo/nalaride' },
+  openGraph: { title: 'NalaRide — Vehicle Rental Concept by Naltech', description: 'Jalan lebih jauh, tanpa repot.', images: [new URL('/rental/hero-suv.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  twitter: { title: 'NalaRide — Vehicle Rental Concept by Naltech', description: 'Jalan lebih jauh, tanpa repot.', images: [new URL('/rental/hero-suv.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
 };
 
 export default function NalaRidePage() {

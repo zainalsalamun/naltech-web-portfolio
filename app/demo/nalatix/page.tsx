@@ -6,15 +6,16 @@ import TravelSearchWidget from './TravelSearchWidget';
 export const metadata: Metadata = {
   title: 'NalaTiket — Platform Tiket Pesawat, Hotel, Kereta & Wahana by Naltech',
   description: 'Mau ke mana? Semua tiket ada di sini. Contoh landing page penjualan tiket online terlengkap yang dirancang oleh Naltech.',
+  alternates: { canonical: '/demo/nalatix' },
   openGraph: {
     title: 'NalaTiket — Platform Tiket Pesawat, Hotel, Kereta & Wahana by Naltech',
     description: 'Pesan tiket pesawat, hotel, kereta api, wahana, hingga event online dengan jaminan harga termurah.',
-    images: [new URL('/travel/flight-sky.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/travel/flight-sky.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
   twitter: {
     title: 'NalaTiket — Platform Tiket Pesawat, Hotel, Kereta & Wahana by Naltech',
     description: 'Pesan tiket pesawat, hotel, kereta api, wahana, hingga event online dengan jaminan harga termurah.',
-    images: [new URL('/travel/flight-sky.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/travel/flight-sky.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
 };
 

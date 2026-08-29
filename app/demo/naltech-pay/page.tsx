@@ -4,6 +4,7 @@ import MotionObserver from './MotionObserver';
 export const metadata: Metadata = {
   title: 'Naltech Pay — Concept Fintech Website by Naltech',
   description: 'Contoh landing page fintech orisinal yang dirancang dan dikembangkan oleh Naltech.',
+  alternates: { canonical: '/demo/naltech-pay' },
   openGraph: { title: 'Naltech Pay — Concept Fintech Website by Naltech', description: 'Urus uang tanpa bikin pusing.', images: [] },
   twitter: { title: 'Naltech Pay — Concept Fintech Website by Naltech', description: 'Urus uang tanpa bikin pusing.', images: [] },
 };

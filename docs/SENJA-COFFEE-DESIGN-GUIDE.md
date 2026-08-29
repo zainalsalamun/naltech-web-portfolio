@@ -5,7 +5,7 @@ Dokumen ini menjelaskan arah visual, komposisi, tipografi, warna, tata letak, ga
 Demo:
 
 - Lokal: `http://localhost:3000/demo/senja-coffee`
-- Online: `https://naltech-portfolio.embulpillow.chatgpt.site/demo/senja-coffee`
+- Online: `https://studio.naltech.web.id/demo/senja-coffee`
 
 ## Konsep utama
 

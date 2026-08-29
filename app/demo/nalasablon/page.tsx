@@ -25,15 +25,16 @@ import {
 export const metadata: Metadata = {
   title: 'NalaSablon — Jasa Sablon Kaos, Kemasan & Packaging Brand by Naltech',
   description: 'Jasa sablon presisi dan cetak kemasan custom terpercaya untuk brand lokal, cafe, clothing line, dan UMKM. Berpengalaman melayani 1.200+ brand di seluruh Indonesia.',
+  alternates: { canonical: '/demo/nalasablon' },
   openGraph: {
     title: 'NalaSablon — Jasa Sablon Kaos, Kemasan & Packaging Brand by Naltech',
     description: 'Jasa sablon presisi dan cetak kemasan custom terpercaya untuk brand lokal, cafe, clothing line, dan UMKM.',
-    images: [new URL('/sablon/hero-workshop.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/sablon/hero-workshop.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
   twitter: {
     title: 'NalaSablon — Jasa Sablon Kaos, Kemasan & Packaging Brand by Naltech',
     description: 'Jasa sablon presisi dan cetak kemasan custom terpercaya untuk brand lokal, cafe, clothing line, dan UMKM.',
-    images: [new URL('/sablon/hero-workshop.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/sablon/hero-workshop.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
 };
 

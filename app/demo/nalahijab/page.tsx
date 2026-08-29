@@ -19,15 +19,16 @@ import {
 export const metadata: Metadata = {
   title: 'NalaHijab — Sentuhan Lembut Hijab Premium & Modest Fashion by Naltech',
   description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal dirancang oleh Naltech.',
+  alternates: { canonical: '/demo/nalahijab' },
   openGraph: {
     title: 'NalaHijab — Sentuhan Lembut Hijab Premium & Modest Fashion by Naltech',
     description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal.',
-    images: [new URL('/hijab/hero-model.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/hijab/hero-model.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
   twitter: {
     title: 'NalaHijab — Sentuhan Lembut Hijab Premium & Modest Fashion by Naltech',
     description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal.',
-    images: [new URL('/hijab/hero-model.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [new URL('/hijab/hero-model.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
   },
 };
 
