@@ -118,6 +118,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/code/hero-developer.jpg`],
   },
+  {
+    path: '/demo/nalastay',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/stay/hero-villa.jpg`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1,0 +1,1362 @@
+/* =========================================================
+   NalaStay — Vacation Rental & Host Onboarding Platform
+   Designed & Engineered by Naltech Studio (Airbnb Inspired)
+   ========================================================= */
+
+:root {
+  --ns-coral: #ff385c;
+  --ns-coral-dark: #e00b41;
+  --ns-coral-soft: #fff1f3;
+  --ns-coral-tint: #ffe4e8;
+  
+  --ns-ink: #222222;
+  --ns-muted: #717171;
+  --ns-dim: #b0b0b0;
+  
+  --ns-bg: #ffffff;
+  --ns-surface: #f7f7f7;
+  --ns-card: #ffffff;
+  --ns-border: #dddddd;
+  --ns-border-light: #ebebeb;
+  
+  --ns-radius-sm: 8px;
+  --ns-radius-md: 16px;
+  --ns-radius-lg: 24px;
+  --ns-radius-xl: 32px;
+}
+
+.ns-page {
+  background-color: #ffffff;
+  color: var(--ns-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.ns-wrap {
+  width: min(1260px, calc(100% - 6vw));
+  margin-inline: auto;
+}
+
+/* 1. Promo Ribbon */
+.ns-promo-ribbon {
+  background: #222222;
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ns-ribbon-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.ns-ribbon-badge {
+  background: var(--ns-coral);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.04em;
+}
+
+.ns-ribbon-content p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.ns-ribbon-content code {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: #ffadb9;
+}
+
+.ns-ribbon-link {
+  color: #ffadb9;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+}
+
+.ns-ribbon-link:hover {
+  text-decoration: underline;
+}
+
+/* 2. Top Demo Bar */
+.ns-demo-bar {
+  background: #111111;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ns-demo-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ns-back-link {
+  color: #ff6b8b;
+  text-decoration: none;
+  font-weight: 750;
+}
+
+.ns-back-link:hover {
+  text-decoration: underline;
+}
+
+.ns-demo-inner span {
+  color: #717171;
+}
+
+/* 3. Header */
+.ns-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--ns-border-light);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
+}
+
+.ns-header-inner {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ns-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ns-ink);
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.ns-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff385c 0%, #e00b41 100%);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(255, 56, 92, 0.35);
+}
+
+.ns-logo-text strong {
+  color: var(--ns-coral);
+}
+
+.ns-logo-text small {
+  font-size: 11px;
+  color: var(--ns-muted);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.ns-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ns-nav a {
+  color: var(--ns-ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.ns-nav a:hover {
+  color: var(--ns-coral);
+}
+
+.ns-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ns-btn-header-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ns-ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ns-border);
+  transition: all 0.2s;
+}
+
+.ns-btn-header-wa:hover {
+  border-color: var(--ns-coral);
+  color: var(--ns-coral);
+  background: var(--ns-coral-soft);
+}
+
+.ns-btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff385c 0%, #e00b41 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(255, 56, 92, 0.3);
+  transition: transform 0.15s, opacity 0.2s;
+}
+
+.ns-btn-header-cta:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* 4. Hero Section */
+.ns-hero {
+  padding: 50px 0 70px;
+  background: #ffffff;
+}
+
+.ns-hero-copy {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.ns-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ns-coral-soft);
+  color: var(--ns-coral);
+  border: 1px solid var(--ns-coral-tint);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.ns-icon-coral {
+  color: var(--ns-coral);
+}
+
+.ns-hero-copy h1 {
+  font-size: clamp(38px, 4.8vw, 62px);
+  font-weight: 950;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+  color: var(--ns-ink);
+}
+
+.ns-hero h1 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ns-coral);
+}
+
+.ns-hero-sub {
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--ns-muted);
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+/* 5. Host Earnings Calculator Widget */
+.ns-calculator-showcase-container {
+  display: grid;
+  gap: 60px;
+}
+
+.ns-calc-card {
+  background: #ffffff;
+  border: 1.5px solid var(--ns-border);
+  border-radius: var(--ns-radius-xl);
+  padding: 44px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.ns-calc-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.ns-calc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ns-coral-soft);
+  color: var(--ns-coral);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.ns-calc-header h2 {
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 950;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 10px;
+  color: var(--ns-ink);
+}
+
+.ns-calc-header h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ns-coral);
+}
+
+.ns-calc-sub {
+  font-size: 15px;
+  color: var(--ns-muted);
+  margin: 0;
+}
+
+.ns-calc-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.ns-input-box {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius-md);
+  padding: 16px 20px;
+}
+
+.ns-input-box label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ns-muted);
+  margin-bottom: 8px;
+}
+
+.ns-select {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--ns-border);
+  padding: 10px 14px;
+  border-radius: var(--ns-radius-sm);
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--ns-ink);
+  outline: none;
+}
+
+.ns-btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+.ns-btn-pill {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid var(--ns-border);
+  padding: 10px 6px;
+  border-radius: var(--ns-radius-sm);
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--ns-ink);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ns-btn-pill.active {
+  background: var(--ns-ink);
+  color: #ffffff;
+  border-color: var(--ns-ink);
+}
+
+.ns-slider-wrap {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius-md);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.ns-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 750;
+  margin-bottom: 12px;
+}
+
+.ns-slider-label strong {
+  font-size: 16px;
+  color: var(--ns-coral);
+}
+
+.ns-range-slider {
+  width: 100%;
+  accent-color: var(--ns-coral);
+  cursor: pointer;
+}
+
+.ns-slider-bounds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--ns-muted);
+  margin-top: 6px;
+}
+
+.ns-calc-result-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222222;
+  color: #ffffff;
+  border-radius: var(--ns-radius-lg);
+  padding: 28px 36px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.ns-income-projection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ns-income-item small {
+  display: block;
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.ns-income-item strong {
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 950;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.ns-income-item.sub span {
+  font-size: 13px;
+  color: #ffadb9;
+  font-weight: 750;
+}
+
+.ns-calc-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ns-btn-host-primary {
+  background: linear-gradient(135deg, #ff385c 0%, #e00b41 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(255, 56, 92, 0.4);
+  transition: transform 0.15s;
+}
+
+.ns-btn-host-primary:hover {
+  transform: translateY(-2px);
+}
+
+.ns-btn-host-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 750;
+  padding: 14px 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.ns-btn-host-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.ns-calc-trust-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ns-muted);
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* 6. Airbnb Category Pills & Stays Showcase */
+.ns-showcase-section {
+  padding-top: 10px;
+}
+
+.ns-showcase-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ns-showcase-head h3 {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 900;
+  margin: 4px 0 0;
+  color: var(--ns-ink);
+}
+
+.ns-category-filter-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.ns-cat-pill {
+  background: #ffffff;
+  border: 1px solid var(--ns-border);
+  color: var(--ns-muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.ns-cat-pill:hover {
+  border-color: var(--ns-ink);
+  color: var(--ns-ink);
+}
+
+.ns-cat-pill.active {
+  background: var(--ns-ink);
+  color: #ffffff;
+  border-color: var(--ns-ink);
+}
+
+.ns-stays-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 28px;
+}
+
+.ns-stay-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ns-stay-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.95;
+  border-radius: var(--ns-radius-md);
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #f0f0f0;
+}
+
+.ns-stay-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ns-stay-card:hover .ns-stay-image-wrap img {
+  transform: scale(1.04);
+}
+
+.ns-btn-favorite {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.ns-badge-superhost {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  color: var(--ns-ink);
+  font-size: 11px;
+  font-weight: 850;
+  padding: 4px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ns-stay-info-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.ns-rating-box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ns-stay-dist {
+  color: var(--ns-muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.ns-stay-dates {
+  color: var(--ns-muted);
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+
+.ns-stay-price-row {
+  font-size: 14px;
+}
+
+.ns-stay-price-row strong {
+  font-weight: 900;
+  color: var(--ns-ink);
+}
+
+.ns-stay-price-row span {
+  color: var(--ns-muted);
+}
+
+/* 7. Benefits 4-Grid */
+.ns-benefits-section {
+  padding-block: 80px 60px;
+}
+
+.ns-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ns-section-head.center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ns-section-head.center p {
+  margin: 10px 0 0;
+  color: var(--ns-muted);
+  font-size: 15px;
+  max-width: 600px;
+}
+
+.ns-badge-tag {
+  color: var(--ns-coral);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ns-section-head h2 {
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: var(--ns-ink);
+}
+
+.ns-section-head h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ns-coral);
+}
+
+.ns-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.ns-benefit-card {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-border);
+  padding: 32px 24px;
+  border-radius: var(--ns-radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s;
+}
+
+.ns-benefit-card.highlight {
+  background: #ffffff;
+  border: 2px solid var(--ns-coral);
+  box-shadow: 0 12px 30px rgba(255, 56, 92, 0.12);
+  grid-column: span 2;
+}
+
+.ns-benefit-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--ns-coral-soft);
+  color: var(--ns-coral);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.ns-benefit-tag {
+  font-size: 10px;
+  font-weight: 850;
+  color: var(--ns-coral);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ns-benefit-card h3 {
+  font-size: 20px;
+  font-weight: 850;
+  margin: 0 0 8px;
+  color: var(--ns-ink);
+}
+
+.ns-benefit-card p {
+  color: var(--ns-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
+.ns-benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ns-benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ns-ink);
+  font-weight: 700;
+}
+
+/* 8. Superhost Community */
+.ns-community-section {
+  padding-block: 80px;
+  background: #f7f7f7;
+  border-top: 1px solid var(--ns-border-light);
+  border-bottom: 1px solid var(--ns-border-light);
+}
+
+.ns-community-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.ns-community-copy h2 {
+  font-size: clamp(32px, 3.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  color: var(--ns-ink);
+}
+
+.ns-community-copy h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ns-coral);
+}
+
+.ns-community-copy p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ns-muted);
+  margin: 0 0 28px;
+}
+
+.ns-community-features {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.ns-comm-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.ns-comm-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--ns-coral-soft);
+  color: var(--ns-coral);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.ns-comm-item strong {
+  display: block;
+  font-size: 15px;
+  color: var(--ns-ink);
+  margin-bottom: 2px;
+}
+
+.ns-comm-item p {
+  font-size: 13px;
+  color: var(--ns-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ns-btn-primary {
+  background: linear-gradient(135deg, #ff385c 0%, #e00b41 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 850;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(255, 56, 92, 0.35);
+  transition: transform 0.15s;
+}
+
+.ns-btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.ns-community-visual {
+  position: relative;
+  height: 420px;
+  border-radius: var(--ns-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.ns-community-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ns-community-floating-card {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: var(--ns-ink);
+  padding: 12px 18px;
+  border-radius: var(--ns-radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.ns-community-floating-card strong {
+  display: block;
+  font-size: 14px;
+}
+
+.ns-community-floating-card small {
+  font-size: 11px;
+  color: var(--ns-muted);
+}
+
+/* 9. 3-Steps Workflow */
+.ns-steps-section {
+  padding-block: 70px 60px;
+}
+
+.ns-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.ns-step-card {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-border);
+  border-radius: var(--ns-radius-lg);
+  padding: 32px 24px;
+}
+
+.ns-step-num {
+  font-size: 28px;
+  font-weight: 950;
+  color: var(--ns-coral);
+  display: block;
+  margin-bottom: 12px;
+  font-family: Georgia, serif;
+}
+
+.ns-step-card h3 {
+  font-size: 18px;
+  font-weight: 850;
+  margin: 0 0 8px;
+  color: var(--ns-ink);
+}
+
+.ns-step-card p {
+  color: var(--ns-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 10. Superhost Stories */
+.ns-reviews-section {
+  padding-block: 60px 80px;
+}
+
+.ns-review-card {
+  background: #222222;
+  color: #ffffff;
+  border-radius: var(--ns-radius-xl);
+  padding: 55px;
+  text-align: center;
+  position: relative;
+}
+
+.ns-quote-mark {
+  font-size: 90px;
+  font-family: Georgia, serif;
+  color: #ffadb9;
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ns-review-card blockquote {
+  max-width: 900px;
+  margin: 20px auto 28px;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+.ns-rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.ns-reviewer strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.ns-reviewer small {
+  color: #b0b0b0;
+  font-size: 13px;
+}
+
+/* 11. FAQ */
+.ns-faq-section {
+  padding-block: 60px 90px;
+}
+
+.ns-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 960px;
+}
+
+.ns-faq-list details {
+  background: #ffffff;
+  border: 1.5px solid var(--ns-border);
+  border-radius: var(--ns-radius-md);
+  padding: 20px 26px;
+  transition: border-color 0.2s;
+}
+
+.ns-faq-list details[open] {
+  border-color: var(--ns-coral);
+  box-shadow: 0 6px 20px rgba(255, 56, 92, 0.08);
+}
+
+.ns-faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 850;
+  color: var(--ns-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.ns-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.ns-faq-list summary span {
+  color: var(--ns-coral);
+  margin-right: 14px;
+  font-size: 14px;
+}
+
+.ns-faq-list summary b {
+  font-size: 22px;
+  color: var(--ns-dim);
+  transition: transform 0.2s;
+}
+
+.ns-faq-list details[open] summary b {
+  transform: rotate(45deg);
+  color: var(--ns-coral);
+}
+
+.ns-faq-list details p {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--ns-border-light);
+  color: var(--ns-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.ns-link-more {
+  color: var(--ns-coral);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--ns-coral);
+}
+
+/* 12. Final CTA */
+.ns-cta-section {
+  padding-bottom: 90px;
+}
+
+.ns-cta-card {
+  background: linear-gradient(135deg, #222222 0%, #ff385c 100%);
+  color: #ffffff;
+  border-radius: var(--ns-radius-xl);
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(255, 56, 92, 0.25);
+}
+
+.ns-cta-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 56, 92, 0.35) 0%, transparent 70%);
+  right: -50px;
+  bottom: -50px;
+}
+
+.ns-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.ns-cta-tag {
+  color: #ffadb9;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ns-cta-inner h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 950;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.ns-cta-inner h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #ffadb9;
+}
+
+.ns-cta-inner p {
+  color: #f7f7f7;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.ns-cta-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ns-cta-buttons .ns-btn-primary {
+  background: #ffffff;
+  color: #222222;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ns-btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.ns-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+/* 13. Footer */
+.ns-footer {
+  border-top: 1px solid var(--ns-border-light);
+  padding-block: 70px 40px;
+}
+
+.ns-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.ns-footer-col.brand p {
+  color: var(--ns-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin-top: 14px;
+  max-width: 300px;
+}
+
+.ns-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ns-footer-col strong {
+  font-size: 14px;
+  color: var(--ns-ink);
+  margin-bottom: 6px;
+}
+
+.ns-footer-col a {
+  color: var(--ns-muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.ns-footer-col a:hover {
+  color: var(--ns-coral);
+}
+
+.ns-address {
+  font-size: 12px;
+  color: var(--ns-dim);
+  margin: 8px 0 0;
+}
+
+.ns-footer-bottom {
+  border-top: 1px solid var(--ns-border-light);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ns-muted);
+  font-size: 12px;
+}
+
+.ns-footer-bottom a {
+  color: var(--ns-ink);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 14. Responsive */
+@media (max-width: 1024px) {
+  .ns-calc-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ns-community-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ns-benefit-card.highlight {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .ns-header-inner {
+    height: 72px;
+  }
+
+  .ns-nav {
+    display: none;
+  }
+
+  .ns-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ns-footer-col.brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .ns-promo-ribbon {
+    font-size: 11px;
+  }
+
+  .ns-hero {
+    padding: 35px 0 50px;
+  }
+
+  .ns-calc-card {
+    padding: 24px 18px;
+  }
+
+  .ns-calc-result-bar {
+    padding: 20px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ns-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ns-footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ns-cta-card {
+    padding: 40px 24px;
+  }
+}
