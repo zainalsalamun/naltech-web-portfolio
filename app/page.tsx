@@ -11,6 +11,7 @@ const projects = [
   { slug: 'nalaride', type: 'Vehicle Rental', name: 'NalaRide', result: 'Rental booking experience', theme: 'ride', number: '05' },
   { slug: 'karsa-coffee', type: 'Coffee Shop', name: 'Karsa Coffee', result: 'Coffee shop brand experience', theme: 'karsa', number: '06' },
   { slug: 'nara-atelier', type: 'Fashion & Apparel', name: 'NARA Atelier', result: 'Editorial commerce experience', theme: 'nara', number: '07' },
+  { slug: 'nalatix', type: 'Online Ticketing', name: 'NalaTix', result: 'Event ticketing landing experience', theme: 'tix', number: '08' },
 ];
 
 const services = [
