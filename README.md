@@ -36,6 +36,13 @@ npm run lint
 - `/demo/senja-coffee` — contoh website coffee shop
 - `/demo/ruang-arsitek` — contoh website studio arsitektur
 - `/demo/lumiere-skincare` — contoh website skincare
+- `/demo/naltech-pay` — contoh website fintech
+- `/demo/nalaride` — contoh website rental kendaraan
+- `/demo/karsa-coffee` — contoh website specialty coffee shop
+
+## Dokumentasi desain
+
+- [`docs/SENJA-COFFEE-DESIGN-GUIDE.md`](docs/SENJA-COFFEE-DESIGN-GUIDE.md) — konsep, palet warna, tipografi, hierarki teks, komposisi layout, fotografi, animasi, dan daftar file Senja Coffee.
 
 ## Menambahkan contoh website
 
@@ -90,12 +97,19 @@ Website saat ini dipublikasikan melalui OpenAI Sites. Jangan mengubah atau mengh
 
 ```text
 app/
-├── demo/[slug]/page.tsx  # Data dan halaman contoh website
+├── demo/[slug]/page.tsx       # Data dan halaman demo generik
+├── demo/senja-coffee/         # Halaman dan styling khusus Senja Coffee
+├── demo/karsa-coffee/         # Halaman dan styling khusus Karsa Coffee
+├── demo/nalaride/             # Halaman khusus rental kendaraan
+├── demo/naltech-pay/          # Halaman khusus fintech
 ├── globals.css           # Styling katalog dan seluruh tema demo
 ├── layout.tsx            # Metadata serta layout global
 └── page.tsx              # Landing page dan katalog Naltech
+docs/
+└── SENJA-COFFEE-DESIGN-GUIDE.md # Dokumentasi visual Senja Coffee
 public/
 ├── naltech-logo.png      # Logo utama yang juga digunakan sebagai favicon
+├── senja/                # Foto yang digunakan Senja Coffee
 └── og.png                # Gambar social preview
 ```
 
