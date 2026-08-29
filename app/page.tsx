@@ -58,7 +58,7 @@ export default function Home() {
     <main className="nl-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <header className="nl-header shell">
-        <a className="nl-logo" href="#top" aria-label="Naltech home"><img src="/naltech-logo.png" alt="" />NALTECH</a>
+        <a className="nl-logo" href="#top" aria-label="Naltech home"><img src="/naltech-logo.webp" alt="" width={256} height={259} fetchPriority="high" />NALTECH</a>
         <nav className="nl-nav" aria-label="Navigasi utama"><a href="#services">Layanan</a><a href="#about">Tentang</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></nav>
         <a className="nl-contact" href={whatsappUrl} target="_blank" rel="noreferrer">Konsultasi gratis <b>↗</b></a>
       </header>
@@ -98,7 +98,7 @@ export default function Home() {
       </section>
 
       <section id="about" className="nl-about shell">
-        <div className="nl-about-mark"><img src="/naltech-logo.png" alt="Logo Naltech" /><span>Web studio<br />Jakarta, Indonesia</span></div>
+        <div className="nl-about-mark"><img src="/naltech-logo.webp" alt="Logo Naltech" width={256} height={259} loading="lazy" decoding="async" /><span>Web studio<br />Jakarta, Indonesia</span></div>
         <div className="nl-about-copy"><p className="nl-kicker">Tentang Naltech</p><h2>Partner digital yang<br />berpikir seperti <em>tim Anda.</em></h2><p>Naltech membantu bisnis menerjemahkan ide menjadi website yang jelas, menarik, dan mudah digunakan. Setiap project dikerjakan dengan komunikasi langsung, scope transparan, serta perhatian pada tujuan bisnis.</p><div><span>Komunikasi langsung</span><span>Scope transparan</span><span>Desain orisinal</span><span>Support responsif</span></div><a href={whatsappUrl} target="_blank" rel="noreferrer">Kenalan dengan Naltech <b>↗</b></a></div>
       </section>
 
@@ -149,7 +149,7 @@ export default function Home() {
 
       <footer className="nl-footer shell">
         <div className="nl-footer-brand">
-          <a className="nl-logo" href="#top"><img src="/naltech-logo.png" alt="" />NALTECH</a>
+          <a className="nl-logo" href="#top"><img src="/naltech-logo.webp" alt="" width={256} height={259} loading="lazy" decoding="async" />NALTECH</a>
           <p>Web design & development studio untuk bisnis yang ingin tumbuh lebih percaya diri.</p>
           <span><i /> Tersedia untuk project baru</span>
         </div>

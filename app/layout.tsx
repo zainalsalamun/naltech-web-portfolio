@@ -1,16 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id'),
@@ -26,9 +15,9 @@ export const metadata: Metadata = {
   publisher: 'Naltech',
   category: 'technology',
   icons: {
-    icon: '/naltech-logo.png',
-    shortcut: '/naltech-logo.png',
-    apple: '/naltech-logo.png',
+    icon: '/naltech-icon.png',
+    shortcut: '/naltech-icon.png',
+    apple: '/naltech-icon.png',
   },
   openGraph: {
     type: 'website',
@@ -59,9 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" data-scroll-behavior="smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         {children}
       </body>
     </html>
