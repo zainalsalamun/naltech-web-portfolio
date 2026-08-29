@@ -15,6 +15,7 @@ const projects = [
   { slug: 'nalafood', type: 'Food Delivery', name: 'NalaFood', result: 'Online food ordering experience', theme: 'food', number: '09' },
   { slug: 'nalahijab', type: 'Modest Fashion', name: 'NalaHijab', result: 'Hijab brand landing experience', theme: 'hijab', number: '10' },
   { slug: 'nalasablon', type: 'Printing & Packaging', name: 'NalaSablon', result: 'Screen printing & packaging experience', theme: 'sablon', number: '11' },
+  { slug: 'nalajewels', type: 'Fine Jewelry', name: 'NalaJewels', result: 'Luxury jewelry brand experience', theme: 'jewels', number: '12' },
 ];
 
 const services = [
