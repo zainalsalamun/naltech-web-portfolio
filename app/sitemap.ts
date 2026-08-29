@@ -100,6 +100,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/candi/candi-prambanan.jpg`, `${siteUrl}/candi/candi-plaosan.jpg`, `${siteUrl}/candi/candi-kalasan.jpg`],
   },
+  {
+    path: '/demo/nalaedu',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/learning/hero-student.jpg`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
