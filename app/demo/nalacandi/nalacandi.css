@@ -1,0 +1,1448 @@
+/* =========================================================
+   NalaCandi Heritage — Temple Tourism & Online Ticketing
+   Designed & Engineered by Naltech Studio
+   ========================================================= */
+
+:root {
+  --nc-terra: #c47a46;
+  --nc-terra-dark: #a45d2e;
+  --nc-terra-light: #e5a477;
+  --nc-terra-soft: #fbf3ec;
+  
+  --nc-forest: #1a362b;
+  --nc-forest-surface: #23493b;
+  --nc-forest-border: #326351;
+  
+  --nc-bg: #faf7f2;
+  --nc-surface: #ffffff;
+  --nc-border: rgba(38, 34, 32, 0.1);
+  --nc-ink: #1c1917;
+  --nc-muted: #665e58;
+  --nc-dim: #998f88;
+  
+  --nc-radius-sm: 8px;
+  --nc-radius-md: 16px;
+  --nc-radius-lg: 24px;
+  --nc-radius-xl: 32px;
+}
+
+.nc-page {
+  background-color: var(--nc-bg);
+  color: var(--nc-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.nc-wrap {
+  width: min(1240px, calc(100% - 6vw));
+  margin-inline: auto;
+}
+
+/* 1. Promo Ribbon */
+.nc-promo-ribbon {
+  background: var(--nc-forest);
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(196, 122, 70, 0.25);
+}
+
+.nc-ribbon-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.nc-ribbon-badge {
+  background: var(--nc-terra);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.04em;
+}
+
+.nc-ribbon-content p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.nc-ribbon-content code {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: var(--nc-terra-light);
+}
+
+.nc-ribbon-link {
+  color: var(--nc-terra-light);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+}
+
+.nc-ribbon-link:hover {
+  text-decoration: underline;
+}
+
+/* 2. Top Demo Bar */
+.nc-demo-bar {
+  background: #11221b;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nc-demo-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nc-back-link {
+  color: var(--nc-terra-light);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nc-back-link:hover {
+  text-decoration: underline;
+}
+
+.nc-demo-inner span {
+  color: #7b9489;
+}
+
+/* 3. Header */
+.nc-header {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(38, 34, 32, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  box-shadow: 0 4px 20px rgba(38, 34, 32, 0.04);
+}
+
+.nc-header-inner {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--nc-ink);
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.nc-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--nc-forest);
+  color: var(--nc-terra);
+  display: grid;
+  place-items: center;
+}
+
+.nc-logo-text strong {
+  color: var(--nc-terra-dark);
+}
+
+.nc-logo-text small {
+  font-size: 11px;
+  color: var(--nc-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.nc-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nc-nav a {
+  color: #4a423d;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.nc-nav a:hover {
+  color: var(--nc-terra-dark);
+}
+
+.nc-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nc-btn-helpdesk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--nc-ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--nc-border);
+  transition: all 0.2s;
+}
+
+.nc-btn-helpdesk:hover {
+  border-color: var(--nc-terra);
+  color: var(--nc-terra-dark);
+}
+
+.nc-btn-buy-ticket {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--nc-forest);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 850;
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.nc-btn-buy-ticket:hover {
+  background: var(--nc-forest-surface);
+  transform: translateY(-1px);
+}
+
+/* 4. Hero Section */
+.nc-hero {
+  padding: 50px 0 70px;
+}
+
+.nc-hero-copy {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.nc-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--nc-terra-soft);
+  color: var(--nc-terra-dark);
+  border: 1px solid rgba(196, 122, 70, 0.3);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.nc-icon-gold {
+  color: var(--nc-terra);
+}
+
+.nc-hero-copy h1 {
+  font-size: clamp(38px, 4.8vw, 64px);
+  font-weight: 950;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+  color: var(--nc-ink);
+}
+
+.nc-hero h1 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--nc-terra-dark);
+}
+
+.nc-hero-sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--nc-muted);
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+/* 5. CandiSelectorWidget Styles */
+.ncw-container {
+  display: grid;
+  gap: 48px;
+}
+
+/* Footage Card */
+.ncw-footage-card {
+  background: #111e18;
+  border-radius: var(--nc-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(26, 54, 43, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ncw-footage-media {
+  position: relative;
+  height: min(60vh, 520px);
+  overflow: hidden;
+}
+
+.ncw-footage-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ncw-footage-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.75) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 28px;
+  color: #ffffff;
+}
+
+.ncw-footage-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ncw-badge-live {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ncw-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.ncw-btn-mute {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 750;
+  transition: background 0.2s;
+}
+
+.ncw-btn-mute:hover {
+  background: rgba(196, 122, 70, 0.4);
+}
+
+.ncw-footage-center {
+  align-self: center;
+}
+
+.ncw-btn-play-center {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(196, 122, 70, 0.9);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.ncw-btn-play-center:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+  color: var(--nc-terra-dark);
+}
+
+.ncw-footage-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ncw-footage-kicker {
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--nc-terra-light);
+  letter-spacing: 0.08em;
+}
+
+.ncw-footage-bottom h3 {
+  margin: 4px 0 6px;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.ncw-footage-bottom small {
+  font-size: 13px;
+  color: #cfd8d3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ncw-timecode {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--nc-terra-light);
+}
+
+/* Temple Selection Column (Kolom Pilihan Candi) */
+.ncw-selection-section {
+  margin-top: 20px;
+}
+
+.ncw-section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 32px;
+}
+
+.ncw-badge-sub {
+  color: var(--nc-terra-dark);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ncw-section-header h2 {
+  font-size: clamp(30px, 3.6vw, 48px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+  color: var(--nc-ink);
+}
+
+.ncw-section-header h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--nc-terra-dark);
+}
+
+.ncw-section-header p {
+  color: var(--nc-muted);
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Candi Tabs */
+.ncw-candi-tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 4px 18px 4px;
+  margin-bottom: 24px;
+  scrollbar-width: none;
+}
+
+.ncw-candi-tab-btn {
+  background: #ffffff;
+  border: 1.5px solid var(--nc-border);
+  border-radius: var(--nc-radius-md);
+  padding: 14px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 220px;
+}
+
+.ncw-tab-text strong {
+  display: block;
+  font-size: 15px;
+  color: var(--nc-ink);
+}
+
+.ncw-tab-text small {
+  display: block;
+  font-size: 11px;
+  color: var(--nc-muted);
+}
+
+.ncw-candi-tab-btn:hover {
+  border-color: var(--nc-terra);
+  background: var(--nc-terra-soft);
+}
+
+.ncw-candi-tab-btn.active {
+  background: var(--nc-forest);
+  border-color: var(--nc-forest);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(26, 54, 43, 0.18);
+}
+
+.ncw-candi-tab-btn.active strong {
+  color: #ffffff;
+}
+
+.ncw-candi-tab-btn.active small {
+  color: var(--nc-terra-light);
+}
+
+.ncw-candi-tab-btn.active svg {
+  color: var(--nc-terra);
+}
+
+/* Selected Candi Detail & Booking Card */
+.ncw-selected-card {
+  background: #ffffff;
+  border: 1px solid var(--nc-border);
+  border-radius: var(--nc-radius-xl);
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(38, 34, 32, 0.06);
+}
+
+.ncw-card-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+}
+
+.ncw-candi-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--nc-terra-soft);
+  color: var(--nc-terra-dark);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 850;
+  margin-bottom: 12px;
+}
+
+.ncw-candi-info-col h3 {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 0 0 6px;
+  color: var(--nc-ink);
+}
+
+.ncw-tagline {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--nc-terra-dark);
+  margin: 0 0 18px;
+}
+
+.ncw-quick-specs {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #fcf9f5;
+  border-radius: var(--nc-radius-md);
+  border: 1px solid #f0e8df;
+}
+
+.ncw-spec-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--nc-ink);
+}
+
+.ncw-icon-pin {
+  color: var(--nc-terra-dark);
+  flex-shrink: 0;
+}
+
+.ncw-icon-clock {
+  color: var(--nc-forest);
+  flex-shrink: 0;
+}
+
+.ncw-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--nc-muted);
+  margin: 0 0 24px;
+}
+
+.ncw-highlights-box strong {
+  display: block;
+  font-size: 13px;
+  color: var(--nc-ink);
+  margin-bottom: 10px;
+}
+
+.ncw-hl-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ncw-hl-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--nc-muted);
+}
+
+.ncw-icon-check {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Booking Form */
+.ncw-form-box {
+  background: #fbf9f6;
+  border: 1.5px solid #ece4dc;
+  border-radius: var(--nc-radius-lg);
+  padding: 28px;
+}
+
+.ncw-form-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ebdcd0;
+  margin-bottom: 20px;
+}
+
+.ncw-form-head h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--nc-ink);
+}
+
+.ncw-form-head small {
+  display: block;
+  font-size: 11px;
+  color: var(--nc-muted);
+}
+
+.ncw-field {
+  margin-bottom: 18px;
+}
+
+.ncw-field label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--nc-ink);
+  margin-bottom: 8px;
+}
+
+.ncw-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--nc-radius-sm);
+  border: 1px solid #dcd2c7;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffffff;
+  outline: none;
+}
+
+.ncw-ticket-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.ncw-type-btn {
+  background: #ffffff;
+  border: 1px solid #dcd2c7;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.ncw-type-btn strong {
+  display: block;
+  font-size: 12px;
+  color: var(--nc-ink);
+}
+
+.ncw-type-btn small {
+  font-size: 10px;
+  color: var(--nc-muted);
+}
+
+.ncw-type-btn.active {
+  background: var(--nc-terra-soft);
+  border-color: var(--nc-terra);
+}
+
+.ncw-type-btn.active strong {
+  color: var(--nc-terra-dark);
+}
+
+.ncw-qty-row {
+  display: grid;
+  gap: 10px;
+}
+
+.ncw-qty-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e2d9cf;
+}
+
+.ncw-qty-item strong {
+  display: block;
+  font-size: 13px;
+  color: var(--nc-ink);
+}
+
+.ncw-qty-item small {
+  font-size: 11px;
+  color: var(--nc-terra-dark);
+  font-weight: 700;
+}
+
+.ncw-counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ncw-counter button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f2ece4;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+
+.ncw-counter button:hover {
+  background: var(--nc-terra);
+  color: #fff;
+}
+
+.ncw-counter span {
+  font-size: 14px;
+  font-weight: 850;
+  min-width: 18px;
+  text-align: center;
+}
+
+.ncw-total-box {
+  border-top: 1px solid #ebdcd0;
+  padding-top: 18px;
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.ncw-total-price small {
+  display: block;
+  font-size: 11px;
+  color: var(--nc-muted);
+}
+
+.ncw-total-price strong {
+  font-size: 24px;
+  color: var(--nc-forest);
+  font-weight: 950;
+}
+
+.ncw-btn-submit {
+  background: var(--nc-forest);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 850;
+  padding: 14px 20px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(26, 54, 43, 0.25);
+  transition: all 0.2s;
+}
+
+.ncw-btn-submit:hover {
+  background: var(--nc-terra-dark);
+  transform: translateY(-1px);
+}
+
+.ncw-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--nc-muted);
+  margin-top: 10px;
+}
+
+/* 6. Guide Section */
+.nc-guide-section {
+  padding-block: 80px 60px;
+}
+
+.nc-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.nc-section-head.center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nc-section-head.center p {
+  margin: 10px 0 0;
+  color: var(--nc-muted);
+  font-size: 15px;
+  max-width: 580px;
+}
+
+.nc-badge-tag {
+  color: var(--nc-terra-dark);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.nc-section-head h2 {
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: var(--nc-ink);
+}
+
+.nc-section-head h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--nc-terra-dark);
+}
+
+.nc-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.nc-guide-card {
+  background: #ffffff;
+  border: 1px solid var(--nc-border);
+  padding: 32px 24px;
+  border-radius: var(--nc-radius-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s;
+}
+
+.nc-guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(196, 122, 70, 0.15);
+}
+
+.nc-g-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--nc-terra-soft);
+  color: var(--nc-terra-dark);
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+}
+
+.nc-guide-card h3 {
+  font-size: 18px;
+  font-weight: 850;
+  margin: 0 0 8px;
+  color: var(--nc-ink);
+}
+
+.nc-guide-card p {
+  color: var(--nc-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 7. Ramayana Section */
+.nc-ramayana-section {
+  padding-block: 80px;
+  background: var(--nc-forest);
+  color: #ffffff;
+}
+
+.nc-ramayana-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.nc-ramayana-copy h2 {
+  font-size: clamp(32px, 3.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.nc-ramayana-copy h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--nc-terra-light);
+}
+
+.nc-ramayana-copy p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #d1ddd7;
+  margin: 0 0 24px;
+}
+
+.nc-ramayana-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: grid;
+  gap: 12px;
+}
+
+.nc-ramayana-specs li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.nc-ramayana-actions .nc-btn-primary {
+  background: var(--nc-terra);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 850;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(196, 122, 70, 0.4);
+  transition: background 0.2s;
+}
+
+.nc-ramayana-actions .nc-btn-primary:hover {
+  background: var(--nc-terra-dark);
+}
+
+.nc-ramayana-visual {
+  position: relative;
+  height: 380px;
+  border-radius: var(--nc-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.nc-ramayana-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nc-ramayana-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 8. 4-Steps Workflow */
+.nc-steps-section {
+  padding-block: 90px 70px;
+}
+
+.nc-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.nc-step-card {
+  background: #ffffff;
+  border: 1px solid var(--nc-border);
+  border-radius: var(--nc-radius-lg);
+  padding: 30px 24px;
+  position: relative;
+}
+
+.nc-step-number {
+  font-size: 28px;
+  font-weight: 950;
+  color: var(--nc-terra-dark);
+  display: block;
+  margin-bottom: 14px;
+  font-family: Georgia, serif;
+}
+
+.nc-step-card h3 {
+  font-size: 17px;
+  font-weight: 850;
+  margin: 0 0 8px;
+  color: var(--nc-ink);
+}
+
+.nc-step-card p {
+  color: var(--nc-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 9. Reviews */
+.nc-reviews-section {
+  padding-block: 60px 80px;
+}
+
+.nc-review-card {
+  background: linear-gradient(135deg, #1a362b 0%, #24493b 100%);
+  color: #ffffff;
+  border-radius: var(--nc-radius-xl);
+  padding: 55px;
+  text-align: center;
+  position: relative;
+}
+
+.nc-quote-mark {
+  font-size: 90px;
+  font-family: Georgia, serif;
+  color: var(--nc-terra-light);
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.nc-review-card blockquote {
+  max-width: 900px;
+  margin: 20px auto 28px;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+.nc-rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.nc-reviewer strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.nc-reviewer small {
+  color: #bed0c8;
+  font-size: 13px;
+}
+
+/* 10. FAQ */
+.nc-faq-section {
+  padding-block: 60px 90px;
+}
+
+.nc-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 960px;
+}
+
+.nc-faq-list details {
+  background: #ffffff;
+  border: 1.5px solid #ece4dc;
+  border-radius: var(--nc-radius-md);
+  padding: 20px 26px;
+  transition: border-color 0.2s;
+}
+
+.nc-faq-list details[open] {
+  border-color: var(--nc-forest);
+  box-shadow: 0 6px 20px rgba(26, 54, 43, 0.08);
+}
+
+.nc-faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 850;
+  color: var(--nc-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.nc-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.nc-faq-list summary span {
+  color: var(--nc-terra-dark);
+  margin-right: 14px;
+  font-size: 14px;
+}
+
+.nc-faq-list summary b {
+  font-size: 22px;
+  color: #998f88;
+  transition: transform 0.2s;
+}
+
+.nc-faq-list details[open] summary b {
+  transform: rotate(45deg);
+  color: var(--nc-forest);
+}
+
+.nc-faq-list details p {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #f2ebe3;
+  color: var(--nc-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.nc-link-more {
+  color: var(--nc-terra-dark);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--nc-terra-dark);
+}
+
+/* 11. Final CTA */
+.nc-cta-section {
+  padding-bottom: 90px;
+}
+
+.nc-cta-card {
+  background: linear-gradient(135deg, #11221b 0%, #1e3a2f 100%);
+  color: #ffffff;
+  border-radius: var(--nc-radius-xl);
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(26, 54, 43, 0.25);
+}
+
+.nc-cta-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196, 122, 70, 0.35) 0%, transparent 70%);
+  right: -50px;
+  bottom: -50px;
+}
+
+.nc-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.nc-cta-tag {
+  color: var(--nc-terra-light);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.nc-cta-inner h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 950;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.nc-cta-inner h2 em {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--nc-terra-light);
+}
+
+.nc-cta-inner p {
+  color: #d1ddd7;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.nc-cta-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nc-cta-buttons .nc-btn-primary {
+  background: var(--nc-terra);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 850;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nc-btn-secondary {
+  background: #ffffff;
+  color: var(--nc-ink);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 12. Footer */
+.nc-footer {
+  border-top: 1px solid var(--nc-border);
+  padding-block: 70px 40px;
+}
+
+.nc-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.nc-footer-col.brand p {
+  color: var(--nc-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin-top: 14px;
+  max-width: 300px;
+}
+
+.nc-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nc-footer-col strong {
+  font-size: 14px;
+  color: var(--nc-ink);
+  margin-bottom: 6px;
+}
+
+.nc-footer-col a {
+  color: var(--nc-muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.nc-footer-col a:hover {
+  color: var(--nc-terra-dark);
+}
+
+.nc-footer-bottom {
+  border-top: 1px solid #ede6de;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #8c7f76;
+  font-size: 12px;
+}
+
+.nc-footer-bottom a {
+  color: var(--nc-ink);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 13. Responsive */
+@media (max-width: 900px) {
+  .nc-header-inner {
+    height: 72px;
+  }
+
+  .nc-nav {
+    display: none;
+  }
+
+  .ncw-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nc-ramayana-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nc-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nc-footer-col.brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .nc-promo-ribbon {
+    font-size: 11px;
+  }
+
+  .nc-hero {
+    padding: 35px 0 50px;
+  }
+
+  .ncw-footage-media {
+    height: 420px;
+  }
+
+  .ncw-selected-card {
+    padding: 24px 18px;
+  }
+
+  .ncw-ticket-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nc-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .nc-footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .nc-review-card {
+    padding: 35px 20px;
+  }
+
+  .nc-cta-card {
+    padding: 40px 24px;
+  }
+}

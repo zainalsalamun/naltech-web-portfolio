@@ -20,6 +20,7 @@ const projects = [
   { slug: 'nalasablon', type: 'Printing & Packaging', name: 'NalaSablon', result: 'Screen printing & packaging experience', theme: 'sablon', number: '11' },
   { slug: 'nalajewels', type: 'Fine Jewelry', name: 'NalaJewels', result: 'Luxury jewelry brand experience', theme: 'jewels', number: '12' },
   { slug: 'nalacatering', type: 'Wedding & Catering', name: 'NalaCatering', result: 'Luxury wedding & catering experience', theme: 'catering', number: '13' },
+  { slug: 'nalacandi', type: 'Heritage Tourism', name: 'NalaCandi', result: 'Temple heritage booking experience', theme: 'candi', number: '14' },
 ];
 
 const services = [
