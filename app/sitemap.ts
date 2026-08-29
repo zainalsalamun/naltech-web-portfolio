@@ -112,6 +112,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/invest/hero-chart.jpg`],
   },
+  {
+    path: '/demo/nalacode',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/code/hero-developer.jpg`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
