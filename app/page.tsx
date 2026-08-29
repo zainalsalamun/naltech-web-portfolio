@@ -27,6 +27,7 @@ const projects = [
   { slug: 'nalacatering', type: 'Wedding & Catering', name: 'NalaCatering', result: 'Luxury wedding & catering experience', theme: 'catering', number: '13' },
   { slug: 'nalacandi', type: 'Heritage Tourism', name: 'NalaCandi', result: 'Temple heritage booking experience', theme: 'candi', number: '14' },
   { slug: 'nalaedu', type: 'EdTech & E-Learning', name: 'NalaEdu', result: 'Interactive learning app experience', theme: 'edu', number: '15' },
+  { slug: 'nalainvest', type: 'Fintech & Investment', name: 'NalaInvest', result: 'Mutual fund marketplace experience', theme: 'invest', number: '16' },
 ];
 
 const services = [
