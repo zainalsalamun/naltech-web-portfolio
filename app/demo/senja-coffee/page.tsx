@@ -1,18 +1,86 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import './senja.css';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
-  title: 'Senja Coffee — Coffee, Eatery & Community',
-  description: 'Ritual kecil, rasa yang tinggal. Contoh website coffee shop oleh Naltech.',
+  title: 'Senja Coffee — Coffee, Eatery & Community by Naltech',
+  description: 'Ritual kecil, rasa yang tinggal. Contoh website coffee shop & eatery tropis yang hangat dan estetik karya Naltech Studio.',
   alternates: { canonical: '/demo/senja-coffee' },
-  openGraph: { title: 'Senja Coffee — Coffee, Eatery & Community', description: 'Ritual kecil, rasa yang tinggal.', images: [new URL('/senja/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
-  twitter: { title: 'Senja Coffee — Coffee, Eatery & Community', description: 'Ritual kecil, rasa yang tinggal.', images: [new URL('/senja/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  openGraph: {
+    title: 'Senja Coffee — Coffee, Eatery & Community by Naltech',
+    description: 'Ritual kecil, rasa yang tinggal. Contoh website coffee shop karya Naltech Studio.',
+    images: [{ url: `${siteUrl}/senja/hero.jpg`, width: 1200, height: 630, alt: 'Senja Coffee Shop' }],
+  },
+  twitter: {
+    title: 'Senja Coffee — Coffee, Eatery & Community by Naltech',
+    description: 'Ritual kecil, rasa yang tinggal. Contoh website coffee shop karya Naltech Studio.',
+    images: [`${siteUrl}/senja/hero.jpg`],
+  },
 };
+
+const senjaStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CafeOrCoffeeShop',
+    name: 'Senja Coffee (Concept by Naltech)',
+    description: 'Konsep website coffee shop dan community space karya Naltech Studio.',
+    url: `${siteUrl}/demo/senja-coffee`,
+    image: `${siteUrl}/senja/hero.jpg`,
+    servesCuisine: 'Indonesian Coffee, Pastry & Warm Food',
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Jl. Cipete Raya No. 18',
+      addressLocality: 'Jakarta Selatan',
+      postalCode: '12410',
+      addressCountry: 'ID',
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '07:00',
+        closes: '22:00',
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Senja Coffee',
+        item: `${siteUrl}/demo/senja-coffee`,
+      },
+    ],
+  },
+];
 
 export default function SenjaCoffeePage() {
   return (
     <main className="sj-page">
-      <div className="sj-demo"><a href="/">← Kembali ke portfolio</a><span>Concept project by Naltech</span></div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(senjaStructuredData) }}
+      />
+      <div className="sj-demo"><Link href="/">← Kembali ke portfolio</Link><span>Concept project by Naltech</span></div>
+
       <header className="sj-header">
         <a className="sj-logo" href="#top">SENJA<span>●</span></a>
         <nav><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#origin">Biji kopi</a><a href="#visit">Kunjungi</a></nav>
@@ -70,7 +138,8 @@ export default function SenjaCoffeePage() {
         <div className="sj-visit-card"><div><small>LOKASI</small><p>Jl. Cipete Raya No. 18<br />Jakarta Selatan 12410</p></div><div><small>JAM BUKA</small><p>Setiap hari<br />07.00—22.00</p></div><div><small>KONTAK</small><p>halo@senjacoffee.id<br />+62 812 2020 1919</p></div><a href="mailto:naltechai@gmail.com">Reservasi meja <span>↗</span></a><div className="sj-visit-sun"><i /><span>S</span></div></div>
       </section>
 
-      <footer className="sj-footer sj-wrap"><a className="sj-logo" href="#top">SENJA<span>●</span></a><p>Coffee · Eatery · Community<br />Dari pagi sampai senja.</p><div><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#origin">Biji kopi</a><a href="#visit">Kunjungi</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Senja Coffee · Concept website by Naltech Studio · Bukan kedai aktif</small></footer>
+      <footer className="sj-footer sj-wrap"><a className="sj-logo" href="#top">SENJA<span>●</span></a><p>Coffee · Eatery · Community<br />Dari pagi sampai senja.</p><div><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#origin">Biji kopi</a><a href="#visit">Kunjungi</a></div><div><Link href="/">Portfolio Naltech</Link><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Senja Coffee · Concept website by Naltech Studio · Bukan kedai aktif</small></footer>
     </main>
   );
 }
+

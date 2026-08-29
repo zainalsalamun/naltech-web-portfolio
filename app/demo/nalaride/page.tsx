@@ -1,17 +1,74 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
 
 export const metadata: Metadata = {
   title: 'NalaRide — Vehicle Rental Concept by Naltech',
-  description: 'Contoh landing page rental mobil dan motor yang dirancang oleh Naltech.',
+  description: 'Contoh landing page rental mobil dan motor terpercaya yang dirancang oleh Naltech Studio. Desain responsif, filter armada cerdas, dan sistem booking intuitif.',
   alternates: { canonical: '/demo/nalaride' },
-  openGraph: { title: 'NalaRide — Vehicle Rental Concept by Naltech', description: 'Jalan lebih jauh, tanpa repot.', images: [new URL('/rental/hero-suv.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
-  twitter: { title: 'NalaRide — Vehicle Rental Concept by Naltech', description: 'Jalan lebih jauh, tanpa repot.', images: [new URL('/rental/hero-suv.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  openGraph: {
+    title: 'NalaRide — Vehicle Rental Concept by Naltech',
+    description: 'Jalan lebih jauh, tanpa repot. Contoh landing page rental kendaraan karya Naltech Studio.',
+    images: [{ url: `${siteUrl}/rental/hero-suv.jpg`, width: 1200, height: 630, alt: 'NalaRide Vehicle Rental' }],
+  },
+  twitter: {
+    title: 'NalaRide — Vehicle Rental Concept by Naltech',
+    description: 'Jalan lebih jauh, tanpa repot. Contoh landing page rental kendaraan karya Naltech Studio.',
+    images: [`${siteUrl}/rental/hero-suv.jpg`],
+  },
 };
+
+const rideStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AutoRental',
+    name: 'NalaRide (Concept by Naltech)',
+    description: 'Contoh landing page rental kendaraan modern karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalaride`,
+    image: `${siteUrl}/rental/hero-suv.jpg`,
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaRide',
+        item: `${siteUrl}/demo/nalaride`,
+      },
+    ],
+  },
+];
 
 export default function NalaRidePage() {
   return (
     <main className="ride-page">
-      <div className="ride-demo"><a href="/">← Kembali ke portfolio</a><span>Concept project by Naltech</span></div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(rideStructuredData) }}
+      />
+      <div className="ride-demo"><Link href="/">← Kembali ke portfolio</Link><span>Concept project by Naltech</span></div>
+
       <header className="ride-header">
         <a className="ride-logo" href="#top"><span>NR</span>NalaRide</a>
         <nav><a href="#fleet">Armada</a><a href="#benefits">Keunggulan</a><a href="#how">Cara sewa</a><a href="#faq">FAQ</a></nav>
@@ -88,7 +145,8 @@ export default function NalaRidePage() {
 
       <section className="ride-cta ride-wrap"><div><p>Concept website · Naltech Studio</p><h2>Kendaraan siap.<br /><em>Kamu mau ke mana?</em></h2><a href="#booking">Cari kendaraan <span>↗</span></a></div><div className="ride-cta-road"><i /><i /><span>NR</span></div></section>
 
-      <footer className="ride-footer ride-wrap"><a className="ride-logo" href="#top"><span>NR</span>NalaRide</a><p>Concept rental website by Naltech Studio.<br />Bukan layanan rental kendaraan aktif.</p><div><a href="#fleet">Armada</a><a href="#benefits">Keunggulan</a><a href="#how">Cara sewa</a><a href="#faq">FAQ</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
+      <footer className="ride-footer ride-wrap"><a className="ride-logo" href="#top"><span>NR</span>NalaRide</a><p>Concept rental website by Naltech Studio.<br />Bukan layanan rental kendaraan aktif.</p><div><a href="#fleet">Armada</a><a href="#benefits">Keunggulan</a><a href="#how">Cara sewa</a><a href="#faq">FAQ</a></div><div><Link href="/">Portfolio Naltech</Link><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
     </main>
   );
 }
+

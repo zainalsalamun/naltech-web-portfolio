@@ -16,25 +16,73 @@ import {
   MessageCircle,
 } from 'lucide-react';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaHijab — Sentuhan Lembut Hijab Premium & Modest Fashion by Naltech',
-  description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal dirancang oleh Naltech.',
+  description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal dirancang oleh Naltech Studio.',
   alternates: { canonical: '/demo/nalahijab' },
   openGraph: {
     title: 'NalaHijab — Sentuhan Lembut Hijab Premium & Modest Fashion by Naltech',
     description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal.',
-    images: [new URL('/hijab/hero-model.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [{ url: `${siteUrl}/hijab/hero-model.jpg`, width: 1200, height: 630, alt: 'NalaHijab Modest Fashion' }],
   },
   twitter: {
     title: 'NalaHijab — Sentuhan Lembut Hijab Premium & Modest Fashion by Naltech',
     description: 'Sentuhan lembut hijab premium, anggun di setiap cerita cantikmu. Koleksi bergo pet, pashmina instan, pashmina pesta, hingga segi empat voal.',
-    images: [new URL('/hijab/hero-model.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [`${siteUrl}/hijab/hero-model.jpg`],
   },
 };
+
+const hijabStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ClothingStore',
+    name: 'NalaHijab (Concept by Naltech)',
+    description: 'Koleksi hijab premium dan busana modest wanita karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalahijab`,
+    image: `${siteUrl}/hijab/hero-model.jpg`,
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Bandung',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaHijab',
+        item: `${siteUrl}/demo/nalahijab`,
+      },
+    ],
+  },
+];
 
 export default function NalaHijabPage() {
   return (
     <main className="nh-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hijabStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="nh-promo-ribbon">
         <div className="nh-wrap nh-ribbon-content">

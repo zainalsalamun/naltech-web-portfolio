@@ -1,18 +1,92 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import './karsa.css';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
 
 export const metadata: Metadata = {
   title: 'Karsa Coffee — Specialty Coffee Concept by Naltech',
-  description: 'Contoh landing page coffee shop hangat dan modern yang dirancang oleh Naltech.',
+  description: 'Contoh landing page coffee shop hangat dan modern yang dirancang oleh Naltech Studio. Menghadirkan identitas brand kedai kopi specialty Indonesia.',
   alternates: { canonical: '/demo/karsa-coffee' },
-  openGraph: { title: 'Karsa Coffee — Specialty Coffee Concept by Naltech', description: 'Kopi baik, ruang hangat, cerita yang tinggal.', images: [new URL('/coffee/hero-cafe.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
-  twitter: { title: 'Karsa Coffee — Specialty Coffee Concept by Naltech', description: 'Kopi baik, ruang hangat, cerita yang tinggal.', images: [new URL('/coffee/hero-cafe.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  openGraph: {
+    title: 'Karsa Coffee — Specialty Coffee Concept by Naltech',
+    description: 'Kopi baik, ruang hangat, cerita yang tinggal. Contoh website coffee shop karya Naltech Studio.',
+    images: [{ url: `${siteUrl}/coffee/hero-cafe.jpg`, width: 1200, height: 630, alt: 'Karsa Coffee Specialty Shop' }],
+  },
+  twitter: {
+    title: 'Karsa Coffee — Specialty Coffee Concept by Naltech',
+    description: 'Kopi baik, ruang hangat, cerita yang tinggal. Contoh website coffee shop karya Naltech Studio.',
+    images: [`${siteUrl}/coffee/hero-cafe.jpg`],
+  },
 };
+
+const karsaStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CafeOrCoffeeShop',
+    name: 'Karsa Coffee (Concept by Naltech)',
+    description: 'Specialty coffee shop concept website designed by Naltech Studio.',
+    url: `${siteUrl}/demo/karsa-coffee`,
+    image: `${siteUrl}/coffee/hero-cafe.jpg`,
+    servesCuisine: 'Indonesian Specialty Coffee, Fresh Pastry',
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Jl. Kemang Raya No. 21',
+      addressLocality: 'Jakarta Selatan',
+      postalCode: '12730',
+      addressCountry: 'ID',
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '07:00',
+        closes: '22:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday', 'Sunday'],
+        opens: '08:00',
+        closes: '23:00',
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Karsa Coffee',
+        item: `${siteUrl}/demo/karsa-coffee`,
+      },
+    ],
+  },
+];
 
 export default function KarsaCoffeePage() {
   return (
     <main className="kc-page">
-      <div className="kc-demo"><a href="/">← Kembali ke portfolio</a><span>Concept project by Naltech</span></div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(karsaStructuredData) }}
+      />
+      <div className="kc-demo"><Link href="/">← Kembali ke portfolio</Link><span>Concept project by Naltech</span></div>
+
       <header className="kc-header">
         <a className="kc-logo" href="#top"><span>K</span>KARSA</a>
         <nav><a href="#menu">Menu</a><a href="#story">Cerita kami</a><a href="#space">Kedai</a><a href="#visit">Kunjungi</a></nav>
@@ -75,7 +149,8 @@ export default function KarsaCoffeePage() {
         <div className="kc-wrap"><header><p><span>05</span> Datang & berjumpa</p><h2>Satu meja<br />menunggumu.</h2></header><div className="kc-visit-info"><article><small>Alamat</small><p>Jl. Kemang Raya No. 21<br />Jakarta Selatan 12730</p><a href="https://maps.google.com" target="_blank" rel="noreferrer">Buka peta ↗</a></article><article><small>Jam buka</small><p>Senin—Jumat · 07.00—22.00<br />Sabtu—Minggu · 08.00—23.00</p></article><article><small>Kontak</small><p>hello@karsacoffee.id<br />+62 812 3456 7890</p><a href="mailto:naltechai@gmail.com">Reservasi meja ↗</a></article></div></div>
       </section>
 
-      <footer className="kc-footer kc-wrap"><a className="kc-logo" href="#top"><span>K</span>KARSA</a><p>Specialty coffee, warm space,<br />and stories worth sharing.</p><div><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#space">Kedai</a><a href="#visit">Kunjungi</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Karsa Coffee · Concept website by Naltech Studio · Bukan kedai aktif</small></footer>
+      <footer className="kc-footer kc-wrap"><a className="kc-logo" href="#top"><span>K</span>KARSA</a><p>Specialty coffee, warm space,<br />and stories worth sharing.</p><div><a href="#menu">Menu</a><a href="#story">Cerita</a><a href="#space">Kedai</a><a href="#visit">Kunjungi</a></div><div><Link href="/">Portfolio Naltech</Link><a href="mailto:naltechai@gmail.com">Buat project serupa</a></div><small>© 2026 Karsa Coffee · Concept website by Naltech Studio · Bukan kedai aktif</small></footer>
     </main>
   );
 }
+

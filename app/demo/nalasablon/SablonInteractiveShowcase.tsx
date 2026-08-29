@@ -192,7 +192,8 @@ export default function SablonInteractiveShowcase() {
                 </div>
               </div>
 
-              <blockquote className="ns-marquee-quote">"{item.quote}"</blockquote>
+              <blockquote className="ns-marquee-quote">&ldquo;{item.quote}&rdquo;</blockquote>
+
 
               <div className="ns-marquee-footer">
                 <div>

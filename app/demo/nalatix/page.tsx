@@ -3,25 +3,73 @@ import Link from 'next/link';
 import './nalatix.css';
 import TravelSearchWidget from './TravelSearchWidget';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaTiket — Platform Tiket Pesawat, Hotel, Kereta & Wahana by Naltech',
-  description: 'Mau ke mana? Semua tiket ada di sini. Contoh landing page penjualan tiket online terlengkap yang dirancang oleh Naltech.',
+  description: 'Mau ke mana? Semua tiket ada di sini. Contoh landing page platform travel dan penjualan tiket online terlengkap karya Naltech Studio.',
   alternates: { canonical: '/demo/nalatix' },
   openGraph: {
     title: 'NalaTiket — Platform Tiket Pesawat, Hotel, Kereta & Wahana by Naltech',
     description: 'Pesan tiket pesawat, hotel, kereta api, wahana, hingga event online dengan jaminan harga termurah.',
-    images: [new URL('/travel/flight-sky.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [{ url: `${siteUrl}/travel/flight-sky.jpg`, width: 1200, height: 630, alt: 'NalaTiket Travel Platform' }],
   },
   twitter: {
     title: 'NalaTiket — Platform Tiket Pesawat, Hotel, Kereta & Wahana by Naltech',
     description: 'Pesan tiket pesawat, hotel, kereta api, wahana, hingga event online dengan jaminan harga termurah.',
-    images: [new URL('/travel/flight-sky.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [`${siteUrl}/travel/flight-sky.jpg`],
   },
 };
+
+const tiketStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TravelAgency',
+    name: 'NalaTiket (Concept by Naltech)',
+    description: 'Platform online ticketing pesawat, hotel, kereta, dan wahana wisata karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalatix`,
+    image: `${siteUrl}/travel/flight-sky.jpg`,
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaTiket',
+        item: `${siteUrl}/demo/nalatix`,
+      },
+    ],
+  },
+];
 
 export default function NalaTiketPage() {
   return (
     <main className="tk-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tiketStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="tk-promo-ribbon">
         <div className="tk-wrap tk-ribbon-content">

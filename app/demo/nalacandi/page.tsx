@@ -21,24 +21,73 @@ import {
   QrCode,
 } from 'lucide-react';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaCandi Heritage — Wisata Candi Nusantara (Prambanan, Plaosan, Kalasan) by Naltech',
   description: 'Eksplorasi keagungan candi nusantara: Candi Prambanan, Candi Plaosan, Candi Kalasan, dan Candi Ratu Boko. Pemesanan e-tiket online cepat, resmi, dan mudah bagi semua kalangan.',
+  alternates: {
+    canonical: '/demo/nalacandi',
+  },
   openGraph: {
     title: 'NalaCandi Heritage — Wisata Candi Nusantara by Naltech',
     description: 'Pemesanan tiket resmi candi nusantara dengan panduan video footage dan proses mudah bagi orang awam.',
-    images: [new URL('/candi/candi-prambanan.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [{ url: `${siteUrl}/candi/candi-prambanan.jpg`, width: 1200, height: 630, alt: 'NalaCandi Heritage - Wisata Candi Nusantara' }],
   },
   twitter: {
     title: 'NalaCandi Heritage — Wisata Candi Nusantara by Naltech',
     description: 'Pemesanan tiket resmi candi nusantara dengan panduan video footage dan proses mudah bagi orang awam.',
-    images: [new URL('/candi/candi-prambanan.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000')],
+    images: [`${siteUrl}/candi/candi-prambanan.jpg`],
   },
 };
+
+const candiStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'NalaCandi Heritage — Wisata Candi Nusantara by Naltech',
+    description: 'Contoh website booking tiket wisata candi nusantara dirancang oleh Naltech Studio.',
+    url: `${siteUrl}/demo/nalacandi`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Naltech Studio',
+      url: siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaCandi Heritage',
+        item: `${siteUrl}/demo/nalacandi`,
+      },
+    ],
+  },
+];
 
 export default function NalaCandiPage() {
   return (
     <main className="nc-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(candiStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="nc-promo-ribbon">
         <div className="nc-wrap nc-ribbon-content">

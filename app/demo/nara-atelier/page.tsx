@@ -1,18 +1,75 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import './nara.css';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
 
 export const metadata: Metadata = {
   title: 'NARA Atelier — Modern Fashion Concept by Naltech',
-  description: 'Contoh landing page fashion editorial modern yang dirancang oleh Naltech.',
+  description: 'Contoh landing page fashion editorial modern dan katalog busana minimalis yang dirancang oleh Naltech Studio.',
   alternates: { canonical: '/demo/nara-atelier' },
-  openGraph: { title: 'NARA Atelier — Modern Fashion Concept by Naltech', description: 'Quiet forms. Bold presence.', images: [new URL('/fashion/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
-  twitter: { title: 'NARA Atelier — Modern Fashion Concept by Naltech', description: 'Quiet forms. Bold presence.', images: [new URL('/fashion/hero.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')] },
+  openGraph: {
+    title: 'NARA Atelier — Modern Fashion Concept by Naltech',
+    description: 'Quiet forms. Bold presence. Contoh website brand fashion editorial karya Naltech Studio.',
+    images: [{ url: `${siteUrl}/fashion/hero.jpg`, width: 1200, height: 630, alt: 'NARA Atelier Modern Fashion' }],
+  },
+  twitter: {
+    title: 'NARA Atelier — Modern Fashion Concept by Naltech',
+    description: 'Quiet forms. Bold presence. Contoh website brand fashion editorial karya Naltech Studio.',
+    images: [`${siteUrl}/fashion/hero.jpg`],
+  },
 };
+
+const naraStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ClothingStore',
+    name: 'NARA Atelier (Concept by Naltech)',
+    description: 'Modern fashion and editorial commerce website concept designed by Naltech Studio.',
+    url: `${siteUrl}/demo/nara-atelier`,
+    image: `${siteUrl}/fashion/hero.jpg`,
+    priceRange: '$$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NARA Atelier',
+        item: `${siteUrl}/demo/nara-atelier`,
+      },
+    ],
+  },
+];
 
 export default function NaraAtelierPage() {
   return (
     <main className="na-page">
-      <div className="na-demo"><a href="/">← Kembali ke portfolio</a><span>Concept project by Naltech</span></div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(naraStructuredData) }}
+      />
+      <div className="na-demo"><Link href="/">← Kembali ke portfolio</Link><span>Concept project by Naltech</span></div>
+
       <header className="na-header">
         <a className="na-logo" href="#top">NARA<span>ATELIER</span></a>
         <nav><a href="#collection">New collection</a><a href="#lookbook">Lookbook</a><a href="#story">Our story</a></nav>
@@ -57,7 +114,8 @@ export default function NaraAtelierPage() {
 
       <section id="newsletter" className="na-newsletter"><div className="na-wrap"><p>PRIVATE NOTES / EARLY ACCESS</p><h2>Stay close to<br /><em>what comes next.</em></h2><form><label><span>Email address</span><input type="email" placeholder="your@email.com" aria-label="Email address" /></label><button type="button">Join the list <span>↗</span></button></form><small>By subscribing, you agree to receive news from NARA Atelier.</small></div></section>
 
-      <footer className="na-footer na-wrap"><a className="na-logo" href="#top">NARA<span>ATELIER</span></a><p>Modern essentials designed in Jakarta.<br />Made with intention.</p><div><a href="#collection">Shop</a><a href="#lookbook">Lookbook</a><a href="#story">About</a><a href="#craft">Responsibility</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Create a project like this</a></div><small>© 2026 NARA Atelier · Concept website by Naltech Studio · Not an active fashion store</small></footer>
+      <footer className="na-footer na-wrap"><a className="na-logo" href="#top">NARA<span>ATELIER</span></a><p>Modern essentials designed in Jakarta.<br />Made with intention.</p><div><a href="#collection">Shop</a><a href="#lookbook">Lookbook</a><a href="#story">About</a><a href="#craft">Responsibility</a></div><div><Link href="/">Portfolio Naltech</Link><a href="mailto:naltechai@gmail.com">Create a project like this</a></div><small>© 2026 NARA Atelier · Concept website by Naltech Studio · Not an active fashion store</small></footer>
     </main>
   );
 }
+

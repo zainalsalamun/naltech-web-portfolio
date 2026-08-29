@@ -3,25 +3,74 @@ import Link from 'next/link';
 import './nalafood.css';
 import FoodAddressWidget from './FoodAddressWidget';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaFood — Pesan Makanan Online Cepat, Hangat & Hemat by Naltech',
-  description: 'Lapar? Pesan makanan favoritmu dari ribuan restoran terdekat. Contoh landing page pemesanan makanan online dirancang oleh Naltech.',
+  description: 'Lapar? Pesan makanan favoritmu dari ribuan restoran terdekat. Contoh landing page pemesanan makanan online modern dirancang oleh Naltech Studio.',
   alternates: { canonical: '/demo/nalafood' },
   openGraph: {
     title: 'NalaFood — Pesan Makanan Online Cepat, Hangat & Hemat by Naltech',
     description: 'Pesan makanan favoritmu dari ribuan restoran terdekat dengan jaminan makanan tetap hangat.',
-    images: [new URL('/food/hero-spread.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [{ url: `${siteUrl}/food/hero-spread.jpg`, width: 1200, height: 630, alt: 'NalaFood Online Food Ordering' }],
   },
   twitter: {
     title: 'NalaFood — Pesan Makanan Online Cepat, Hangat & Hemat by Naltech',
     description: 'Pesan makanan favoritmu dari ribuan restoran terdekat dengan jaminan makanan tetap hangat.',
-    images: [new URL('/food/hero-spread.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [`${siteUrl}/food/hero-spread.jpg`],
   },
 };
+
+const foodStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FoodEstablishment',
+    name: 'NalaFood (Concept by Naltech)',
+    description: 'Contoh website pemesanan makanan online cepat dan hemat karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalafood`,
+    image: `${siteUrl}/food/hero-spread.jpg`,
+    servesCuisine: 'Indonesian Culinary, Fast Food, Drinks',
+    priceRange: '$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaFood',
+        item: `${siteUrl}/demo/nalafood`,
+      },
+    ],
+  },
+];
 
 export default function NalaFoodPage() {
   return (
     <main className="nf-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(foodStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="nf-promo-ribbon">
         <div className="nf-wrap nf-ribbon-content">

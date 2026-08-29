@@ -22,6 +22,8 @@ import {
   Users,
 } from 'lucide-react';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaSablon — Jasa Sablon Kaos, Kemasan & Packaging Brand by Naltech',
   description: 'Jasa sablon presisi dan cetak kemasan custom terpercaya untuk brand lokal, cafe, clothing line, dan UMKM. Berpengalaman melayani 1.200+ brand di seluruh Indonesia.',
@@ -29,18 +31,64 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NalaSablon — Jasa Sablon Kaos, Kemasan & Packaging Brand by Naltech',
     description: 'Jasa sablon presisi dan cetak kemasan custom terpercaya untuk brand lokal, cafe, clothing line, dan UMKM.',
-    images: [new URL('/sablon/hero-workshop.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [{ url: `${siteUrl}/sablon/hero-workshop.jpg`, width: 1200, height: 630, alt: 'NalaSablon Workshop Printing' }],
   },
   twitter: {
     title: 'NalaSablon — Jasa Sablon Kaos, Kemasan & Packaging Brand by Naltech',
     description: 'Jasa sablon presisi dan cetak kemasan custom terpercaya untuk brand lokal, cafe, clothing line, dan UMKM.',
-    images: [new URL('/sablon/hero-workshop.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [`${siteUrl}/sablon/hero-workshop.jpg`],
   },
 };
+
+const sablonStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'NalaSablon (Concept by Naltech)',
+    description: 'Jasa sablon presisi kaos, sablon cup, dan packaging custom karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalasablon`,
+    image: `${siteUrl}/sablon/hero-workshop.jpg`,
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaSablon',
+        item: `${siteUrl}/demo/nalasablon`,
+      },
+    ],
+  },
+];
 
 export default function NalaSablonPage() {
   return (
     <main className="ns-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sablonStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="ns-promo-ribbon">
         <div className="ns-wrap ns-ribbon-content">

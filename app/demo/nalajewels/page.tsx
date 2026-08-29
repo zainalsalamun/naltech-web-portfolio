@@ -18,25 +18,73 @@ import {
   BadgeCheck,
 } from 'lucide-react';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaJewels — Perhiasan Emas & Berlian Anak & Dewasa by Naltech',
-  description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa. Dilengkapi visualisasi nyata pada model untuk kejelasan ukuran dan proporsi.',
+  description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa. Dilengkapi visualisasi nyata pada model untuk kejelasan ukuran dan proporsi karya Naltech Studio.',
   alternates: { canonical: '/demo/nalajewels' },
   openGraph: {
     title: 'NalaJewels — Perhiasan Emas & Berlian Anak & Dewasa by Naltech',
     description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa dengan panduan foto pada model.',
-    images: [new URL('/jewelry/hero-mother-child.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [{ url: `${siteUrl}/jewelry/hero-mother-child.jpg`, width: 1200, height: 630, alt: 'NalaJewels Fine Jewelry Collection' }],
   },
   twitter: {
     title: 'NalaJewels — Perhiasan Emas & Berlian Anak & Dewasa by Naltech',
     description: 'Koleksi perhiasan emas dan berlian asli bersertifikat untuk anak-anak dan dewasa dengan panduan foto pada model.',
-    images: [new URL('/jewelry/hero-mother-child.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [`${siteUrl}/jewelry/hero-mother-child.jpg`],
   },
 };
+
+const jewelsStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'JewelryStore',
+    name: 'NalaJewels (Concept by Naltech)',
+    description: 'Koleksi perhiasan emas dan berlian asli bersertifikat anak dan dewasa karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalajewels`,
+    image: `${siteUrl}/jewelry/hero-mother-child.jpg`,
+    priceRange: '$$$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaJewels',
+        item: `${siteUrl}/demo/nalajewels`,
+      },
+    ],
+  },
+];
 
 export default function NalaJewelsPage() {
   return (
     <main className="nj-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jewelsStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="nj-promo-ribbon">
         <div className="nj-wrap nj-ribbon-content">

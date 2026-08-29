@@ -20,25 +20,74 @@ import {
   Users,
 } from 'lucide-react';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
+
 export const metadata: Metadata = {
   title: 'NalaCatering & Décor — Partner Terbaik di Hari Bahagiamu by Naltech',
-  description: 'Jasa catering pernikahan rasa bintang 5 dan dekorasi pelaminan mewah terpercaya. Lengkap dengan promo bonus kambing guling, photobooth 360, dan free VIP food tasting.',
+  description: 'Jasa catering pernikahan rasa bintang 5 dan dekorasi pelaminan mewah terpercaya. Lengkap dengan promo bonus kambing guling, photobooth 360, dan free VIP food tasting dirancang oleh Naltech Studio.',
   alternates: { canonical: '/demo/nalacatering' },
   openGraph: {
     title: 'NalaCatering & Décor — Partner Terbaik di Hari Bahagiamu by Naltech',
     description: 'Jasa catering pernikahan rasa bintang 5 dan dekorasi pelaminan mewah terpercaya.',
-    images: [new URL('/catering/hero-ballroom.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [{ url: `${siteUrl}/catering/hero-ballroom.jpg`, width: 1200, height: 630, alt: 'NalaCatering Ballroom Wedding' }],
   },
   twitter: {
     title: 'NalaCatering & Décor — Partner Terbaik di Hari Bahagiamu by Naltech',
     description: 'Jasa catering pernikahan rasa bintang 5 dan dekorasi pelaminan mewah terpercaya.',
-    images: [new URL('/catering/hero-ballroom.jpg', process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id')],
+    images: [`${siteUrl}/catering/hero-ballroom.jpg`],
   },
 };
+
+const cateringStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FoodEstablishment',
+    name: 'NalaCatering & Décor (Concept by Naltech)',
+    description: 'Jasa catering pernikahan dan dekorasi acara eksklusif karya Naltech Studio.',
+    url: `${siteUrl}/demo/nalacatering`,
+    image: `${siteUrl}/catering/hero-ballroom.jpg`,
+    servesCuisine: 'Indonesian Wedding Cuisine, International Buffet',
+    priceRange: '$$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'NalaCatering & Décor',
+        item: `${siteUrl}/demo/nalacatering`,
+      },
+    ],
+  },
+];
 
 export default function NalaCateringPage() {
   return (
     <main className="nc-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cateringStructuredData) }}
+      />
+
       {/* Top Header Promo Ribbon */}
       <div className="nc-promo-ribbon">
         <div className="nc-wrap nc-ribbon-content">
@@ -320,8 +369,9 @@ export default function NalaCateringPage() {
               <span>01</span> Bagaimana cara menjadwalkan VIP Food Tasting sebelum memutuskan pesan?<b>+</b>
             </summary>
             <p>
-              Cukup klik tombol "Free Food Tasting" atau hubungi WhatsApp kami di +62 815 7355 0017. Tim kami akan menyiapkan sesi tester menu untuk 6 orang keluarga secara gratis di kantor NalaCatering atau dikirimkan ke rumah Anda.
+              Cukup klik tombol &ldquo;Free Food Tasting&rdquo; atau hubungi WhatsApp kami di +62 815 7355 0017. Tim kami akan menyiapkan sesi tester menu untuk 6 orang keluarga secara gratis di kantor NalaCatering atau dikirimkan ke rumah Anda.
             </p>
+
           </details>
 
           <details>

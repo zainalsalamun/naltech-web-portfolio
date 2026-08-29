@@ -1,19 +1,74 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import MotionObserver from './MotionObserver';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
 
 export const metadata: Metadata = {
   title: 'Naltech Pay — Concept Fintech Website by Naltech',
-  description: 'Contoh landing page fintech orisinal yang dirancang dan dikembangkan oleh Naltech.',
+  description: 'Contoh landing page fintech orisinal yang dirancang dan dikembangkan oleh Naltech Studio. Solusi UI/UX produk finansial modern, aman, dan intuitif.',
   alternates: { canonical: '/demo/naltech-pay' },
-  openGraph: { title: 'Naltech Pay — Concept Fintech Website by Naltech', description: 'Urus uang tanpa bikin pusing.', images: [] },
-  twitter: { title: 'Naltech Pay — Concept Fintech Website by Naltech', description: 'Urus uang tanpa bikin pusing.', images: [] },
+  openGraph: {
+    title: 'Naltech Pay — Concept Fintech Website by Naltech',
+    description: 'Urus uang tanpa bikin pusing. Contoh landing page fintech modern karya Naltech Studio.',
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: 'Naltech Pay Fintech Concept' }],
+  },
+  twitter: {
+    title: 'Naltech Pay — Concept Fintech Website by Naltech',
+    description: 'Urus uang tanpa bikin pusing. Contoh landing page fintech modern karya Naltech Studio.',
+    images: [`${siteUrl}/og.png`],
+  },
 };
+
+const payStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Naltech Pay — Concept Fintech Website by Naltech',
+    description: 'Contoh landing page fintech orisinal yang dirancang oleh Naltech Studio.',
+    url: `${siteUrl}/demo/naltech-pay`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Naltech Studio',
+      url: siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Naltech Studio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Portfolio',
+        item: `${siteUrl}/#work`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Naltech Pay',
+        item: `${siteUrl}/demo/naltech-pay`,
+      },
+    ],
+  },
+];
 
 export default function NaltechPayPage() {
   return (
     <main className="pay-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(payStructuredData) }}
+      />
       <MotionObserver />
-      <div className="pay-demo-bar"><a href="/">← Kembali ke portfolio</a><span>Concept project by Naltech</span></div>
+      <div className="pay-demo-bar"><Link href="/">← Kembali ke portfolio</Link><span>Concept project by Naltech</span></div>
+
       <header className="pay-header">
         <a className="pay-logo" href="#top"><span>n</span>naltech pay</a>
         <nav><a href="#features">Fitur</a><a href="#how">Cara kerja</a><a href="#security">Keamanan</a></nav>
@@ -85,7 +140,8 @@ export default function NaltechPayPage() {
 
       <section id="download" className="pay-cta pay-wrap"><div data-reveal><p>Concept project · Naltech Studio</p><h2>Urus uang lebih ringan.<br /><em>Mulai dari sini.</em></h2><a href="mailto:naltechai@gmail.com">Buat project seperti ini <span>↗</span></a></div><div className="pay-cta-phone" data-reveal><span>n</span><strong>naltech pay</strong><small>money, made lighter.</small></div></section>
 
-      <footer className="pay-footer pay-wrap"><a className="pay-logo" href="#top"><span>n</span>naltech pay</a><p>Concept website by Naltech Studio.<br />Bukan produk finansial aktif.</p><div><a href="#features">Fitur</a><a href="#how">Cara kerja</a><a href="#security">Keamanan</a></div><div><a href="/">Portfolio Naltech</a><a href="mailto:naltechai@gmail.com">Mulai project</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
+      <footer className="pay-footer pay-wrap"><a className="pay-logo" href="#top"><span>n</span>naltech pay</a><p>Concept website by Naltech Studio.<br />Bukan produk finansial aktif.</p><div><a href="#features">Fitur</a><a href="#how">Cara kerja</a><a href="#security">Keamanan</a></div><div><Link href="/">Portfolio Naltech</Link><a href="mailto:naltechai@gmail.com">Mulai project</a></div><small>© 2026 Naltech Studio · Concept project</small></footer>
     </main>
   );
 }
+
