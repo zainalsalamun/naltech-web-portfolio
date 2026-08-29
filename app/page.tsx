@@ -1,3 +1,5 @@
+import './home-themes.css';
+
 const projects = [
   { slug: 'senja-coffee', type: 'Food & Beverage', name: 'Senja Coffee', result: '+38% reservasi online', theme: 'coffee', number: '01' },
   { slug: 'ruang-arsitek', type: 'Architecture', name: 'Ruang Arsitek', result: '2.4× inquiry berkualitas', theme: 'space', number: '02' },
@@ -5,6 +7,7 @@ const projects = [
   { slug: 'naltech-pay', type: 'Fintech Concept', name: 'Naltech Pay', result: 'Product landing experience', theme: 'pay', number: '04' },
   { slug: 'nalaride', type: 'Vehicle Rental', name: 'NalaRide', result: 'Rental booking experience', theme: 'ride', number: '05' },
   { slug: 'karsa-coffee', type: 'Coffee Shop', name: 'Karsa Coffee', result: 'Coffee shop brand experience', theme: 'karsa', number: '06' },
+  { slug: 'nara-atelier', type: 'Fashion & Apparel', name: 'NARA Atelier', result: 'Editorial commerce experience', theme: 'nara', number: '07' },
 ];
 
 const services = [
