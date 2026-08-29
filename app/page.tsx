@@ -43,7 +43,6 @@ export default function Home() {
   return (
     <main className="nl-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <div className="nl-announcement">Slot project September sudah dibuka <a href={whatsappUrl} target="_blank" rel="noreferrer">Amankan jadwal →</a></div>
       <header className="nl-header shell">
         <a className="nl-logo" href="#top" aria-label="Naltech home"><img src="/naltech-logo.png" alt="" />NALTECH</a>
         <nav className="nl-nav" aria-label="Navigasi utama"><a href="#services">Layanan</a><a href="#about">Tentang</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></nav>
