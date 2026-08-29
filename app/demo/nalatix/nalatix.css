@@ -318,7 +318,7 @@
   display: flex;
   gap: 12px;
   overflow-x: auto;
-  padding-bottom: 12px;
+  padding: 4px 4px 16px 4px;
   margin-bottom: 24px;
   scrollbar-width: none;
 }
@@ -365,30 +365,38 @@
   background: #ffffff;
   color: var(--tk-ink);
   border-radius: var(--tk-radius-lg);
-  padding: 28px;
+  padding: 32px 32px 30px;
   box-shadow: 0 25px 60px rgba(0, 47, 107, 0.25), 0 0 0 1px rgba(0, 100, 210, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 .tk-service-tabs {
   display: flex;
   gap: 12px;
-  border-bottom: 1px solid rgba(0, 100, 210, 0.12);
-  padding-bottom: 16px;
+  border-bottom: 1.5px solid rgba(0, 100, 210, 0.12);
+  padding: 6px 6px 18px 6px;
   margin-bottom: 24px;
   overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tk-service-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .tk-service-tab {
   background: transparent;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 14px;
   text-align: left;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .tk-service-tab:hover {
@@ -397,7 +405,8 @@
 
 .tk-service-tab.active {
   background: var(--tk-blue-soft);
-  outline: 2px solid var(--tk-blue-main);
+  border-color: var(--tk-blue-main);
+  box-shadow: 0 4px 14px rgba(0, 100, 210, 0.12);
 }
 
 .tk-tab-icon {
