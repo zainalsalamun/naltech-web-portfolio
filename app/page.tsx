@@ -13,6 +13,7 @@ const projects = [
   { slug: 'nara-atelier', type: 'Fashion & Apparel', name: 'NARA Atelier', result: 'Editorial commerce experience', theme: 'nara', number: '07' },
   { slug: 'nalatix', type: 'Travel & Ticketing', name: 'NalaTiket', result: 'Online travel & ticketing experience', theme: 'tix', number: '08' },
   { slug: 'nalafood', type: 'Food Delivery', name: 'NalaFood', result: 'Online food ordering experience', theme: 'food', number: '09' },
+  { slug: 'nalahijab', type: 'Modest Fashion', name: 'NalaHijab', result: 'Hijab brand landing experience', theme: 'hijab', number: '10' },
 ];
 
 const services = [
