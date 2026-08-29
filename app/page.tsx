@@ -142,7 +142,7 @@ export default function Home() {
         <nav className="nl-footer-nav" aria-label="Navigasi footer"><small>Jelajahi</small><a href="#services">Layanan</a><a href="#about">Tentang</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></nav>
         <div className="nl-socials">
           <header><small>Mari terhubung</small><strong>Pilih cara paling nyaman.</strong></header>
-          <a className="nl-social-primary" href={whatsappUrl} target="_blank" rel="noreferrer"><span>WA</span><div><small>WhatsApp</small><strong>+62 815 7355 0017</strong></div><b>↗</b></a>
+          <a className="nl-social-primary nl-social-light" href={whatsappUrl} target="_blank" rel="noreferrer"><span>WA</span><div><small>WhatsApp</small><strong>+62 815 7355 0017</strong></div><b>↗</b></a>
           <a className="nl-social-primary" href={emailUrl}><span>@</span><div><small>Email</small><strong>naltechai@gmail.com</strong></div><b>↗</b></a>
           <div className="nl-social-grid">
             <a href="https://www.instagram.com/naltech.ai/" target="_blank" rel="noreferrer"><span>IG</span><div><small>Instagram</small><strong>@naltech.ai</strong></div><b>↗</b></a>
