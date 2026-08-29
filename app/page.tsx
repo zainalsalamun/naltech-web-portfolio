@@ -135,17 +135,23 @@ export default function Home() {
       </section>
 
       <footer className="nl-footer shell">
-        <a className="nl-logo" href="#top"><img src="/naltech-logo.png" alt="" />NALTECH</a>
-        <p>Web design & development studio<br />Jakarta, Indonesia</p>
-        <div><a href="#services">Layanan</a><a href="#about">Tentang</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></div>
-        <div className="nl-socials">
-          <a href={whatsappUrl} target="_blank" rel="noreferrer"><span>WA</span>WhatsApp</a>
-          <a href={emailUrl}><span>@</span>naltechai@gmail.com</a>
-          <a href="https://www.instagram.com/naltech.ai/" target="_blank" rel="noreferrer"><span>IG</span>Instagram</a>
-          <a href="https://www.tiktok.com/@naltech.ai" target="_blank" rel="noreferrer"><span>TT</span>TikTok</a>
-          <a href="https://www.facebook.com/share/1EUS6YwWAt/?mibextid=wwXIfr" target="_blank" rel="noreferrer"><span>FB</span>Facebook</a>
+        <div className="nl-footer-brand">
+          <a className="nl-logo" href="#top"><img src="/naltech-logo.png" alt="" />NALTECH</a>
+          <p>Web design & development studio untuk bisnis yang ingin tumbuh lebih percaya diri.</p>
+          <span><i /> Tersedia untuk project baru</span>
         </div>
-        <small>© 2026 Naltech Studio. All rights reserved.</small>
+        <nav className="nl-footer-nav" aria-label="Navigasi footer"><small>Jelajahi</small><a href="#services">Layanan</a><a href="#about">Tentang</a><a href="#work">Portfolio</a><a href="#process">Proses</a><a href="#faq">FAQ</a></nav>
+        <div className="nl-socials">
+          <header><small>Mari terhubung</small><strong>Pilih cara paling nyaman.</strong></header>
+          <a className="nl-social-primary" href={whatsappUrl} target="_blank" rel="noreferrer"><span>WA</span><div><small>WhatsApp</small><strong>+62 815 7355 0017</strong></div><b>↗</b></a>
+          <a className="nl-social-primary" href={emailUrl}><span>@</span><div><small>Email</small><strong>naltechai@gmail.com</strong></div><b>↗</b></a>
+          <div className="nl-social-grid">
+            <a href="https://www.instagram.com/naltech.ai/" target="_blank" rel="noreferrer"><span>IG</span><div><small>Instagram</small><strong>@naltech.ai</strong></div><b>↗</b></a>
+            <a href="https://www.tiktok.com/@naltech.ai" target="_blank" rel="noreferrer"><span>TT</span><div><small>TikTok</small><strong>@naltech.ai</strong></div><b>↗</b></a>
+            <a href="https://www.facebook.com/share/1EUS6YwWAt/?mibextid=wwXIfr" target="_blank" rel="noreferrer"><span>FB</span><div><small>Facebook</small><strong>Naltech AI</strong></div><b>↗</b></a>
+          </div>
+        </div>
+        <small>© 2026 Naltech Studio. All rights reserved. <span>Made with intention in Jakarta.</span></small>
       </footer>
     </main>
   );

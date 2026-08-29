@@ -153,7 +153,7 @@ Container utama menggunakan kelas `.shell` dengan lebar maksimal sekitar `1280px
 | Brand statement | Pernyataan prinsip kerja yang besar dan terpusat |
 | FAQ | Intro di kiri dan accordion di kanan |
 | Final CTA | Copy besar dengan elemen orb di kanan |
-| Footer | Empat kelompok informasi |
+| Footer | Profil studio, navigasi, dan contact hub berkontras tinggi |
 
 Layout berubah menjadi dua kolom atau satu kolom pada tablet dan mobile.
 
@@ -257,6 +257,10 @@ Pada tablet dan mobile:
 - Results dan FAQ berubah menjadi satu kolom.
 - Final CTA mempertahankan orb tetapi diposisikan sebagai elemen background.
 - Footer disusun menjadi dua atau satu kolom.
+
+### Contact hub pada footer
+
+Kontak dan media sosial ditempatkan dalam panel dark navy agar menjadi titik perhatian terakhir sebelum pengunjung meninggalkan halaman. WhatsApp dan email tampil sebagai pilihan utama lengkap dengan detail kontak, sedangkan Instagram, TikTok, dan Facebook dikelompokkan sebagai kartu sosial yang lebih ringkas. Border transparan, aksen electric blue, dan gerakan naik saat hover menjaga tampilannya selaras dengan komponen lain.
 
 ## Kepercayaan dan informasi kontak
 
