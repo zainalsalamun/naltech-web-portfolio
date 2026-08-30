@@ -190,6 +190,11 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/lumiera/hero-consultation.webp`, `${siteUrl}/lumiera/doctor-alya.webp`, `${siteUrl}/lumiera/clinic-interior.webp`],
   },
+  {
+    path: '/demo/ringnet',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
