@@ -64,7 +64,7 @@ export default function RingNetPage() {
       <a className="rn-demo-back" href="/">← Demo project by Naltech Studio</a>
       <div className="rn-topbar"><span>● Support pelanggan 24/7</span><a href={whatsappUrl}>WhatsApp 0878-3998-8767 ↗</a></div>
       <header className="rn-header">
-        <a className="rn-logo" href="#top"><span>R</span><strong>Ring<em>Net</em></strong></a>
+        <a className="rn-logo" href="#top"><img src="/ringnet/logo.png" alt="RingNet Internet Service Provider" className="rn-brand-logo" /></a>
         <nav aria-label="Navigasi RingNet"><a href="#home">Internet Rumah</a><a href="#business">Internet Bisnis</a><a href="#services">Layanan</a><a href="#coverage">Coverage</a><a href="#about">Tentang</a><a href="#faq">Bantuan</a></nav>
         <div><a href="#coverage">Cek coverage</a><a href="#register">Daftar sekarang <b>↗</b></a></div>
       </header>
@@ -129,7 +129,7 @@ export default function RingNetPage() {
 
       <section className="rn-final rn-shell"><p>Siap menggunakan internet yang lebih stabil?</p><h2>Cek jaringan.<br /><em>Temukan paketmu.</em></h2><div><a href="#coverage">Cek coverage <b>↗</b></a><a href={whatsappUrl}>Konsultasi WhatsApp</a></div><small>Tim membantu memeriksa lokasi dan menjelaskan pilihan paket tanpa biaya konsultasi.</small><div className="rn-final-orbit"><i /><i /><i /><span>R</span></div></section>
 
-      <footer className="rn-footer"><div><a className="rn-logo" href="#top"><span>R</span><strong>Ring<em>Net</em></strong></a><p>Internet fiber untuk rumah, bisnis, dan perusahaan.</p><small>PT Ring Media Nusantara</small></div><nav><b>Layanan</b><a href="#home">Internet Rumah</a><a href="#business-solutions">Internet Bisnis</a><a href="#coverage">Coverage</a><a href="#services">Layanan Jaringan</a></nav><nav><b>Perusahaan</b><a href="#about">Tentang RingNet</a><a href="#about">Legalitas</a><span>Partner · Data aktual</span><span>Karier · Segera</span></nav><nav><b>Bantuan</b><a href="#faq">FAQ</a><a href={whatsappUrl}>Hubungi Kami</a><a href={whatsappUrl}>Lapor Gangguan</a><span>Support 24/7</span></nav><small>© 2026 RingNet · Demo revamp concept by Naltech Studio. Data harga, coverage, legalitas, partner, dan testimoni perlu diverifikasi sebelum penggunaan resmi.</small></footer>
+      <footer className="rn-footer"><div><a className="rn-logo" href="#top"><img src="/ringnet/logo.png" alt="RingNet Internet Service Provider" className="rn-brand-logo footer" /></a><p>Internet fiber untuk rumah, bisnis, dan perusahaan.</p><small>PT Ring Media Nusantara</small></div><nav><b>Layanan</b><a href="#home">Internet Rumah</a><a href="#business-solutions">Internet Bisnis</a><a href="#coverage">Coverage</a><a href="#services">Layanan Jaringan</a></nav><nav><b>Perusahaan</b><a href="#about">Tentang RingNet</a><a href="#about">Legalitas</a><span>Partner · Data aktual</span><span>Karier · Segera</span></nav><nav><b>Bantuan</b><a href="#faq">FAQ</a><a href={whatsappUrl}>Hubungi Kami</a><a href={whatsappUrl}>Lapor Gangguan</a><span>Support 24/7</span></nav><small>© 2026 RingNet · Demo revamp concept by Naltech Studio. Data harga, coverage, legalitas, partner, dan testimoni perlu diverifikasi sebelum penggunaan resmi.</small></footer>
 
       <div className="rn-mobile-bar"><a href={whatsappUrl}>WhatsApp</a><a href="#coverage">Cek Coverage</a><a href="#register">Daftar</a></div>
     </main>

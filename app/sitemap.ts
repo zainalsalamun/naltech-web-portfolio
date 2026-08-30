@@ -194,6 +194,7 @@ const siteRoutes: RouteConfig[] = [
     path: '/demo/ringnet',
     changeFrequency: 'monthly',
     priority: 0.85,
+    images: [`${siteUrl}/ringnet/logo.png`],
   },
 ];
 
@@ -208,4 +209,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(route.images ? { images: route.images } : {}),
   }));
 }
-
