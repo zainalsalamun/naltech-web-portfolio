@@ -13,7 +13,7 @@ const emailUrl = 'mailto:naltechai@gmail.com';
 
 const projects = [
   { slug: 'senja-coffee', type: 'Food & Beverage', name: 'Senja Coffee', result: 'Tropical editorial concept', theme: 'coffee', number: '01' },
-  { slug: 'ruang-arsitek', type: 'Architecture', name: 'Ruang Arsitek', result: 'Architecture portfolio concept', theme: 'space', number: '02' },
+  { slug: 'ruang-arsitek', type: 'Architecture & Interior Studio', name: 'RUANG/STUDIO', result: 'Architecture portfolio & building cost estimator', theme: 'space', number: '02' },
   { slug: 'lumiere-skincare', type: 'Beauty & Wellness', name: 'Lumière', result: 'Beauty commerce concept', theme: 'lumiere', number: '03' },
   { slug: 'naltech-pay', type: 'Fintech Concept', name: 'Naltech Pay', result: 'Product landing experience', theme: 'pay', number: '04' },
   { slug: 'nalaride', type: 'Vehicle Rental', name: 'NalaRide', result: 'Rental booking experience', theme: 'ride', number: '05' },
@@ -39,11 +39,12 @@ const projects = [
   { slug: 'nalcut', type: 'Gentlemen Grooming & Barbershop', name: 'Nalcut Barber', result: 'On-demand barbershop booking system', theme: 'barber', number: '25' },
   { slug: 'seraya-wedding', type: 'Luxury Wedding Organizer', name: 'Seraya Wedding', result: 'Interactive wedding budget simulator & planning', theme: 'wedding', number: '26' },
   { slug: 'lensa-cerita', type: 'Photography & Visual Studio', name: 'Lensa Cerita', result: 'Graduation, wedding, & product photo booking', theme: 'photo', number: '27' },
+  { slug: 'rasa-nusantara', type: 'Local Food & Reseller Platform', name: 'Rasa Nusantara', result: 'Authentic local snack e-catalog & reseller profit simulator', theme: 'food-local', number: '28' },
 ];
 
 const services = [
   { icon: '✦', title: 'Website Bisnis', text: 'Landing page dan company profile yang menjelaskan value bisnis dengan cepat dan meyakinkan.' },
-  { icon: '◎', title: 'UI/UX Design', text: 'Pengalaman digital yang intuitif, konsisten, dan enak digunakan di setiap ukuran layar.' },
+  { icon: '◎', title: 'Mobile App', text: 'Pengembangan aplikasi Android dan iOS (Flutter) yang responsif, cepat, dan siap rilis ke Play Store & App Store.' },
   { icon: '↗', title: 'Web Development', text: 'Website modern yang cepat, aman, mudah dirawat, dan siap tumbuh bersama bisnis.' },
   { icon: '◌', title: 'Growth Support', text: 'Optimasi performa, analitik, SEO dasar, serta dukungan setelah website diluncurkan.' },
 ];
@@ -62,7 +63,7 @@ const structuredData = [
     '@id': 'https://studio.naltech.web.id/#organization',
     name: 'Naltech Studio',
     alternateName: ['Naltech Web Studio', 'Naltech'],
-    description: 'Jasa pembuatan website profesional, landing page konversi tinggi, company profile, dan UI/UX design modern untuk UMKM dan bisnis di Indonesia.',
+    description: 'Jasa pembuatan website profesional, landing page konversi tinggi, aplikasi mobile (Android & iOS), dan web development modern untuk UMKM dan bisnis di Indonesia.',
     url: 'https://studio.naltech.web.id',
     logo: 'https://studio.naltech.web.id/naltech-logo.png',
     image: 'https://studio.naltech.web.id/og.png',
