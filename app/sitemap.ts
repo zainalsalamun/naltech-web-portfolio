@@ -26,7 +26,7 @@ const siteRoutes: RouteConfig[] = [
     path: '/demo/ruang-arsitek',
     changeFrequency: 'monthly',
     priority: 0.85,
-    images: [`${siteUrl}/og.png`],
+    images: [`${siteUrl}/architecture/hero-villa.jpg`, `${siteUrl}/architecture/project-concrete.jpg`, `${siteUrl}/architecture/project-interior.jpg`],
   },
   {
     path: '/demo/lumiere-skincare',
@@ -177,6 +177,12 @@ const siteRoutes: RouteConfig[] = [
     changeFrequency: 'monthly',
     priority: 0.85,
     images: [`${siteUrl}/photo/hero-photo.jpg`, `${siteUrl}/photo/portfolio-grad-1.jpg`, `${siteUrl}/photo/portfolio-wedding-1.jpg`],
+  },
+  {
+    path: '/demo/rasa-nusantara',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/food-local/hero-food-spread.jpg`, `${siteUrl}/food-local/product-sambal.jpg`, `${siteUrl}/food-local/product-chips.jpg`],
   },
 ];
 

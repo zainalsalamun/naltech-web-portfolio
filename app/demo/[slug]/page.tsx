@@ -6,7 +6,6 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.
 
 const demos = {
   'senja-coffee': { brand: 'SENJA', tag: 'Coffee · Eatery · Community', title: 'Ritual kecil,\nrasa yang tinggal.', body: 'Kopi pilihan, makanan yang dibuat dengan jujur, dan ruang untuk pulang sejenak.', action: 'Lihat menu', note: 'Setiap hari · 07.00—22.00', theme: 'coffee' },
-  'ruang-arsitek': { brand: 'RUANG/STUDIO', tag: 'Architecture · Interior', title: 'Ruang untuk\nhidup lebih baik.', body: 'Studio arsitektur yang merancang tempat dengan fungsi jernih, material jujur, dan dampak yang panjang.', action: 'Lihat proyek', note: 'Jakarta · Bali · Singapore', theme: 'architecture' },
   'lumiere-skincare': { brand: 'LUMIÈRE', tag: 'Skin health · Mindful care', title: 'Kulit sehat,\ntanpa berlebihan.', body: 'Perawatan esensial dengan bahan aktif teruji, dibuat lembut untuk ritual harianmu.', action: 'Temukan ritualmu', note: 'Dermatologist tested · Vegan', theme: 'beauty' },
 } as const;
 
