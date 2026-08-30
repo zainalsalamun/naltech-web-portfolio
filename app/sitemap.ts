@@ -184,6 +184,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/food-local/hero-food-spread.jpg`, `${siteUrl}/food-local/product-sambal.jpg`, `${siteUrl}/food-local/product-chips.jpg`],
   },
+  {
+    path: '/demo/lumiera-clinic',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/lumiera/hero-consultation.webp`, `${siteUrl}/lumiera/doctor-alya.webp`, `${siteUrl}/lumiera/clinic-interior.webp`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
