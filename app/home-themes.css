@@ -30,3 +30,9 @@
 
 /* Contrast-safe theme refinements for small labels and controls. */
 .nl-proof span{color:#5f5d68}.nl-browser-top span{color:#62616a}.nl-float small{color:#696969}.nl-trust>p{color:#62606a}.nl-section-head>p span{color:#173ea8}.nl-section-head.dark>p span{color:#9a4b00}.nl-service-card>small{color:#556080;font-weight:800}.nl-project-art>span{color:#fff;font-weight:800;text-shadow:0 1px 3px rgba(0,0,0,.45)}.nl-project-art.lumiere>span{color:#3d1b24;text-shadow:none}.nl-project-art.pay>span{color:#092a19;text-shadow:none}.nl-project-art.ride>span{color:#381208;text-shadow:none}.nl-project-browser small{color:#414149;font-weight:800}.nl-project-meta small{color:#5f5b64}.nl-numbers p{color:#57545d;font-weight:800}.nl-testimonial small{color:#5a421c;opacity:1}.nl-faq header>p:last-child{color:#5b5962}.nl-faq summary span{color:#66636c;font-weight:800}.nl-final>p{color:#173ea8}.nl-swipe{color:#65636c}.nl-project-art.food .nl-project-browser b{color:#351000}.nl-project-art.hijab .nl-project-browser b{color:#2f1511}.nl-project-art.catering .nl-project-browser b{color:#281913}
+
+/* Keep the final CTA copy clear of the decorative orb at every viewport. */
+.nl-final>p,.nl-final>h2,.nl-final>a{position:relative;z-index:2}.nl-final>h2{width:min(880px,calc(100% - 520px));font-size:clamp(56px,5.4vw,88px)}.nl-final-orb{z-index:1}
+@media(max-width:1100px){.nl-final>h2{width:calc(100% - 340px);font-size:clamp(54px,6.2vw,72px)}}
+@media(max-width:760px){.nl-final>h2{width:100%;font-size:clamp(50px,10vw,66px)}.nl-final{padding-bottom:285px}.nl-final-orb{opacity:.72}}
+@media(max-width:600px){.nl-final{padding-bottom:275px}.nl-final>h2{font-size:clamp(46px,13vw,60px);line-height:.9}}
