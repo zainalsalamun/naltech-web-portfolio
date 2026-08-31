@@ -43,6 +43,7 @@ const projects = [
   { slug: 'lumiera-clinic', type: 'Aesthetic Clinic & Skin Health', name: 'Lumiera Clinic', result: 'Consultation & treatment booking experience', theme: 'clinic', number: '29' },
   { slug: 'ringnet', type: 'Internet Service Provider', name: 'RingNet', result: 'Fiber coverage, package finder & business consultation', theme: 'ringnet', number: '30' },
   { slug: 'nalchester', type: 'Football Media & Fan Community', name: 'Nalchester', result: 'Manchester United fan-media brand experience', theme: 'nalchester', number: '31' },
+  { slug: 'the-united-wave', type: 'Football Media & Fan Community', name: 'The United Wave', result: 'Fan-media editorial hub & community experience', theme: 'united-wave', number: '32' },
 ];
 
 const services = [
