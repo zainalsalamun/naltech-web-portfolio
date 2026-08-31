@@ -42,6 +42,7 @@ const projects = [
   { slug: 'rasa-nusantara', type: 'Local Food & Reseller Platform', name: 'Rasa Nusantara', result: 'Authentic local snack e-catalog & reseller profit simulator', theme: 'food-local', number: '28' },
   { slug: 'lumiera-clinic', type: 'Aesthetic Clinic & Skin Health', name: 'Lumiera Clinic', result: 'Consultation & treatment booking experience', theme: 'clinic', number: '29' },
   { slug: 'ringnet', type: 'Internet Service Provider', name: 'RingNet', result: 'Fiber coverage, package finder & business consultation', theme: 'ringnet', number: '30' },
+  { slug: 'nalchester', type: 'Football Media & Fan Community', name: 'Nalchester', result: 'Manchester United fan-media brand experience', theme: 'nalchester', number: '31' },
 ];
 
 const services = [
