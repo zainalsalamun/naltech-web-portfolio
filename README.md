@@ -40,6 +40,7 @@ npm run lint
 - `/demo/nalaride` — contoh website rental kendaraan
 - `/demo/karsa-coffee` — contoh website specialty coffee shop
 - `/demo/nara-atelier` — contoh website fashion atelier
+- `/demo/nalchester` — contoh website football media dan komunitas penggemar
 
 ## Dokumentasi desain
 
@@ -116,6 +117,7 @@ app/
 ├── demo/karsa-coffee/         # Halaman dan styling khusus Karsa Coffee
 ├── demo/nalaride/             # Halaman khusus rental kendaraan
 ├── demo/naltech-pay/          # Halaman khusus fintech
+├── demo/nalchester/           # Halaman khusus football media Nalchester
 ├── globals.css           # Styling katalog dan seluruh tema demo
 ├── layout.tsx            # Metadata serta layout global
 ├── robots.ts             # Aturan akses crawler mesin pencari
@@ -127,6 +129,7 @@ docs/
 └── NALTECH-PRICELIST.md                  # Pricelist dan acuan penawaran Naltech
 public/
 ├── naltech-logo.png      # Logo utama yang juga digunakan sebagai favicon
+├── nalchester/            # Logo dan gambar social preview Nalchester
 ├── senja/                # Foto yang digunakan Senja Coffee
 └── og.png                # Gambar social preview
 ```
