@@ -31,7 +31,14 @@ const formats = [
   ['04', 'The United Talk', 'Percakapan panjang bersama figur sepak bola, legenda, dan sesama fan media.'],
 ];
 
-const waveFaces = ['JAMILO', 'MARDEL', 'KEYLIE', 'KOKOH', 'GAUTAMA', 'MAKARIOS'];
+const waveFaces = [
+  { name: 'JAMILO', image: '/the-united-wave/jamilo.jpg' },
+  { name: 'MARDEL', image: '/the-united-wave/mardel.jpg' },
+  { name: 'KEYLIE', image: '/the-united-wave/keylie.jpg' },
+  { name: 'KOKOH', image: '/the-united-wave/kokoh.jpg' },
+  { name: 'GAUTAMA', image: '/the-united-wave/gautama.jpg' },
+  { name: 'MAKARIOS', image: '/the-united-wave/makarios.jpg' },
+];
 
 export default function TheUnitedWavePage() {
   return (
@@ -165,7 +172,15 @@ export default function TheUnitedWavePage() {
       <section className="uw-people">
         <div className="uw-people-intro"><span>05 / VOICES OF THE WAVE</span><h2>ONE CREST.<br /><em>MANY VOICES.</em></h2></div>
         <div className="uw-face-row">
-          {waveFaces.map((name, index) => <div key={name}><small>0{index + 1}</small><strong>{name}</strong><span>W</span></div>)}
+          {waveFaces.map(({ name, image }, index) => (
+            <article key={name}>
+              <img src={image} alt={`${name}, host The United Wave`} />
+              <div className="uw-face-shade" />
+              <small>0{index + 1}</small>
+              <strong>{name}</strong>
+              <span>W</span>
+            </article>
+          ))}
         </div>
       </section>
 
