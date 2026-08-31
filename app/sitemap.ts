@@ -196,6 +196,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/ringnet/logo.png`],
   },
+  {
+    path: '/demo/nalchester',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/nalchester/og.png`, `${siteUrl}/nalchester/nalchester-crest.png`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
