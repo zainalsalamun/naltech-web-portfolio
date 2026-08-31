@@ -46,6 +46,10 @@ npm run lint
 - [`docs/NALTECH-MAIN-WEBSITE-DESIGN-GUIDE.md`](docs/NALTECH-MAIN-WEBSITE-DESIGN-GUIDE.md) — konsep, palet warna, tipografi, layout, komponen, dan design system landing page utama Naltech.
 - [`docs/SENJA-COFFEE-DESIGN-GUIDE.md`](docs/SENJA-COFFEE-DESIGN-GUIDE.md) — konsep, palet warna, tipografi, hierarki teks, komposisi layout, fotografi, animasi, dan daftar file Senja Coffee.
 
+## Dokumentasi bisnis
+
+- [`docs/NALTECH-PRICELIST.md`](docs/NALTECH-PRICELIST.md) — acuan harga paket Landing Page, Business Website + CMS, Custom Website, maintenance, add-on, dan ketentuan pembayaran.
+
 ## Menambahkan contoh website
 
 Konfigurasi contoh berada di `app/demo/[slug]/page.tsx`. Tambahkan data baru pada object `demos`, lalu tambahkan kartu yang sesuai pada array `projects` di `app/page.tsx`.
@@ -119,7 +123,8 @@ app/
 └── page.tsx              # Landing page dan katalog Naltech
 docs/
 ├── NALTECH-MAIN-WEBSITE-DESIGN-GUIDE.md # Dokumentasi website utama Naltech
-└── SENJA-COFFEE-DESIGN-GUIDE.md         # Dokumentasi visual Senja Coffee
+├── SENJA-COFFEE-DESIGN-GUIDE.md         # Dokumentasi visual Senja Coffee
+└── NALTECH-PRICELIST.md                  # Pricelist dan acuan penawaran Naltech
 public/
 ├── naltech-logo.png      # Logo utama yang juga digunakan sebagai favicon
 ├── senja/                # Foto yang digunakan Senja Coffee
