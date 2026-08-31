@@ -38,6 +38,7 @@ const waveFaces = [
   { name: 'KOKOH', image: '/the-united-wave/kokoh.jpg' },
   { name: 'GAUTAMA', image: '/the-united-wave/gautama.jpg' },
   { name: 'MAKARIOS', image: '/the-united-wave/makarios.jpg' },
+  { name: 'FRED', image: '/the-united-wave/fred.jpg' },
 ];
 
 export default function TheUnitedWavePage() {
