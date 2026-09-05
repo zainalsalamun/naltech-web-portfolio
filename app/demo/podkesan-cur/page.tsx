@@ -228,9 +228,25 @@ export default function PodkesanCurPage() {
       </section>
 
       <footer className="pc-footer">
-        <a className="pc-brand" href="#top"><img src="/podkesan-cur/logo.jpg" alt="" width={52} height={52} /><strong>PODKESAN<span>/CUR</span></strong></a>
-        <div><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={youtubeUrl} target="_blank" rel="noreferrer">YouTube ↗</a><a href={spotifyUrl} target="_blank" rel="noreferrer">Spotify ↗</a><a href={saweriaUrl} target="_blank" rel="noreferrer">Saweria ↗</a></div>
-        <p>Concept website independently created by Naltech Studio. Not an official PODKESAN CUR website.</p>
+        <div className="pc-footer-intro">
+          <a className="pc-brand" href="#top"><img src="/podkesan-cur/logo.jpg" alt="" width={52} height={52} /><strong>PODKESAN<span>/CUR</span></strong></a>
+          <p>Podcast komedi tempat cerita hidup, keresahan, dan pertemanan dibahas sampai makin ancur—dengan tawa yang tetap serius.</p>
+        </div>
+        <div className="pc-footer-schedule">
+          <span>EPISODE BARU</span>
+          <strong>SEN · RAB · JUM</strong>
+          <small>Dengarkan di Spotify dan YouTube</small>
+        </div>
+        <nav className="pc-footer-links" aria-label="Tautan sosial Podkesan CUR">
+          <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a href={youtubeUrl} target="_blank" rel="noreferrer">YouTube ↗</a>
+          <a href={spotifyUrl} target="_blank" rel="noreferrer">Spotify ↗</a>
+          <a href={saweriaUrl} target="_blank" rel="noreferrer">Saweria ↗</a>
+        </nav>
+        <div className="pc-footer-bottom">
+          <p>Punya cerita? Kirim curhatan lewat Instagram atau dukung obrolan mereka melalui Saweria.</p>
+          <p>Concept website independently created by Naltech Studio. Not an official PODKESAN CUR website.</p>
+        </div>
       </footer>
     </main>
   );
