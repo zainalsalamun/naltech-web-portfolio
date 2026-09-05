@@ -50,9 +50,9 @@ const links = [
 ];
 
 const hosts = [
-  { name: 'PATRA', fullName: 'Patra Gumala', handle: '@patragumala', image: '/podkesan-cur/hosts-latest.png', crop: 'patra', url: 'https://www.instagram.com/patragumala/' },
-  { name: 'DIAZ', fullName: 'Diaz Danar', handle: '@diazdanar', image: '/podkesan-cur/hosts-latest.png', crop: 'diaz', url: 'https://www.instagram.com/diazdanar/' },
-  { name: 'DHIKA', fullName: 'Randhika Djamil', handle: '@randhika_djamil', image: '/podkesan-cur/hosts-latest.png', crop: 'dhika', url: 'https://www.instagram.com/randhika_djamil/' },
+  { name: 'PATRA', fullName: 'Patra Gumala', handle: '@patragumala', image: '/podkesan-cur/hosts-saweria.jpg', crop: 'patra', url: 'https://www.instagram.com/patragumala/' },
+  { name: 'DIAZ', fullName: 'Diaz Danar', handle: '@diazdanar', image: '/podkesan-cur/hosts-saweria.jpg', crop: 'diaz', url: 'https://www.instagram.com/diazdanar/' },
+  { name: 'DHIKA', fullName: 'Randhika Djamil', handle: '@randhika_djamil', image: '/podkesan-cur/hosts-saweria.jpg', crop: 'dhika', url: 'https://www.instagram.com/randhika_djamil/' },
 ];
 
 const episodes = [
