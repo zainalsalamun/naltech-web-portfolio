@@ -6,10 +6,14 @@ import {
   ArrowUpRight,
   CalendarDays,
   Camera,
+  ExternalLink,
   Headphones,
+  Link2,
   MessageCircleHeart,
   Mic2,
   Play,
+  ShoppingBag,
+  Ticket,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -34,6 +38,16 @@ const instagramUrl = 'https://www.instagram.com/podkesan.cur/';
 const latestPostUrl = 'https://www.instagram.com/podkesan.cur/p/DZNBURdkuqM/';
 const spotifyUrl = 'https://open.spotify.com/show/5Y4JTcUmxTcHYaYiqxsKtz';
 const saweriaUrl = 'https://saweria.co/podcastancur';
+const youtubeUrl = 'https://www.youtube.com/@podcastancur';
+
+const links = [
+  { label: 'YouTube', detail: 'Video, Shorts & Membership', href: youtubeUrl, icon: Play, tone: 'pink' },
+  { label: 'Spotify', detail: 'Dengarkan episode terbaru', href: spotifyUrl, icon: Headphones, tone: 'lime' },
+  { label: 'Saweria', detail: 'Kirim curhat & dukungan', href: saweriaUrl, icon: MessageCircleHeart, tone: 'yellow' },
+  { label: 'Merchandise', detail: 'Belanja Ancur Merch', href: 'https://id.shp.ee/ncCSYV3Y', icon: ShoppingBag, tone: 'paper' },
+  { label: 'Daftar Ancurun', detail: 'Ancurun Agustus 2026', href: 'https://bit.ly/AncurunAgustus2026', icon: Ticket, tone: 'purple' },
+  { label: 'Semua Link', detail: 'linktr.ee/podcastancur', href: 'https://linktr.ee/podcastancur', icon: Link2, tone: 'ink' },
+];
 
 const hosts = [
   { name: 'PATRA', fullName: 'Patra Gumala', handle: '@patragumala', image: '/podkesan-cur/patra.jpg', url: 'https://www.instagram.com/patragumala/' },
@@ -77,6 +91,7 @@ export default function PodkesanCurPage() {
         <div className="pc-nav-links">
           <a href="#episode">Episode</a>
           <a href="#about">Tentang</a>
+          <a href="#links">Links</a>
           <a href="#ancurhat">ANdaCURhat</a>
         </div>
         <a className="pc-listen" href={spotifyUrl} target="_blank" rel="noreferrer">
@@ -176,10 +191,27 @@ export default function PodkesanCurPage() {
         </div>
       </section>
 
+      <section className="pc-links" id="links">
+        <header className="pc-links-head">
+          <p>03 / MAU KE MANA?</p>
+          <h2>SEMUA JALAN<br />MENUJU <em>CUR.</em></h2>
+          <p>Pilih tempat nongkrong, dengarkan episode, gabung membership, kirim curhat, atau cari merchandise resmi.</p>
+        </header>
+        <div className="pc-link-grid">
+          {links.map(({ label, detail, href, icon: Icon, tone }) => (
+            <a className={`pc-link-card ${tone}`} href={href} target="_blank" rel="noreferrer" key={label}>
+              <span className="pc-link-icon"><Icon size={24} /></span>
+              <span className="pc-link-copy"><strong>{label}</strong><small>{detail}</small></span>
+              <ExternalLink className="pc-link-arrow" size={22} />
+            </a>
+          ))}
+        </div>
+      </section>
+
       <section className="pc-ancurhat" id="ancurhat">
         <div className="pc-ancurhat-badge"><MessageCircleHeart size={42} /><span>#ANdaCURhat</span></div>
         <div className="pc-ancurhat-copy">
-          <p>03 / CERITA LO, RISIKO LO</p>
+          <p>04 / CERITA LO, RISIKO LO</p>
           <h2>PUNYA CURHATAN<br />YANG TERLALU<br /><em>ANCUR?</em></h2>
           <p>Kirim cerita lewat Instagram atau dukung acara lewat Saweria. Pesan bisa dibacakan, dibahas, mungkin juga ditertawakan—tapi apakah akan diberi solusi? Tentu tidak.</p>
           <div>
@@ -197,7 +229,7 @@ export default function PodkesanCurPage() {
 
       <footer className="pc-footer">
         <a className="pc-brand" href="#top"><img src="/podkesan-cur/logo.jpg" alt="" width={52} height={52} /><strong>PODKESAN<span>/CUR</span></strong></a>
-        <div><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={spotifyUrl} target="_blank" rel="noreferrer">Spotify ↗</a><a href={saweriaUrl} target="_blank" rel="noreferrer">Saweria ↗</a></div>
+        <div><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={youtubeUrl} target="_blank" rel="noreferrer">YouTube ↗</a><a href={spotifyUrl} target="_blank" rel="noreferrer">Spotify ↗</a><a href={saweriaUrl} target="_blank" rel="noreferrer">Saweria ↗</a></div>
         <p>Concept website independently created by Naltech Studio. Not an official PODKESAN CUR website.</p>
       </footer>
     </main>
