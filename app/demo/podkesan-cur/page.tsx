@@ -31,8 +31,15 @@ export const metadata: Metadata = {
 };
 
 const instagramUrl = 'https://www.instagram.com/podkesan.cur/';
+const latestPostUrl = 'https://www.instagram.com/podkesan.cur/p/DZNBURdkuqM/';
 const spotifyUrl = 'https://open.spotify.com/show/5Y4JTcUmxTcHYaYiqxsKtz';
 const saweriaUrl = 'https://saweria.co/podcastancur';
+
+const hosts = [
+  { name: 'PATRA', fullName: 'Patra Gumala', handle: '@patragumala', image: '/podkesan-cur/patra.jpg', url: 'https://www.instagram.com/patragumala/' },
+  { name: 'DIAZ', fullName: 'Diaz Danar', handle: '@diazdanar', image: '/podkesan-cur/diaz.jpg', url: 'https://www.instagram.com/diazdanar/' },
+  { name: 'DHIKA', fullName: 'Randhika Djamil', handle: '@randhika_djamil', image: '/podkesan-cur/dhika.jpg', url: 'https://www.instagram.com/randhika_djamil/' },
+];
 
 const episodes = [
   {
@@ -94,10 +101,10 @@ export default function PodkesanCurPage() {
 
         <div className="pc-hero-art">
           <div className="pc-photo-card">
-            <img src="/podkesan-cur/friends.jpg" alt="PODKESAN CUR bersama teman dan bintang tamu" />
-            <span>18+</span>
+            <img src="/podkesan-cur/latest.jpg" alt="Patra, Diaz, dan Dhika dalam pengumuman terbaru PODKESAN CUR" />
+            <span>NEW</span>
           </div>
-          <div className="pc-burst">HARUSNYA<br /><strong>LUCU!</strong></div>
+          <div className="pc-burst">ERA BARU<br /><strong>CUR!</strong></div>
           <div className="pc-schedule"><CalendarDays size={19} /><span>BARU TIAP</span><b>SEN · RAB · JUM</b></div>
           <div className="pc-sound" aria-label="Gelombang audio sedang diputar">
             {[24, 45, 68, 34, 80, 52, 30, 62, 88, 41, 72, 27].map((height, index) => (
@@ -114,18 +121,18 @@ export default function PodkesanCurPage() {
       <section className="pc-episodes" id="episode">
         <header className="pc-section-head">
           <p>01 / LAGI ANGET</p>
-          <h2>EPISODE BARU.<br /><em>MASALAH LAMA.</em></h2>
-          <a href={spotifyUrl} target="_blank" rel="noreferrer">Lihat semua episode <ArrowUpRight size={18} /></a>
+          <h2>UPDATE BARU.<br /><em>ERA BARU.</em></h2>
+          <a href={latestPostUrl} target="_blank" rel="noreferrer">Lihat postingan terbaru <ArrowUpRight size={18} /></a>
         </header>
 
         <div className="pc-episode-grid">
-          <a className="pc-featured" href={spotifyUrl} target="_blank" rel="noreferrer">
-            <img src="/podkesan-cur/horror.jpg" alt="Artwork episode PODKESAN CUR" />
+          <a className="pc-featured" href={latestPostUrl} target="_blank" rel="noreferrer">
+            <img src="/podkesan-cur/latest.jpg" alt="Pengumuman YouTube Membership PODKESAN CUR" />
             <div className="pc-featured-copy">
-              <span>PILIHAN CUR</span>
-              <h3>SETAN PUN<br />BOLEH IKUT<br />NONGKRONG.</h3>
-              <p>Cerita horor, pertemanan, hubungan, sampai masalah hidup yang tidak pernah benar-benar selesai.</p>
-              <b><Play size={15} fill="currentColor" /> Putar episode</b>
+              <span>POSTINGAN TERBARU · 5 JUNI 2026</span>
+              <h3>YOUTUBE<br />MEMBERSHIP<br />RESMI BUKA.</h3>
+              <p>Akses konten eksklusif, merchandise lebih awal, diskon event, dan benefit lain mulai Rp30.000 per bulan.</p>
+              <b><Camera size={16} /> Lihat di Instagram</b>
             </div>
           </a>
 
@@ -156,8 +163,15 @@ export default function PodkesanCurPage() {
           </div>
         </div>
         <div className="pc-hosts" aria-label="Host PODKESAN CUR">
-          {['PATRA', 'DIAZ', 'DHIKA'].map((host, index) => (
-            <div key={host}><small>0{index + 1}</small><strong>{host}</strong><span>HOST / CUR</span></div>
+          {hosts.map((host, index) => (
+            <a className="pc-host" href={host.url} target="_blank" rel="noreferrer" key={host.name}>
+              <small>0{index + 1} / HOST</small>
+              <div className="pc-host-photo"><img src={host.image} alt={`Foto ${host.fullName}`} /></div>
+              <div className="pc-host-name">
+                <strong>{host.name}</strong>
+                <span>{host.handle} <ArrowUpRight size={15} /></span>
+              </div>
+            </a>
           ))}
         </div>
       </section>
