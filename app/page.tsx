@@ -44,6 +44,7 @@ const projects = [
   { slug: 'ringnet', type: 'Internet Service Provider', name: 'RingNet', result: 'Fiber coverage, package finder & business consultation', theme: 'ringnet', number: '30' },
   { slug: 'nalchester', type: 'Football Media & Fan Community', name: 'Nalchester', result: 'Manchester United fan-media brand experience', theme: 'nalchester', number: '31' },
   { slug: 'the-united-wave', type: 'Football Media & Fan Community', name: 'The United Wave', result: 'Fan-media editorial hub & community experience', theme: 'united-wave', number: '32' },
+  { slug: 'podkesan-cur', type: 'Comedy Podcast & Community', name: 'PODKESAN CUR', result: 'Podcast episode hub & community experience', theme: 'podkesan', number: '33' },
 ];
 
 const services = [

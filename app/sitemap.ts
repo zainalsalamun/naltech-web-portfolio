@@ -202,10 +202,16 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/nalchester/og.png`, `${siteUrl}/nalchester/nalchester-crest.png`],
   },
+  {
+    path: '/demo/podkesan-cur',
+    changeFrequency: 'weekly',
+    priority: 0.85,
+    images: [`${siteUrl}/podkesan-cur/friends.jpg`, `${siteUrl}/podkesan-cur/horror.jpg`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-08-29');
+  const lastModified = new Date('2026-09-05');
 
   return siteRoutes.map((route) => ({
     url: `${siteUrl}${route.path}`,
