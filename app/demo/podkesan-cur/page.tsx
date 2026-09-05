@@ -8,11 +8,13 @@ import {
   Camera,
   ExternalLink,
   Headphones,
+  HeartHandshake,
   Link2,
   MessageCircleHeart,
   Mic2,
   Play,
   ShoppingBag,
+  Sparkles,
   Ticket,
 } from 'lucide-react';
 
@@ -44,8 +46,11 @@ const links = [
   { label: 'YouTube', detail: 'Video, Shorts & Membership', href: youtubeUrl, icon: Play, tone: 'pink' },
   { label: 'Spotify', detail: 'Dengarkan episode terbaru', href: spotifyUrl, icon: Headphones, tone: 'lime' },
   { label: 'Saweria', detail: 'Kirim curhat & dukungan', href: saweriaUrl, icon: MessageCircleHeart, tone: 'yellow' },
-  { label: 'Merchandise', detail: 'Belanja Ancur Merch', href: 'https://id.shp.ee/ncCSYV3Y', icon: ShoppingBag, tone: 'paper' },
-  { label: 'Daftar Ancurun', detail: 'Ancurun Agustus 2026', href: 'https://bit.ly/AncurunAgustus2026', icon: Ticket, tone: 'purple' },
+  { label: 'Kerja Sama', detail: 'Hubungi tim Podcast Ancur', href: 'https://api.whatsapp.com/send/?phone=6281284015289&type=phone_number&app_absent=0', icon: HeartHandshake, tone: 'paper' },
+  { label: 'Parfum Stellar', detail: 'Kolaborasi MIDL × Podcast Ancur', href: 'https://www.tokopedia.com/midl/midl-x-podcast-ancur-stellar-perfume-edp-parfum-unisex-50ml', icon: Sparkles, tone: 'purple' },
+  { label: 'Parfum Euphoria', detail: 'Kolaborasi MIDL × Podcast Ancur', href: 'https://www.tokopedia.com/midl/midl-x-podcast-ancur-euphoria-perfume-edp-parfum-unisex-50ml', icon: Sparkles, tone: 'ink' },
+  { label: 'Merchandise', detail: 'Belanja merchandise Podcast Ancur', href: 'https://tokopedia.link/67j4BEdNnAb', icon: ShoppingBag, tone: 'pink' },
+  { label: 'Podcast Hunt 2024', detail: 'Arsip program Podcast Hunt', href: 'https://podcasthunt.id/', icon: Ticket, tone: 'lime' },
   { label: 'Semua Link', detail: 'linktr.ee/podcastancur', href: 'https://linktr.ee/podcastancur', icon: Link2, tone: 'ink' },
 ];
 
@@ -195,7 +200,7 @@ export default function PodkesanCurPage() {
         <header className="pc-links-head">
           <p>03 / MAU KE MANA?</p>
           <h2>SEMUA JALAN<br />MENUJU <em>CUR.</em></h2>
-          <p>Pilih tempat nongkrong, dengarkan episode, gabung membership, kirim curhat, atau cari merchandise resmi.</p>
+          <p>Dengarkan episode, kirim curhat, dukung acara, belanja merchandise dan parfum kolaborasi, atau hubungi tim untuk kerja sama.</p>
         </header>
         <div className="pc-link-grid">
           {links.map(({ label, detail, href, icon: Icon, tone }) => (
