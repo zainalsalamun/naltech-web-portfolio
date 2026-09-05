@@ -18,7 +18,7 @@
 .pc-host small{font-size:.75rem;font-weight:950;letter-spacing:.12em;color:#6a28d4}
 .pc-host-photo{width:190px;aspect-ratio:1;margin:auto;position:relative;border:5px solid var(--pc-ink);border-radius:50%;overflow:hidden;box-shadow:9px 9px 0 var(--pc-pink);background:#33204d}
 .pc-host-photo img{width:360%;height:auto;max-width:none;position:absolute;top:-10%;display:block}
-.pc-host-patra img{left:-299%;top:-155%}.pc-host-diaz img{left:28%;top:-155%}.pc-host-dhika img{left:-136%;top:-142%}
+.pc-host-patra img{left:-250%;top:-76%}.pc-host-diaz img{left:-6%;top:-78%}.pc-host-dhika img{left:-130%;top:-80%}
 .pc-host-name{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:10px}
 .pc-host-name strong{color:var(--pc-ink);font:clamp(3.3rem,4.8vw,5rem)/.82 Impact,sans-serif;letter-spacing:.01em}
 .pc-host-name span{display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--pc-ink);color:var(--pc-paper);font-size:.75rem;font-weight:900;letter-spacing:.05em;white-space:normal}
