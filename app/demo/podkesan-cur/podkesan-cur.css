@@ -16,8 +16,9 @@
 .pc-host:nth-child(3){background:var(--pc-yellow)}
 .pc-host:hover{background:#fff;transform:translateY(-5px)}
 .pc-host small{font-size:.68rem;font-weight:950;letter-spacing:.12em;color:#6a28d4}
-.pc-host-photo{width:150px;aspect-ratio:1;margin:auto;border:4px solid var(--pc-ink);border-radius:50%;overflow:hidden;box-shadow:8px 8px 0 var(--pc-pink);background:#fff}
-.pc-host-photo img{width:100%;height:100%;display:block;object-fit:cover}
+.pc-host-photo{width:150px;aspect-ratio:1;margin:auto;position:relative;border:4px solid var(--pc-ink);border-radius:50%;overflow:hidden;box-shadow:8px 8px 0 var(--pc-pink);background:#33204d}
+.pc-host-photo img{width:360%;height:auto;max-width:none;position:absolute;top:-10%;display:block}
+.pc-host-patra img{left:-9%}.pc-host-diaz img{left:-242%}.pc-host-dhika img{left:-130%}
 .pc-host-name{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
 .pc-host strong{font:clamp(2.8rem,4vw,4rem)/.85 Impact,sans-serif}
 .pc-host span{display:flex;align-items:center;gap:5px;font-size:.68rem;font-weight:900;letter-spacing:.05em;white-space:nowrap}

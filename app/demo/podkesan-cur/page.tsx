@@ -50,9 +50,9 @@ const links = [
 ];
 
 const hosts = [
-  { name: 'PATRA', fullName: 'Patra Gumala', handle: '@patragumala', image: '/podkesan-cur/patra.jpg', url: 'https://www.instagram.com/patragumala/' },
-  { name: 'DIAZ', fullName: 'Diaz Danar', handle: '@diazdanar', image: '/podkesan-cur/diaz.jpg', url: 'https://www.instagram.com/diazdanar/' },
-  { name: 'DHIKA', fullName: 'Randhika Djamil', handle: '@randhika_djamil', image: '/podkesan-cur/dhika.jpg', url: 'https://www.instagram.com/randhika_djamil/' },
+  { name: 'PATRA', fullName: 'Patra Gumala', handle: '@patragumala', image: '/podkesan-cur/hosts-latest.png', crop: 'patra', url: 'https://www.instagram.com/patragumala/' },
+  { name: 'DIAZ', fullName: 'Diaz Danar', handle: '@diazdanar', image: '/podkesan-cur/hosts-latest.png', crop: 'diaz', url: 'https://www.instagram.com/diazdanar/' },
+  { name: 'DHIKA', fullName: 'Randhika Djamil', handle: '@randhika_djamil', image: '/podkesan-cur/hosts-latest.png', crop: 'dhika', url: 'https://www.instagram.com/randhika_djamil/' },
 ];
 
 const episodes = [
@@ -181,7 +181,7 @@ export default function PodkesanCurPage() {
           {hosts.map((host, index) => (
             <a className="pc-host" href={host.url} target="_blank" rel="noreferrer" key={host.name}>
               <small>0{index + 1} / HOST</small>
-              <div className="pc-host-photo"><img src={host.image} alt={`Foto ${host.fullName}`} /></div>
+              <div className={`pc-host-photo pc-host-${host.crop}`}><img src={host.image} alt={`Foto terbaru ${host.fullName}`} /></div>
               <div className="pc-host-name">
                 <strong>{host.name}</strong>
                 <span>{host.handle} <ArrowUpRight size={15} /></span>
