@@ -214,6 +214,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/mobile-showroom/hero-phones.png`],
   },
+  {
+    path: '/demo/nala-auto',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/rental/hero-suv.jpg`, `${siteUrl}/rental/city-suv.jpg`, `${siteUrl}/rental/coastal-suv.jpg`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

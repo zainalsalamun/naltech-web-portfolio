@@ -46,6 +46,7 @@ const projects = [
   { slug: 'the-united-wave', type: 'Football Media & Fan Community', name: 'The United Wave', result: 'Fan-media editorial hub & community experience', theme: 'united-wave', number: '32' },
   { slug: 'podkesan-cur', type: 'Comedy Podcast & Community', name: 'PODKESAN CUR', result: 'Podcast episode hub & community experience', theme: 'podkesan', number: '33' },
   { slug: 'nala-mobile', type: 'Mobile Showroom', name: 'Nala Mobile', result: 'Smartphone showroom landing experience', theme: 'mobile', number: '34' },
+  { slug: 'nala-auto', type: 'Car Showroom', name: 'Nala Auto', result: 'Premium used-car showroom experience', theme: 'auto', number: '35' },
 ];
 
 const services = [
