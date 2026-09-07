@@ -208,6 +208,12 @@ const siteRoutes: RouteConfig[] = [
     priority: 0.85,
     images: [`${siteUrl}/podkesan-cur/friends.jpg`, `${siteUrl}/podkesan-cur/horror.jpg`],
   },
+  {
+    path: '/demo/nala-mobile',
+    changeFrequency: 'monthly',
+    priority: 0.85,
+    images: [`${siteUrl}/mobile-showroom/hero-phones.png`],
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
