@@ -15,9 +15,17 @@ export const metadata: Metadata = {
 };
 
 const cars = [
-  { name: 'Toyota Fortuner 2.8 VRZ', meta: '2023 · 18.200 km · Diesel', price: 'Rp 568 jt', image: '/rental/hero-suv.jpg', tag: 'Paling dicari' },
-  { name: 'Honda HR-V 1.5 SE', meta: '2022 · 24.800 km · Bensin', price: 'Rp 328 jt', image: '/rental/city-suv.jpg', tag: 'Siap jalan' },
-  { name: 'Mitsubishi Xpander Ultimate', meta: '2021 · 31.400 km · Bensin', price: 'Rp 248 jt', image: '/rental/coastal-suv.jpg', tag: 'Value pick' },
+  { name: 'Honda Brio Satya E', meta: '2023 · 18.200 km · City car', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'City car' },
+  { name: 'Honda Freed E', meta: '2015 · 72.400 km · MPV', price: 'Hubungi untuk harga', image: '/rental/coastal-suv.jpg', tag: 'Family pick' },
+  { name: 'Honda Mobilio RS', meta: '2022 · 24.800 km · MPV', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'Siap jalan' },
+  { name: 'Honda CR-V Turbo', meta: '2022 · 21.100 km · SUV', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'Paling dicari' },
+  { name: 'Honda HR-V 1.5 SE', meta: '2022 · 24.800 km · SUV', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'Paling dicari' },
+  { name: 'Toyota Avanza G', meta: '2023 · 16.900 km · MPV', price: 'Hubungi untuk harga', image: '/rental/coastal-suv.jpg', tag: 'Best seller' },
+  { name: 'Toyota Veloz Q', meta: '2023 · 19.600 km · MPV', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'Family pick' },
+  { name: 'Toyota Innova Reborn', meta: '2021 · 39.700 km · Diesel', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'Best seller' },
+  { name: 'Toyota Innova Zenix Hybrid', meta: '2023 · 14.500 km · Hybrid', price: 'Hubungi untuk harga', image: '/rental/coastal-suv.jpg', tag: 'Hybrid' },
+  { name: 'Mitsubishi Pajero Sport', meta: '2022 · 28.600 km · Diesel', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'SUV premium' },
+  { name: 'Toyota Fortuner 2.8 VRZ', meta: '2023 · 18.200 km · Diesel', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'Paling dicari' },
 ];
 
 const services = [
