@@ -1,0 +1,39 @@
+/* Intentional motion language for the studio homepage: quick entrances, slow ambient drift. */
+.nl-page{--nl-ease:cubic-bezier(.22,1,.36,1)}
+.nl-header{animation:nl-header-in .75s var(--nl-ease) both}
+.nl-hero-copy{animation:nl-copy-in .9s .08s var(--nl-ease) both}
+.nl-showcase{animation:nl-showcase-in 1s .16s var(--nl-ease) both}
+.nl-browser{animation:nl-browser-in 1.1s .28s var(--nl-ease) both}
+.nl-float-one{animation:nl-float-one 7s ease-in-out 1.2s infinite}
+.nl-float-two{animation:nl-float-two 8s ease-in-out 1.4s infinite}
+.nl-float-three{animation:nl-float-three 6s ease-in-out 1.5s infinite}
+.nl-trust>div{animation:nl-trust-in 1.1s .45s var(--nl-ease) both}
+.nl-service-card,.nl-project,.nl-steps article,.nl-numbers article{transition:transform .5s var(--nl-ease),box-shadow .5s var(--nl-ease),background-color .5s ease}
+.nl-service-card:hover{transform:translateY(-9px);box-shadow:0 22px 35px rgba(24,28,46,.08)}
+.nl-service-card a,.nl-secondary,.nl-footer-nav a,.nl-nav a{position:relative}
+.nl-service-card a:after,.nl-secondary:after,.nl-footer-nav a:after,.nl-nav a:after{content:'';position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:currentColor;transition:right .35s var(--nl-ease)}
+.nl-service-card a:hover:after,.nl-secondary:hover:after,.nl-footer-nav a:hover:after,.nl-nav a:hover:after{right:0}
+.nl-project:hover{transform:translateY(-8px)}
+.nl-project:hover .nl-project-art{filter:saturate(1.12)}
+.nl-project-art{transition:filter .5s ease,transform .5s var(--nl-ease)}
+.nl-project:hover .nl-project-browser{transform:rotate(-2deg) translateY(-5px)}
+.nl-project-browser{transition:transform .5s var(--nl-ease),box-shadow .5s var(--nl-ease)}
+.nl-project-meta>span{transition:transform .4s var(--nl-ease),background-color .4s ease}
+.nl-project:hover .nl-project-meta>span{transform:rotate(-45deg) scale(1.15);background:#2657ff;color:#fff}
+.nl-steps article:hover,.nl-numbers article:hover{transform:translateY(-7px)}
+.nl-steps article>div{transition:transform .45s var(--nl-ease),color .35s ease}
+.nl-steps article:hover>div{transform:rotate(12deg) scale(1.12);color:#2657ff}
+.nl-final-orb{animation:nl-orb-drift 13s ease-in-out infinite alternate}
+.nl-final-orb i:first-of-type{animation:nl-orbit 12s linear infinite}
+.nl-final-orb i:last-of-type{animation:nl-orbit 17s linear reverse infinite}
+@keyframes nl-header-in{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+@keyframes nl-copy-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes nl-showcase-in{from{opacity:0;transform:translateX(28px) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes nl-browser-in{from{opacity:0;transform:rotate(4deg) scale(.96)}to{opacity:1;transform:none}}
+@keyframes nl-trust-in{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}
+@keyframes nl-float-one{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes nl-float-two{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes nl-float-three{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes nl-orb-drift{from{transform:translate3d(0,0,0) rotate(-4deg)}to{transform:translate3d(-10px,12px,0) rotate(5deg)}}
+@keyframes nl-orbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.nl-header,.nl-hero-copy,.nl-showcase,.nl-browser,.nl-trust>div,.nl-final-orb,.nl-final-orb i,.nl-float-one,.nl-float-two,.nl-float-three{animation:none}.nl-service-card,.nl-project,.nl-steps article,.nl-numbers article{transition:none}}
