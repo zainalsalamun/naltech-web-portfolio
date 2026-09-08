@@ -97,10 +97,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" data-scroll-behavior="smooth">
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>
   );
 }
-
