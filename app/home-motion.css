@@ -1,5 +1,6 @@
 /* Intentional motion language for the studio homepage: quick entrances, slow ambient drift. */
 .nl-page{--nl-ease:cubic-bezier(.22,1,.36,1)}
+.nl-header{position:static!important;z-index:auto!important}
 .nl-header{animation:nl-header-in .75s var(--nl-ease) both}
 .nl-hero-copy{animation:nl-copy-in .9s .08s var(--nl-ease) both}
 .nl-showcase{animation:nl-showcase-in 1s .16s var(--nl-ease) both}
