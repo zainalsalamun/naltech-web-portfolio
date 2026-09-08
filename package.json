@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "vinext build",
+    "build": "if [ \"$VERCEL\" = \"1\" ]; then next build; else vinext build; fi",
     "start": "next start",
     "vinext:dev": "vinext dev",
     "vinext:build": "vinext build",
