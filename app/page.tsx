@@ -519,6 +519,10 @@ export default function Home() {
         </div>
         <small>© 2026 Naltech Studio. All rights reserved. <span>Made with intention in Jakarta.</span></small>
       </footer>
+      <a className="nl-back-top" href="#top" aria-label="Kembali ke atas">
+        <span>↑</span>
+        <small>Kembali ke atas</small>
+      </a>
     </main>
   );
 }

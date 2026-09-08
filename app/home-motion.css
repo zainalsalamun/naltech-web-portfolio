@@ -26,6 +26,7 @@
 .nl-final-orb{animation:nl-orb-drift 13s ease-in-out infinite alternate}
 .nl-final-orb i:first-of-type{animation:nl-orbit 12s linear infinite}
 .nl-final-orb i:last-of-type{animation:nl-orbit 17s linear reverse infinite}
+.nl-back-top{position:fixed;z-index:20;right:clamp(16px,3vw,42px);bottom:clamp(16px,3vw,34px);display:flex;align-items:center;gap:9px;padding:8px 9px 8px 13px;border:1px solid rgba(18,24,44,.18);border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 12px 30px rgba(18,24,44,.14);backdrop-filter:blur(10px);font-size:.72rem;font-weight:850;transition:transform .35s var(--nl-ease),background-color .35s ease,color .35s ease}.nl-back-top span{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#2657ff;color:#fff;font-size:1rem;line-height:1}.nl-back-top:hover{transform:translateY(-5px);background:#17182a;color:#fff}.nl-back-top:hover span{background:#fff;color:#2657ff}
 @keyframes nl-header-in{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
 @keyframes nl-copy-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes nl-showcase-in{from{opacity:0;transform:translateX(28px) rotate(2deg)}to{opacity:1;transform:none}}
@@ -37,3 +38,4 @@
 @keyframes nl-orb-drift{from{transform:translate3d(0,0,0) rotate(-4deg)}to{transform:translate3d(-10px,12px,0) rotate(5deg)}}
 @keyframes nl-orbit{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.nl-header,.nl-hero-copy,.nl-showcase,.nl-browser,.nl-trust>div,.nl-final-orb,.nl-final-orb i,.nl-float-one,.nl-float-two,.nl-float-three{animation:none}.nl-service-card,.nl-project,.nl-steps article,.nl-numbers article{transition:none}}
+@media(max-width:600px){.nl-back-top{right:14px;bottom:14px;padding:7px}.nl-back-top small{display:none}.nl-back-top span{width:31px;height:31px}}
