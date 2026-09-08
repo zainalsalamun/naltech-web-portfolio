@@ -5,6 +5,7 @@ import { ArrowRight, BadgeCheck, CarFront, ChevronDown, Gauge, MapPin, MessageCi
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
 const whatsappUrl = 'https://wa.me/6281573550017?text=Halo%20Nala%20Auto%2C%20saya%20ingin%20konsultasi%20tentang%20mobil.';
+const commons = (file: string) => `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1200`;
 
 export const metadata: Metadata = {
   title: 'Nala Auto — Showroom Mobil Pilihan',
@@ -15,17 +16,17 @@ export const metadata: Metadata = {
 };
 
 const cars = [
-  { name: 'Honda Brio Satya E', meta: '2023 · 18.200 km · City car', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'City car' },
-  { name: 'Honda Freed E', meta: '2015 · 72.400 km · MPV', price: 'Hubungi untuk harga', image: '/rental/coastal-suv.jpg', tag: 'Family pick' },
-  { name: 'Honda Mobilio RS', meta: '2022 · 24.800 km · MPV', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'Siap jalan' },
-  { name: 'Honda CR-V Turbo', meta: '2022 · 21.100 km · SUV', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'Paling dicari' },
-  { name: 'Honda HR-V 1.5 SE', meta: '2022 · 24.800 km · SUV', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'Paling dicari' },
-  { name: 'Toyota Avanza G', meta: '2023 · 16.900 km · MPV', price: 'Hubungi untuk harga', image: '/rental/coastal-suv.jpg', tag: 'Best seller' },
-  { name: 'Toyota Veloz Q', meta: '2023 · 19.600 km · MPV', price: 'Hubungi untuk harga', image: '/rental/city-suv.jpg', tag: 'Family pick' },
-  { name: 'Toyota Innova Reborn', meta: '2021 · 39.700 km · Diesel', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'Best seller' },
-  { name: 'Toyota Innova Zenix Hybrid', meta: '2023 · 14.500 km · Hybrid', price: 'Hubungi untuk harga', image: '/rental/coastal-suv.jpg', tag: 'Hybrid' },
-  { name: 'Mitsubishi Pajero Sport', meta: '2022 · 28.600 km · Diesel', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'SUV premium' },
-  { name: 'Toyota Fortuner 2.8 VRZ', meta: '2023 · 18.200 km · Diesel', price: 'Hubungi untuk harga', image: '/rental/hero-suv.jpg', tag: 'Paling dicari' },
+  { name: 'Honda Brio Satya E', meta: '2023 · 18.200 km · City car', price: 'Hubungi untuk harga', image: commons('HondaBrio.jpg'), tag: 'City car' },
+  { name: 'Honda Freed E', meta: '2015 · 72.400 km · MPV', price: 'Hubungi untuk harga', image: commons('Honda Freed Hybrid.jpg'), tag: 'Family pick' },
+  { name: 'Honda Mobilio RS', meta: '2022 · 24.800 km · MPV', price: 'Hubungi untuk harga', image: 'https://res.cloudinary.com/mufautoshow/image/upload/f_auto,q_auto,w_1200/v1619398190/moas/news/1619398194_review-honda-mobilio-new-2021-harganya.png', tag: 'Siap jalan' },
+  { name: 'Honda CR-V Turbo', meta: '2022 · 21.100 km · SUV', price: 'Hubungi untuk harga', image: commons('Honda CR-V.jpg'), tag: 'Paling dicari' },
+  { name: 'Honda HR-V 1.5 SE', meta: '2022 · 24.800 km · SUV', price: 'Hubungi untuk harga', image: commons('Honda HR-V.jpg'), tag: 'Paling dicari' },
+  { name: 'Toyota Avanza G', meta: '2023 · 16.900 km · MPV', price: 'Hubungi untuk harga', image: commons('Toyota Avanza.jpg'), tag: 'Best seller' },
+  { name: 'Toyota Veloz Q', meta: '2023 · 19.600 km · MPV', price: 'Hubungi untuk harga', image: commons('Toyota Veloz.jpg'), tag: 'Family pick' },
+  { name: 'Toyota Innova Reborn', meta: '2021 · 39.700 km · Diesel', price: 'Hubungi untuk harga', image: 'https://awsimages.detik.net.id/community/media/visual/2020/10/15/toyota-new-kijang-innova_169.png?q=90&w=1200', tag: 'Best seller' },
+  { name: 'Toyota Innova Zenix Hybrid', meta: '2023 · 14.500 km · Hybrid', price: 'Hubungi untuk harga', image: 'https://paultan.org/image/2023/06/2023_Toyota_Innova_Zenix_HEV_Malaysia_Preview_Ext-36.jpg', tag: 'Hybrid' },
+  { name: 'Mitsubishi Pajero Sport', meta: '2022 · 28.600 km · Diesel', price: 'Hubungi untuk harga', image: commons('Mitsubishi Pajero Sport.jpg'), tag: 'SUV premium' },
+  { name: 'Toyota Fortuner 2.8 VRZ', meta: '2023 · 18.200 km · Diesel', price: 'Hubungi untuk harga', image: commons('Toyota Fortuner.jpg'), tag: 'Paling dicari' },
 ];
 
 const services = [
