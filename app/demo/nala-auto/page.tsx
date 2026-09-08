@@ -1,4 +1,5 @@
 import './nala-auto.css';
+import './font-fix.css';
 import type { Metadata } from 'next';
 import { ArrowRight, BadgeCheck, CarFront, ChevronDown, Gauge, MapPin, MessageCircle, ShieldCheck, Sparkles, Wrench } from 'lucide-react';
 
