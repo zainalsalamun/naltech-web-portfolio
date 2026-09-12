@@ -1,45 +1,18 @@
 'use client';
-
 import './nala-soda.css';
-import { ArrowUpRight, ChevronRight, Circle, Sparkles } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, ChevronLeft, ChevronRight, Circle, Plus } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 type Flavor = 'classic' | 'lime';
-
-const flavors = {
-  classic: { name: 'Classic', note: 'Citrus cola · zero sugar', accent: '#fbcfe8', inner: '#0b8a78', mid: '#044e3b', outer: '#011411', can: 'Cherry cola' },
-  lime: { name: 'Zero Lime', note: 'Lime sparkle · zero sugar', accent: '#d9ff55', inner: '#0b4f8a', mid: '#04294e', outer: '#010c14', can: 'Bright lime' },
-} satisfies Record<Flavor, { name: string; note: string; accent: string; inner: string; mid: string; outer: string; can: string }>;
+const flavors = { classic: { label: 'Diet Classic', title: 'Pure Zero', accent: '#fbcfe8', inner: '#174d83', mid: '#0b2d55', outer: '#061321', can: 'CLASSIC' }, lime: { label: 'Zero Lime', title: 'Bright Zero', accent: '#dcff63', inner: '#0c8c78', mid: '#064b44', outer: '#031c1b', can: 'LIME' } } as const;
 
 export default function NalaSodaPage() {
-  const [flavor, setFlavor] = useState<Flavor>('classic');
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const stageRef = useRef<HTMLElement>(null);
-  const current = flavors[flavor];
-
-  useEffect(() => {
-    const onMove = (event: MouseEvent) => {
-      const rect = stageRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      setTilt({ x: ((event.clientY - rect.top) / rect.height - 0.5) * -10, y: ((event.clientX - rect.left) / rect.width - 0.5) * 14 });
-    };
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
-  }, []);
-
-  return (
-    <main className="ns-page" style={{ '--ns-inner': current.inner, '--ns-mid': current.mid, '--ns-outer': current.outer, '--ns-accent': current.accent } as React.CSSProperties}>
-      <div className="ns-bubbles" aria-hidden="true">{Array.from({ length: 18 }, (_, i) => <i key={i} style={{ '--i': i } as React.CSSProperties} />)}</div>
-      <header className="ns-header"><a className="ns-brand" href="#top"><span><Circle size={22} /><b>+</b></span><strong>NALA <em>SODA</em></strong></a><nav><a className="active" href="#top">Home</a><a href="#flavors">Flavors</a><a href="#story">Our story</a><a href="#contact">Contact</a></nav><a className="ns-header-cta" href="https://wa.me/6281573550017?text=Halo%20Naltech%2C%20saya%20tertarik%20dengan%20konsep%20Nala%20Soda." target="_blank" rel="noreferrer">Let's talk <ArrowUpRight size={16} /></a></header>
-
-      <section className="ns-hero" id="top" ref={stageRef}>
-        <div className="ns-copy"><p className="ns-eyebrow"><Sparkles size={14} /> PURE ZERO REFRESHMENT</p><h1>Open a little<br /><em>possibility.</em></h1><p className="ns-lead">A crisp, clean soda made for the moments between plans. Zero sugar, bright flavor, and nothing to compromise.</p><a className="ns-primary" href="#flavors">Find your flavor <ArrowUpRight size={18} /></a><div className="ns-award"><span>✦</span><div><b>GOOD TASTE, LESS SUGAR</b><small>Crafted for everyday escapes</small></div></div></div>
-        <div className="ns-product-wrap"><div className="ns-orbit ns-orbit-one" /><div className="ns-orbit ns-orbit-two" /><div className="ns-orb ns-orb-pink" /><div className="ns-orb ns-orb-yellow" /><div className="ns-can-shadow" /><div className="ns-can" style={{ transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) rotateZ(-7deg)` }}><div className="ns-can-top" /><div className="ns-can-label"><small>DIET</small><strong>NALA</strong><em>{current.can}</em><span>ZERO<br />SUGAR</span></div><div className="ns-can-bottom" /></div><div className="ns-float-note ns-note-one">No sugar<br /><b>100% sparkle</b></div><div className="ns-float-note ns-note-two">EST. 2026<br /><b>Jakarta</b></div></div>
-      </section>
-
-      <section className="ns-flavors" id="flavors"><div className="ns-section-label">01 / CHOOSE YOUR MOOD</div><div className="ns-flavor-head"><h2>Two ways to<br /><em>feel refreshed.</em></h2><p>Start with the familiar. Stay for the unexpected. Switch flavors and watch the whole scene change.</p></div><div className="ns-flavor-grid">{(['classic', 'lime'] as Flavor[]).map((key, index) => <button key={key} className={`ns-flavor-card ${flavor === key ? 'selected' : ''} ns-${key}`} onClick={() => setFlavor(key)}><span>0{index + 1}</span><div className="ns-mini-can"><i /></div><div><b>{flavors[key].name}</b><small>{flavors[key].note}</small></div><ChevronRight size={21} /></button>)}</div></section>
-      <section className="ns-story" id="story"><div><div className="ns-section-label">02 / THE NALA IDEA</div><h2>Make room for<br /><em>small escapes.</em></h2></div><p>We believe refreshment should feel like a reset button. Nala Soda pairs a familiar fizz with a brighter point of view—so every sip leaves a little more room for whatever comes next.</p><div className="ns-stats"><div><strong>0g</strong><span>added sugar</span></div><div><strong>2</strong><span>signature flavors</span></div><div><strong>∞</strong><span>ways to enjoy</span></div></div></section>
-      <footer className="ns-footer" id="contact"><a className="ns-brand" href="#top"><span><Circle size={22} /><b>+</b></span><strong>NALA <em>SODA</em></strong></a><p>Good taste for the in-between moments.</p><div><a href="#flavors">Flavors</a><a href="https://wa.me/6281573550017" target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="#top">Back to top ↑</a></div><small>Concept website independently created by Naltech Studio.</small></footer>
-    </main>
-  );
+  const [active, setActive] = useState<Flavor>('classic'); const [tilt, setTilt] = useState({ x: 0, y: 0 }); const current = flavors[active];
+  useEffect(() => { const move = (e: MouseEvent) => setTilt({ x: (e.clientY / window.innerHeight - .5) * -9, y: (e.clientX / window.innerWidth - .5) * 12 }); window.addEventListener('mousemove', move); return () => window.removeEventListener('mousemove', move); }, []);
+  const swap = () => setActive(active === 'classic' ? 'lime' : 'classic');
+  return <main className="soda-page" style={{ '--soda-inner': current.inner, '--soda-mid': current.mid, '--soda-outer': current.outer, '--soda-accent': current.accent } as React.CSSProperties}>
+    <div className="soda-noise" aria-hidden="true" />
+    <header className="soda-header"><a className="soda-logo" href="#"><span><Circle size={20}/><Plus size={10}/></span><b>Nala</b></a><nav><a className="active" href="#">Home</a><a href="#flavors">Ingredients</a><a href="#flavors">Taste</a><a href="#story">Eco</a><a href="#story">Reviews</a></nav><a className="soda-contact" href="https://wa.me/6281573550017" target="_blank" rel="noreferrer">Contact us</a></header>
+    <section className="soda-hero"><div className="soda-left"><h1>{current.title.split(' ').map(word => <span key={word}>{word}</span>)}</h1><p>Unleash the crisp taste of zero sugar. Refreshment redefined in every bubble — all in one sleek design.</p><a className="soda-shop" href="#flavors">Shop now <span><Plus size={17}/></span></a><div className="soda-award"><span>✦</span><small>DESIGN AWARDS<br/><b>PREMIUM BEVERAGE 2026</b></small></div></div><div className="soda-stage"><div className="soda-orbit orbit-a"/><div className="soda-orbit orbit-b"/>{['a','b','c','d','e'].map(x => <div key={x} className={`soda-berry berry-${x}`}/>)}<div className="soda-leaf leaf-a"/><div className="soda-leaf leaf-b"/><div className="soda-can-shadow"/><div className="soda-can" style={{ transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) rotateZ(-16deg)` }}><div className="soda-can-lid"/><div className="soda-can-art"><small>NALA</small><strong>ZERO</strong><em>{current.can}</em><i>0<br/><b>CAL</b></i></div><div className="soda-can-foot"/></div><div className="soda-heading-script">Refreshingly<br/><em>Clean</em></div></div><aside className="soda-picker" id="flavors"><div className="soda-picker-top"><small>CHOOSE YOUR FLAVOR</small><div><button aria-label="Previous flavor" onClick={swap}><ChevronLeft size={14}/></button><button aria-label="Next flavor" onClick={swap}><ChevronRight size={14}/></button></div></div><div className="soda-flavor-list">{(['classic','lime'] as Flavor[]).map(key => <button key={key} className={`soda-flavor ${active === key ? 'selected' : ''}`} onClick={() => setActive(key)}><div className={`soda-mini-can mini-${key}`}><span/></div><small>{flavors[key].label}<b>$2.99</b></small></button>)}</div></aside></section>
+  </main>;
 }
