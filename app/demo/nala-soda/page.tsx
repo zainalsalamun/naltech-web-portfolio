@@ -1,5 +1,6 @@
 'use client';
 import './nala-soda.css';
+import './soda-spin.css';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Circle, Plus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
