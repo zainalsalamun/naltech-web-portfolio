@@ -48,6 +48,7 @@ const projects = [
   { slug: 'podkesan-cur', type: 'Comedy Podcast & Community', name: 'PODKESAN CUR', result: 'Podcast episode hub & community experience', theme: 'podkesan', number: '33' },
   { slug: 'nala-mobile', type: 'Mobile Showroom', name: 'Nala Mobile', result: 'Smartphone showroom landing experience', theme: 'mobile', number: '34' },
   { slug: 'nala-auto', type: 'Car Showroom', name: 'Nala Auto', result: 'Premium used-car showroom experience', theme: 'auto', number: '35' },
+  { slug: 'nala-soda', type: 'Food & Beverage', name: 'Nala Soda', result: 'Interactive beverage launch experience', theme: 'soda', number: '36' },
 ];
 
 const services = [
