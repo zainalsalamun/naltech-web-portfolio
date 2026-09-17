@@ -5,13 +5,26 @@ import {
   Users,
   MapPin,
   Sparkles,
-  Calculator,
-  CheckCircle2,
   Clock,
-  Send,
   ShieldCheck,
-  Award,
+  Building2,
+  User,
+  Check,
 } from 'lucide-react';
+
+const WhatsAppIcon = ({ size = 18, className = '', fill = 'currentColor' }: { size?: number; className?: string; fill?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    className={`pxc-wa-icon ${className}`}
+    style={{ width: `${size}px`, height: `${size}px`, flexShrink: 0, display: 'inline-block', verticalAlign: 'middle' }}
+    viewBox="0 0 24 24"
+    fill={fill}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.711 1.456h.005c6.554 0 11.89-5.336 11.893-11.893a11.82 11.82 0 00-3.486-8.414z" />
+  </svg>
+);
 
 interface EventTypeOption {
   id: string;
@@ -35,7 +48,7 @@ const EVENT_TYPES: EventTypeOption[] = [
     id: 'gathering',
     name: 'Corporate Gathering & Outing',
     badge: 'Team Building',
-    desc: 'Family gathering, bonding kantor, outbound tematik, & malam keakraban / gala dinner.',
+    desc: 'Family gathering, bonding kantor, outbound tematik, & gala dinner keakraban.',
     baseCostPerPax: 420000,
     minPax: 40,
   },
@@ -43,7 +56,7 @@ const EVENT_TYPES: EventTypeOption[] = [
     id: 'company-trip',
     name: 'Private & Company Trip',
     badge: 'Tour & Travel',
-    desc: 'Wisata instansi, perjalanan dinas, study tour, incentive trip destinasi nusantara.',
+    desc: 'Wisata instansi, perjalanan dinas, study tour, & incentive trip nusantara.',
     baseCostPerPax: 650000,
     minPax: 20,
   },
@@ -114,7 +127,7 @@ const ADDON_SERVICES: AddonOption[] = [
   },
   {
     id: 'outbound-coach',
-    name: 'Fasilitator Outbound & Game Master Bersertifikat',
+    name: 'Fasilitator Outbound & Game Master',
     desc: 'Fun games, character building, team synergy equipment, dan instruktur profesional.',
     priceType: 'fixed',
     price: 3500000,
@@ -130,7 +143,7 @@ const ADDON_SERVICES: AddonOption[] = [
 
 export default function PixiEventCalculatorWidget() {
   const [selectedType, setSelectedType] = useState<string>('mice');
-  const [pax, setPax] = useState<number>(80);
+  const [pax, setPax] = useState<number>(65);
   const [destination, setDestination] = useState<string>('jogja');
   const [duration, setDuration] = useState<string>('full-day');
   const [selectedAddons, setSelectedAddons] = useState<string[]>([
@@ -159,10 +172,8 @@ export default function PixiEventCalculatorWidget() {
     );
   };
 
-  // Calculations
   const baseTotal = useMemo(() => {
-    const raw = currentType.baseCostPerPax * pax * currentDuration.factor * currentDest.multiplier;
-    return raw;
+    return currentType.baseCostPerPax * pax * currentDuration.factor * currentDest.multiplier;
   }, [currentType, pax, currentDuration, currentDest]);
 
   const addonsTotal = useMemo(() => {
@@ -191,6 +202,8 @@ export default function PixiEventCalculatorWidget() {
       maximumFractionDigits: 0,
     }).format(num);
   };
+
+  const sliderPercent = ((pax - 20) / (600 - 20)) * 100;
 
   const whatsappMessage = useMemo(() => {
     const selectedAddonNames = selectedAddons
@@ -224,45 +237,45 @@ export default function PixiEventCalculatorWidget() {
   ]);
 
   return (
-    <div className="w-full bg-[#0d1322] border border-slate-800/80 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl text-slate-100 relative overflow-hidden">
+    <div className="pxc-calc-card">
       {/* Background Decorative Glow */}
-      <div className="absolute -top-32 -right-32 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="pxc-calc-glow-top" />
+      <div className="pxc-calc-glow-bottom" />
 
       {/* Header Widget */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+      <div className="pxc-calc-header">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold tracking-wide uppercase mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            Interactive Event & Budget Simulator
+          <div className="pxc-calc-tag">
+            <Sparkles style={{ width: '14px', height: '14px' }} />
+            <span>Interactive Event & Budget Simulator</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h3 className="pxc-calc-title">
             Simulasi Anggaran & Rencana Acara
           </h3>
-          <p className="text-slate-400 text-sm sm:text-base mt-1">
+          <p className="pxc-calc-subtitle">
             Hitung estimasi kebutuhan MICE, Gathering, Company Trip, atau Event Organizer Anda secara transparan.
           </p>
         </div>
-        <div className="flex items-center gap-2 text-xs font-medium text-slate-400 bg-slate-800/60 px-4 py-2 rounded-xl border border-slate-700/50 self-start md:self-auto">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" />
+        <div className="pxc-calc-guarantee">
+          <ShieldCheck style={{ width: '16px', height: '16px', color: '#34d399' }} />
           <span>Gratis Konsultasi & Proposal Resmi</span>
         </div>
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
-        {/* Left Config Panel (7 cols) */}
-        <div className="lg:col-span-7 space-y-7">
+      <div className="pxc-calc-grid">
+        {/* Left Config Panel */}
+        <div className="pxc-calc-controls">
           {/* Step 1: Jenis Acara */}
-          <div>
-            <label className="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-3 flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-orange-500 text-white inline-flex items-center justify-center text-xs font-black">1</span>
+          <div className="pxc-calc-step">
+            <div className="pxc-calc-step-head">
+              <span className="pxc-calc-step-label">
+                <span className="pxc-calc-step-num">1</span>
                 PILIH JENIS LAYANAN ACARA
               </span>
-              <span className="text-[11px] font-normal text-slate-500">Pilih salah satu</span>
-            </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <span className="pxc-calc-step-hint">Pilih salah satu</span>
+            </div>
+            <div className="pxc-calc-types-grid">
               {EVENT_TYPES.map((type) => {
                 const isSelected = selectedType === type.id;
                 return (
@@ -270,26 +283,20 @@ export default function PixiEventCalculatorWidget() {
                     key={type.id}
                     type="button"
                     onClick={() => setSelectedType(type.id)}
-                    className={`text-left p-4 rounded-2xl border transition-all duration-200 relative ${
-                      isSelected
-                        ? 'bg-gradient-to-br from-orange-500/20 to-slate-800/90 border-orange-500 ring-1 ring-orange-500/50 shadow-lg shadow-orange-500/10'
-                        : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850'
-                    }`}
+                    className={`pxc-calc-type-btn ${isSelected ? 'active' : ''}`}
                   >
-                    <div className="flex items-start justify-between gap-2">
-                      <span className="font-bold text-white text-sm leading-snug">
-                        {type.name}
-                      </span>
-                      {isSelected && (
-                        <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+                    <div className="pxc-calc-type-top">
+                      <span className="pxc-calc-type-name">{type.name}</span>
+                      {isSelected ? (
+                        <div className="pxc-type-check-active">
+                          <Check style={{ width: '12px', height: '12px', color: '#ffffff' }} />
+                        </div>
+                      ) : (
+                        <div className="pxc-type-check-idle" />
                       )}
                     </div>
-                    <span className="inline-block px-2 py-0.5 mt-1.5 rounded text-[10px] font-semibold bg-slate-800 text-orange-300 border border-slate-700">
-                      {type.badge}
-                    </span>
-                    <p className="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">
-                      {type.desc}
-                    </p>
+                    <span className="pxc-calc-type-badge">{type.badge}</span>
+                    <p className="pxc-calc-type-desc">{type.desc}</p>
                   </button>
                 );
               })}
@@ -297,16 +304,16 @@ export default function PixiEventCalculatorWidget() {
           </div>
 
           {/* Step 2: Jumlah Peserta Slider */}
-          <div className="bg-slate-900/70 p-5 rounded-2xl border border-slate-800">
-            <div className="flex items-center justify-between mb-3">
-              <label className="text-xs uppercase tracking-wider text-slate-400 font-bold flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-orange-500 text-white inline-flex items-center justify-center text-xs font-black">2</span>
+          <div className="pxc-calc-step pxc-calc-pax-box">
+            <div className="pxc-calc-step-head">
+              <span className="pxc-calc-step-label">
+                <span className="pxc-calc-step-num">2</span>
                 ESTIMASI JUMLAH PESERTA
-              </label>
-              <div className="flex items-baseline gap-1 bg-orange-500/15 text-orange-400 px-3 py-1 rounded-xl border border-orange-500/30">
-                <Users className="w-4 h-4" />
-                <span className="text-lg font-black text-white">{pax}</span>
-                <span className="text-xs font-medium text-orange-300">Pax</span>
+              </span>
+              <div className="pxc-calc-pax-badge">
+                <Users style={{ width: '14px', height: '14px', color: '#ea580c' }} />
+                <strong>{pax}</strong>
+                <span>Pax</span>
               </div>
             </div>
             <input
@@ -316,29 +323,33 @@ export default function PixiEventCalculatorWidget() {
               step="5"
               value={pax}
               onChange={(e) => setPax(Number(e.target.value))}
-              className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500"
+              aria-label="Estimasi Jumlah Peserta"
+              className="pxc-calc-range"
+              style={{
+                background: `linear-gradient(to right, #ea580c 0%, #ea580c ${sliderPercent}%, #e2e8f0 ${sliderPercent}%, #e2e8f0 100%)`,
+              }}
             />
-            <div className="flex justify-between text-[11px] text-slate-500 mt-2 font-medium">
+            <div className="pxc-calc-pax-labels">
               <span>20 Pax (Intimate)</span>
               <span>100 Pax (Medium)</span>
               <span>300 Pax (Large)</span>
-              <span>600+ Pax (Mega Event)</span>
+              <span>600+ Pax (Mega)</span>
             </div>
           </div>
 
-          {/* Step 3: Lokasi & Durasi */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-2 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-orange-500 text-white inline-flex items-center justify-center text-xs font-black">3</span>
+          {/* Step 3 & 4: Lokasi & Durasi */}
+          <div className="pxc-calc-row-2">
+            <div className="pxc-calc-field">
+              <span className="pxc-calc-step-label">
+                <span className="pxc-calc-step-num">3</span>
                 LOKASI / DESTINASI
-              </label>
-              <div className="relative">
+              </span>
+              <div className="pxc-calc-select-wrap">
                 <select
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
                   aria-label="Pilih Lokasi atau Destinasi Acara"
-                  className="w-full bg-slate-900 border border-slate-800 text-slate-200 text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-orange-500 appearance-none font-medium"
+                  className="pxc-calc-select"
                 >
                   {DESTINATIONS.map((d) => (
                     <option key={d.id} value={d.id}>
@@ -346,21 +357,21 @@ export default function PixiEventCalculatorWidget() {
                     </option>
                   ))}
                 </select>
-                <MapPin className="w-4 h-4 text-slate-500 absolute right-3.5 top-3.5 pointer-events-none" />
+                <MapPin className="pxc-calc-select-icon" />
               </div>
             </div>
 
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-2 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-orange-500 text-white inline-flex items-center justify-center text-xs font-black">4</span>
+            <div className="pxc-calc-field">
+              <span className="pxc-calc-step-label">
+                <span className="pxc-calc-step-num">4</span>
                 DURASI KEGIATAN
-              </label>
-              <div className="relative">
+              </span>
+              <div className="pxc-calc-select-wrap">
                 <select
                   value={duration}
                   onChange={(e) => setDuration(e.target.value)}
                   aria-label="Pilih Durasi Kegiatan Acara"
-                  className="w-full bg-slate-900 border border-slate-800 text-slate-200 text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-orange-500 appearance-none font-medium"
+                  className="pxc-calc-select"
                 >
                   {DURATIONS.map((dur) => (
                     <option key={dur.id} value={dur.id}>
@@ -368,18 +379,18 @@ export default function PixiEventCalculatorWidget() {
                     </option>
                   ))}
                 </select>
-                <Clock className="w-4 h-4 text-slate-500 absolute right-3.5 top-3.5 pointer-events-none" />
+                <Clock className="pxc-calc-select-icon" />
               </div>
             </div>
           </div>
 
-          {/* Step 4: Add-on & Fasilitas */}
-          <div>
-            <label className="block text-xs uppercase tracking-wider text-slate-400 font-bold mb-3 flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-orange-500 text-white inline-flex items-center justify-center text-xs font-black">5</span>
-              KEBUTUHAN FASILITAS & ADD-ON SPESIFIK
-            </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {/* Step 5: Add-on & Fasilitas */}
+          <div className="pxc-calc-step">
+            <span className="pxc-calc-step-label">
+              <span className="pxc-calc-step-num">5</span>
+              KEBUTUHAN FASILITAS & ADD-ON
+            </span>
+            <div className="pxc-calc-addons-grid">
               {ADDON_SERVICES.map((addon) => {
                 const checked = selectedAddons.includes(addon.id);
                 return (
@@ -387,28 +398,18 @@ export default function PixiEventCalculatorWidget() {
                     key={addon.id}
                     type="button"
                     onClick={() => toggleAddon(addon.id)}
-                    className={`p-3 rounded-xl border text-left transition-all flex items-start gap-3 ${
-                      checked
-                        ? 'bg-orange-500/10 border-orange-500/60 text-slate-100'
-                        : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-300'
-                    }`}
+                    className={`pxc-calc-addon-btn ${checked ? 'checked' : ''}`}
                   >
-                    <div
-                      className={`w-4 h-4 rounded mt-0.5 flex items-center justify-center shrink-0 border ${
-                        checked
-                          ? 'bg-orange-500 border-orange-500 text-white'
-                          : 'border-slate-700 bg-slate-800'
-                      }`}
-                    >
-                      {checked && <CheckCircle2 className="w-3.5 h-3.5" />}
+                    <div className={`pxc-calc-checkbox ${checked ? 'active' : ''}`}>
+                      {checked && <Check style={{ width: '12px', height: '12px', color: '#ffffff' }} />}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-bold text-white leading-tight">
-                        {addon.name}
-                      </div>
-                      <div className="text-[11px] text-slate-400 mt-1 line-clamp-1">
-                        {addon.desc}
-                      </div>
+                    <div className="pxc-calc-addon-text">
+                      <span className="pxc-calc-addon-name">{addon.name}</span>
+                      <span className="pxc-calc-addon-price">
+                        {addon.priceType === 'perpax'
+                          ? `+${formatRupiah(addon.price)} / pax`
+                          : `+${formatRupiah(addon.price)} / event`}
+                      </span>
                     </div>
                   </button>
                 );
@@ -417,111 +418,81 @@ export default function PixiEventCalculatorWidget() {
           </div>
         </div>
 
-        {/* Right Summary & WhatsApp Trigger (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col justify-between bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 p-6 sm:p-7 rounded-3xl border border-slate-800 relative">
-          <div>
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Calculator className="w-4 h-4 text-orange-400" />
-                RINGKASAN SIMULASI
+        {/* Right Summary Card */}
+        <div className="pxc-calc-summary-side">
+          <div className="pxc-calc-summary-box">
+            <div className="pxc-calc-summary-head">
+              <div className="pxc-summary-tag-row">
+                <span className="pxc-summary-kicker">RINGKASAN ESTIMASI ACARA</span>
+                <span className="pxc-calc-summary-type">{currentType.badge}</span>
+              </div>
+              <h4 className="pxc-summary-title">{currentType.name}</h4>
+            </div>
+
+            <div className="pxc-calc-summary-details">
+              <div className="pxc-calc-detail-row">
+                <span>Peserta</span>
+                <strong>{pax} Pax</strong>
+              </div>
+              <div className="pxc-calc-detail-row">
+                <span>Destinasi</span>
+                <strong>{currentDest.name}</strong>
+              </div>
+              <div className="pxc-calc-detail-row">
+                <span>Durasi</span>
+                <strong>{currentDuration.name}</strong>
+              </div>
+              <div className="pxc-calc-detail-row">
+                <span>Layanan Add-on</span>
+                <strong>{selectedAddons.length} Dipilih</strong>
+              </div>
+            </div>
+
+            <div className="pxc-calc-price-block">
+              <span className="pxc-calc-price-label">ESTIMASI ANGGARAN TOTAL</span>
+              <div className="pxc-calc-price-value">± {formatRupiah(grandTotal)}</div>
+              <span className="pxc-calc-price-pax">
+                ± {formatRupiah(perPaxEstimate)} / orang (all-in)
               </span>
-              <span className="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">
-                {pax} Pax • {currentDuration.days >= 1 ? `${currentDuration.days} Hari` : 'Half-day'}
-              </span>
             </div>
 
-            {/* Price Box */}
-            <div className="my-6 p-5 rounded-2xl bg-gradient-to-br from-orange-500/15 via-slate-800/50 to-slate-900 border border-orange-500/30">
-              <div className="text-xs text-orange-300 font-semibold tracking-wide">
-                Perkiraan Nilai Investasi Acara
-              </div>
-              <div className="text-3xl sm:text-4xl font-black text-white mt-1 tracking-tight">
-                {formatRupiah(grandTotal)}
-              </div>
-              <div className="flex items-center justify-between text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800/80">
-                <span>Rata-rata per Peserta:</span>
-                <span className="font-bold text-orange-400 text-sm">
-                  {formatRupiah(perPaxEstimate)} <span className="text-[11px] font-normal text-slate-400">/pax</span>
-                </span>
-              </div>
-            </div>
-
-            {/* Checklist of what is included */}
-            <div className="space-y-2.5 text-xs text-slate-300">
-              <div className="font-semibold text-slate-200 mb-1 flex items-center gap-1">
-                <Award className="w-3.5 h-3.5 text-amber-400" />
-                Paket Mencakup Standar Pixi Creative:
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Penyusunan konsep, timeline, & minute-by-minute rundown</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Tim Crew & Field Coordinator On-Site di Hari H</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Sourcing & negosiasi venue / akomodasi terbaik</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Standard audio sound system, mic wireless, & teknisi</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Manajemen registrasi tamu & hospitality koordinasi</span>
-              </div>
-              {selectedAddons.length > 0 && (
-                <div className="pt-2 border-t border-slate-800/80 text-orange-300">
-                  + {selectedAddons.length} Fitur & Layanan Tambahan Terpilih
-                </div>
-              )}
-            </div>
-
-            {/* Optional User Identifiers */}
-            <div className="mt-6 pt-5 border-t border-slate-800 space-y-3">
-              <div>
-                <label className="block text-[11px] font-semibold text-slate-400 mb-1">
-                  Nama Anda (Opsional):
-                </label>
+            {/* Client input form for WhatsApp proposal */}
+            <div className="pxc-calc-user-fields">
+              <div className="pxc-calc-input-wrap">
+                <User className="pxc-calc-input-icon" style={{ width: '15px', height: '15px' }} />
                 <input
                   type="text"
-                  placeholder="Contoh: Bpk. Dimas / Ibu Rina"
+                  placeholder="Nama Anda / PIC"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 text-xs text-white rounded-xl px-3 py-2 focus:outline-none focus:border-orange-500"
+                  className="pxc-calc-input"
                 />
               </div>
-              <div>
-                <label className="block text-[11px] font-semibold text-slate-400 mb-1">
-                  Instansi / Perusahaan (Opsional):
-                </label>
+              <div className="pxc-calc-input-wrap">
+                <Building2 className="pxc-calc-input-icon" style={{ width: '15px', height: '15px' }} />
                 <input
                   type="text"
-                  placeholder="Contoh: PT Nusantara / Bappeda / Komunitas"
+                  placeholder="Instansi / Perusahaan (Opsional)"
                   value={institutionName}
                   onChange={(e) => setInstitutionName(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 text-xs text-white rounded-xl px-3 py-2 focus:outline-none focus:border-orange-500"
+                  className="pxc-calc-input"
                 />
               </div>
             </div>
-          </div>
 
-          {/* CTA Action WhatsApp */}
-          <div className="mt-6 pt-4 border-t border-slate-800">
             <a
               href={`https://wa.me/6285842345332?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20bd5a] hover:to-[#0f7a6e] text-white font-bold text-sm shadow-xl shadow-emerald-950/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+              className="pxc-calc-submit-btn"
             >
-              <Send className="w-4 h-4 shrink-0" />
-              <span>Kirim Rencana ke WhatsApp (+62 8584 234 5332)</span>
+              <WhatsAppIcon size={18} fill="#ffffff" />
+              <span>Dapatkan Proposal Resmi via WhatsApp</span>
             </a>
-            <p className="text-[11px] text-slate-500 text-center mt-2.5">
-              *Estimasi bersifat indikatif. Tim Pixi Creative akan mengirimkan proposal detail & penyesuaian budget.
-            </p>
+
+            <div className="pxc-calc-footer-note">
+              <span>* Estimasi bersifat fleksibel dan dapat disesuaikan dengan alokasi anggaran instansi Anda.</span>
+            </div>
           </div>
         </div>
       </div>
