@@ -1,126 +1,127 @@
-/* PIXI CREATIVE - Theme & Custom Styles */
+/* PIXI CREATIVE - Theme & Visual Stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
 
 :root {
-  --pixi-dark: #0b0f19;
-  --pixi-card: #131b2e;
-  --pixi-card-border: rgba(255, 255, 255, 0.08);
-  --pixi-primary: #ff5e36;
-  --pixi-primary-hover: #e04a23;
-  --pixi-accent: #f59e0b;
-  --pixi-amber: #fbbf24;
-  --pixi-text-main: #f8fafc;
-  --pixi-text-muted: #94a3b8;
-  --pixi-light-bg: #f8fafc;
-  --pixi-light-card: #ffffff;
+  --pixi-primary: #ea580c;
+  --pixi-primary-hover: #c2410c;
+  --pixi-gold: #d97706;
+  --pixi-dark: #0f172a;
+  --pixi-slate: #1e293b;
+  --pixi-card: #ffffff;
+  --pixi-bg-subtle: #f8fafc;
+  --pixi-border: #e2e8f0;
 }
 
 .pixi-page {
-  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: #1e293b;
   background-color: #ffffff;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* Glassmorphic dark badge */
-.pixi-badge-dark {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f8fafc;
+.pixi-serif {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-.pixi-badge-glow {
-  background: rgba(255, 94, 54, 0.12);
-  border: 1px solid rgba(255, 94, 54, 0.35);
-  color: #ff5e36;
+/* Hero Banner Overlay with real background image */
+.pixi-hero-banner {
+  position: relative;
+  background-color: #0b0f19;
+  background-image: linear-gradient(180deg, rgba(11, 15, 25, 0.72) 0%, rgba(15, 23, 42, 0.88) 100%),
+                    url('https://sites.google.com/sitesv-images-rt/AMxu72vTgcj-aTkWYUNQ4d9JlhQaLqT6DyGFe1lVDtlI0nmA4VPj22Knu1gVRtpLyAxVrLox8AJFS5CkcsnbAiN0ywglcXUDAa-aqH2He9lj0cAIGT_AeqyV_dNryLu2yK3INxjR-8m1JbtUU6Fr4RsLufXBXBgy31NxTlUxbCDWfyHnZlzchHPJwWLUI7TWkVMKSyLgHKfghUP-HOCHk0Jl8BW3HsB7PWAE0MO4MeaLKOc=w1280');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-/* Dark Hero gradient */
-.pixi-hero-bg {
-  background: radial-gradient(circle at 80% 20%, rgba(255, 94, 54, 0.18) 0%, transparent 45%),
-              radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
-              linear-gradient(180deg, #090d16 0%, #0f172a 100%);
+/* Quote highlight banner */
+.pixi-quote-banner {
+  position: relative;
+  background-color: #0b0f19;
+  background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(194, 65, 12, 0.82) 100%),
+                    url('https://sites.google.com/sitesv-images-rt/AMxu72sdf4xQSDukyt40ioS7DVbfnFYbClpVQYep5r6XltSRXp6_8a8wAdhW7WUHgtzdpwfT0D-l54pqttEv52RuvZmKFJ94OaplrNUabeoANzy0y1mnJByEdqOUF_nHdapzjc6xMzVlmTFL59g-Koss6Va12M1Es-Y7eE-a1Gql5yLodIDYOIxPlkVmDmYpPmk=w1280');
+  background-size: cover;
+  background-position: center;
 }
 
-/* Card hover animation */
-.pixi-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Masterpiece CTA Banner */
+.pixi-masterpiece-banner {
+  position: relative;
+  background-color: #0b0f19;
+  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(11, 15, 25, 0.94) 100%),
+                    url('https://sites.google.com/sitesv-images-rt/AMxu72tKV5xlq-NRdJn5TTrdlhMuPG3rwsVAM6bSq4VcA2F_7Ocu6T-XiiaXLC-GvSuiTBAq2WoLHABOpXfcJajy2iP0HDMg0WVj00VO_P22Cq98MhT7jHvsh3VlSKAMI0GL1xNAtrFHSZtYAgJfKCvvpMdzfvSfiVkjXkeHiHQhhtPq809jNNvCu0BGjt0IQrZh_8GZdKatQpdvtuc-4WYnocDVfEZvO5mgtLvwrjxF=w1280');
+  background-size: cover;
+  background-position: center;
 }
-.pixi-card-hover:hover {
+
+/* Image Card Hover Effect */
+.pixi-img-zoom {
+  overflow: hidden;
+}
+.pixi-img-zoom img {
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.pixi-img-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* Card elevation */
+.pixi-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+}
+.pixi-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  border-color: #cbd5e1;
 }
 
-.pixi-card-dark-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.pixi-card-dark-hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 94, 54, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(255, 94, 54, 0.25);
-}
-
-/* Custom scrollbar for horizontal chips */
-.pixi-no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.pixi-no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Pill badge */
+.pixi-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-/* Shimmer animation */
-@keyframes pixi-shimmer {
+.pixi-pill-orange {
+  background-color: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #ffedd5;
+}
+
+/* Pulse animation */
+@keyframes pixi-pulse-ring {
   0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.pixi-shimmer-text {
-  background: linear-gradient(90deg, #ffffff 0%, #ff8a65 50%, #ffffff 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: pixi-shimmer 6s infinite ease-in-out;
-}
-
-/* Pulse badge ring */
-@keyframes pixi-pulse {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 94, 54, 0.6);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.7);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(255, 94, 54, 0);
+    box-shadow: 0 0 0 8px rgba(234, 88, 12, 0);
   }
   100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 94, 54, 0);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
   }
 }
 
-.pixi-pulse-indicator {
-  animation: pixi-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+.pixi-pulse-ring {
+  animation: pixi-pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Sticky top bar subtle backdrop */
-.pixi-nav-glass {
-  background: rgba(9, 13, 22, 0.82);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Subtle pattern for sections */
-.pixi-dot-pattern {
-  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.pixi-dot-pattern-dark {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
+/* Clean Navigation bar */
+.pixi-navbar {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
