@@ -1,0 +1,126 @@
+/* PIXI CREATIVE - Theme & Custom Styles */
+
+:root {
+  --pixi-dark: #0b0f19;
+  --pixi-card: #131b2e;
+  --pixi-card-border: rgba(255, 255, 255, 0.08);
+  --pixi-primary: #ff5e36;
+  --pixi-primary-hover: #e04a23;
+  --pixi-accent: #f59e0b;
+  --pixi-amber: #fbbf24;
+  --pixi-text-main: #f8fafc;
+  --pixi-text-muted: #94a3b8;
+  --pixi-light-bg: #f8fafc;
+  --pixi-light-card: #ffffff;
+}
+
+.pixi-page {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif);
+  color: #1e293b;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Glassmorphic dark badge */
+.pixi-badge-dark {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+
+.pixi-badge-glow {
+  background: rgba(255, 94, 54, 0.12);
+  border: 1px solid rgba(255, 94, 54, 0.35);
+  color: #ff5e36;
+}
+
+/* Dark Hero gradient */
+.pixi-hero-bg {
+  background: radial-gradient(circle at 80% 20%, rgba(255, 94, 54, 0.18) 0%, transparent 45%),
+              radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
+              linear-gradient(180deg, #090d16 0%, #0f172a 100%);
+}
+
+/* Card hover animation */
+.pixi-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pixi-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.12);
+}
+
+.pixi-card-dark-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pixi-card-dark-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 94, 54, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(255, 94, 54, 0.25);
+}
+
+/* Custom scrollbar for horizontal chips */
+.pixi-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.pixi-no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Shimmer animation */
+@keyframes pixi-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.pixi-shimmer-text {
+  background: linear-gradient(90deg, #ffffff 0%, #ff8a65 50%, #ffffff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pixi-shimmer 6s infinite ease-in-out;
+}
+
+/* Pulse badge ring */
+@keyframes pixi-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 94, 54, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 94, 54, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 94, 54, 0);
+  }
+}
+
+.pixi-pulse-indicator {
+  animation: pixi-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Sticky top bar subtle backdrop */
+.pixi-nav-glass {
+  background: rgba(9, 13, 22, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle pattern for sections */
+.pixi-dot-pattern {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pixi-dot-pattern-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
