@@ -2,16 +2,54 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import './pixi.css';
 import PixiEventCalculatorWidget from './PixiEventCalculatorWidget';
+import PixiHeaderNav from './PixiHeaderNav';
 import {
   Sparkles,
   ArrowUpRight,
-  MessageCircle,
   Mail,
   Check,
   ChevronRight,
   Star,
   ArrowRight,
+  ArrowLeft,
+  Building2,
+  Calendar,
+  Award,
+  CheckCircle2,
 } from 'lucide-react';
+
+const WhatsAppIcon = ({ size = 18, className = '', fill = 'currentColor' }: { size?: number; className?: string; fill?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    className={`pxc-wa-icon ${className}`}
+    style={{ width: `${size}px`, height: `${size}px`, flexShrink: 0, display: 'inline-block', verticalAlign: 'middle' }}
+    viewBox="0 0 24 24"
+    fill={fill}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.711 1.456h.005c6.554 0 11.89-5.336 11.893-11.893a11.82 11.82 0 00-3.486-8.414z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 18, className = '' }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    className={`pxc-ig-icon ${className}`}
+    style={{ width: `${size}px`, height: `${size}px`, flexShrink: 0, display: 'inline-block', verticalAlign: 'middle' }}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://studio.naltech.web.id';
 const whatsappUrl = 'https://wa.me/6285842345332?text=Halo%20Pixi%20Creative%2C%20saya%20ingin%20konsultasi%20mengenai%20penyelenggaraan%20acara%20kami.';
@@ -20,7 +58,7 @@ const phoneDisplay = '+62 8584 234 5332';
 const instagramUrl = 'https://www.instagram.com/pixicreative.id/';
 
 export const metadata: Metadata = {
-  title: 'PIXI CREATIVE — Creating Memorable Experiences, Delivering Exceptional Events',
+  title: 'PIXI CREATIVE — Event Organizer, MICE & Company Trip Planner',
   description: 'Event Organizer & Travel Planner profesional di Yogyakarta dan seluruh Indonesia. Melayani MICE, gathering kantor, seminar kementerian, outbound, dan perjalanan wisata.',
   alternates: {
     canonical: '/demo/pixi-creative',
@@ -28,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PIXI CREATIVE — Event Organizer & Planner',
     description: 'Kami Tidak Sekadar Merancang Acara, Kami Menciptakan Kenangan Yang Akan Selalu Dikenang.',
-    images: [{ url: 'https://sites.google.com/sitesv-images-rt/AMxu72vTgcj-aTkWYUNQ4d9JlhQaLqT6DyGFe1lVDtlI0nmA4VPj22Knu1gVRtpLyAxVrLox8AJFS5CkcsnbAiN0ywglcXUDAa-aqH2He9lj0cAIGT_AeqyV_dNryLu2yK3INxjR-8m1JbtUU6Fr4RsLufXBXBgy31NxTlUxbCDWfyHnZlzchHPJwWLUI7TWkVMKSyLgHKfghUP-HOCHk0Jl8BW3HsB7PWAE0MO4MeaLKOc=w1280', width: 1200, height: 630, alt: 'PIXI CREATIVE' }],
+    images: [{ url: `${siteUrl}/pixi/hero-mice.jpg`, width: 1200, height: 630, alt: 'PIXI CREATIVE' }],
   },
 };
 
@@ -40,7 +78,6 @@ const pixiStructuredData = [
     alternateName: ['Pixi Creative Event Planner', 'Pixi EO'],
     description: 'Penyedia layanan Event Organizer (EO), MICE, dan Agen Perjalanan Wisata profesional terpercaya di Yogyakarta & seluruh Indonesia.',
     url: `${siteUrl}/demo/pixi-creative`,
-    logo: 'https://sites.google.com/sitesv-images-rt/AMxu72vuP_QxcSy9OkRb7yZVRy9oLfpDvsJlR5Zxk01Elid6YgIX7vLgbLIoaBK0JcwvEqAIX5sUJREZNqPrkz9JqEcnCrta80661KL750VWYyi04AQgWfDaHERNzL7sbRxfgMDPY9YgD-2kwahndY5q0DeZTZFALkM9vSIKuwm25YqQmDufp7RA_e04RTNr-70=w16383',
     telephone: '+6285842345332',
     email: 'pixicreative01@gmail.com',
     priceRange: 'Rp5.000.000 - Rp250.000.000+',
@@ -77,13 +114,42 @@ const pixiStructuredData = [
 ];
 
 const clientLogos = [
-  { name: 'Kementerian Perumahan & Kawasan Permukiman', src: 'https://sites.google.com/sitesv-images-rt/AMxu72tNsc_GohSpPwlt1-da0iQKez4h-EsO6hZ1hG5ibdJJCdbEdCejCaybizsaIma_252LAcOXFmfXvn7vWiDRflyQvovl54SiJ-iM_YKQlsNLY5GmVQURPUAwg-bqOvPScv-tZ0Dxa2eHug6rw2YQqVCqSzcwFRt0qgw6SSqr4DTR_UuqScTzRK7DPLyTj1XGTISQJ0sh4poxt9lq2lhG7HWUdtybGqg8KvO0n6xyaoc=w1280' },
-  { name: 'Dinas Kesehatan Kota Yogyakarta', src: 'https://sites.google.com/sitesv-images-rt/AMxu72uXP47Oyr-Uag6SFkDROFDnrvo8YhhVdDvURp_iduOeY8L7alDGaivA6p63oH4NE2lc4PuojJTey4voWqJgno1wUN9g-oBebQbztuleKBz4exKVdyn38BHcW708VZ54osAFNBFit_5zpZLYeKTuizqhPX368NQqei9Z2U08UH8iTN5-sLlyusNum9653iQ=w1280' },
-  { name: 'Puskesmas Kotagede Yogyakarta', src: 'https://sites.google.com/sitesv-images-rt/AMxu72vkKIFqiygYUxSSxRSVkBPFFUgsjlDW1awabyoCCIAhLdMe9FDS0AzIKAnx5dmEPqANsNecTOM8Bu-73uOHiiuHV5CZ0X68jAwvsfW4CR096gI3WzUdjbj4OIH5GRA0WTX4fBGYJk6kKmA6SMdO-iiDQf5_acl_Bi2n1m9mTz7cJSpO4NZyBTHrcdjeCd2yKrehhKveQAKFFyTNc9pDu8Jqom4YBX0g58KlKCB23RQ=w1280' },
-  { name: 'Puskesmas Ngaglik 2 Sleman', src: 'https://sites.google.com/sitesv-images-rt/AMxu72vOIblbxFltJSII_L9FcZSGf9XmJmyAHzZb-JHzLQKGTZ0ko4YQfbcI-0Khtv4cr9KvsB4l-TX-zE9KynW6t5QL6dvycJ_gHOaSBpI0IPXVDGlJjASPOMVtBH3ALRZii0RNbzK3PcS_yBDJLrnC4NNEUEwUmc4GXKJgfdyEnLwAwj25mybNcl9tueC7=w1280' },
-  { name: 'Kementerian Hukum dan HAM RI', src: 'https://sites.google.com/sitesv-images-rt/AMxu72tDtWkiT5wA8FtCr8-9u-HC_-ycSUzzYKN8Ob21EPrQebfFd4WtOJSWCM7r6ymEAUvEK7XPRo_4ZGVgxNjNzWsI3IfhYuTpDbZX6frixFKgooaywfLs9d4mf15T4DTHOAzaLx8yNL4HVc4dU44t3STu0mQ5n_RRC45gxIvyn8r7E5f_veL4a6Gpa_27aE7jXOX_22-6ffT1d_-M5zSr4f4cPfdFYWzqC6zoPzT4=w1280' },
-  { name: 'Program BSPS Kementerian PUPR', src: 'https://sites.google.com/sitesv-images-rt/AMxu72vlSQsctuW46R8ScksPzniQp6tORJJJfBHX6x-7BXqHvoLMP6fHE3aizU_4YLtKbHxKfm6Mde81bSF3Se8Y0LUgrSfqdrsAoBVMGksn23v8NnXHHhB6NDlMSjhZJC5LVQKPDUAruKxDEwY0dArMWdfhcz2mSlVI3dCkqRRj0pkovNcmKPqZX0K2-GJUu_KQPEDXaz_p3oRcMkV4OdHw2PQealmorx228dNDV-iMK-Q=w1280' },
-  { name: 'Instansi & Korporat Mitra', src: 'https://sites.google.com/sitesv-images-rt/AMxu72taua1JOOFCDJWkVBGRD2ao-qk8Su-wQ2YJhUu2h0fAPVzP0TxH1P_wYo_Lt1coGv54sFSB9GAuVoz5TiiF-_7hOIKqCbmurLjCIS28f55XeB1HI7bxIN_O8v7sp3BZjdygaF49jidVOGLQYurEcOAclNOeo3NW21NLD5wJR6Y1K6Uqztn-r-c8a8mnuhK71971nTI0kyw5yB7WSgUaWis8z8Lf8VzCIQOPNrlhPFU=w1280' },
+  {
+    name: 'Kementerian PKP RI',
+    sub: 'Kementerian Perumahan & Kawasan Permukiman',
+    type: 'Kementerian RI',
+    badge: 'MICE & Seminar Nasional',
+  },
+  {
+    name: 'Dinkes Kota Yogyakarta',
+    sub: 'Dinas Kesehatan Kota Yogyakarta',
+    type: 'Pemerintah Daerah',
+    badge: 'Workshop & Pelatihan Medis',
+  },
+  {
+    name: 'Puskesmas Kotagede',
+    sub: 'Puskesmas Kotagede Kota Yogyakarta',
+    type: 'Institusi Kesehatan',
+    badge: 'Penggalangan Komitmen',
+  },
+  {
+    name: 'Puskesmas Ngaglik 2',
+    sub: 'Puskesmas Ngaglik 2 Sleman',
+    type: 'Institusi Kesehatan',
+    badge: 'Outing & Gathering Trip',
+  },
+  {
+    name: 'Kemenkumham RI',
+    sub: 'Kementerian Hukum & HAM RI',
+    type: 'Kementerian RI',
+    badge: 'Lokakarya Nasional',
+  },
+  {
+    name: 'Program BSPS',
+    sub: 'Bantuan Stimulan Perumahan Swadaya',
+    type: 'Program Nasional PUPR',
+    badge: 'Monitoring & Rapat Evaluasi',
+  },
 ];
 
 const services = [
@@ -91,25 +157,25 @@ const services = [
     id: 'mice',
     title: 'MICE',
     subtitle: 'Meeting, Incentive, Conference & Exhibition',
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72slzUDaD4GcJy3SOvR4plypwdW-LWzq5zokjBUMGOE4TRMOA-mc50eGI8ZkFpy5xL80Z3AMlpARzNhtLPMrvDIldwsSKL8AhX39WSCJ6zJesEE1ORisrfUe5b_iLBMrZxAJaziH8iB8MxlBaF-LZYvZTABBdFk7iSoxr-Lhan9Bn1YHpiCbDIGI_ealinkQFt9fA4znHz5pW6xGAa2fzv2dJT81uSYOX4vsMjD-ckA=w1280',
+    image: '/pixi/service-mice.jpg',
     desc: 'Solusi profesional untuk meeting, incentive, conference, dan exhibition yang mengutamakan kreativitas, kualitas layanan, dan pengalaman peserta yang berkesan.',
     points: [
       'Rapat kerja, seminar, simposium, & konferensi nasional',
       'Kurasi venue hotel berbintang & convention center',
-      'Manajemen registrasi peserta, akomodasi & transportasi VIP',
-      'Penyediaan audio visual, backdrop panggung, & LED videotron',
+      'Manajemen registrasi peserta, akomodasi & VIP protocol',
+      'Penyediaan audio visual, backdrop panggung & LED videotron',
     ],
   },
   {
     id: 'event-organizer',
     title: 'EVENT ORGANIZER',
     subtitle: 'Professional On-Site Event Execution',
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72uvvSnnDp1XvpOBDJqwvgeUeUd0owRbmZD9fjKsjJwgqNoCdTVcZPhn8n3_ZQt3VwO7PDV4w53yspyQV3-32CNVYQN9-WMR5uRaOwRBLeVi9VV1tE_uHM369DDnADvxvviH0n_OjRzcjqStGyA78LPMlQ0gSgszNMv7HrYa0SLBEvgO8v8pMbyM3pW_V4Fm3kRfaTBsG8IwlL_1_ZpiM6Y98CGL1uksT6xUsFLHxJ0=w1280',
+    image: '/pixi/service-eo.jpg',
     desc: 'Mengubah ide menjadi pengalaman yang berkesan melalui perencanaan yang matang, koordinasi yang profesional, dan pelaksanaan acara yang berkualitas.',
     points: [
-      'Eksekusi hari H dengan minute-by-minute rundown yang presisi',
-      'Pengadaan MC profesional, live talent, & pengisi acara',
-      'Dokumentasi cinematic photo & video aftermovie kualitas 4K',
+      'Eksekusi hari H dengan minute-by-minute rundown presisi',
+      'Pengadaan MC profesional, live talent & bintang tamu',
+      'Dokumentasi cinematic photo & video aftermovie 4K',
       'Tim crew & field coordinator standby penanganan kendala',
     ],
   },
@@ -117,21 +183,21 @@ const services = [
     id: 'private-company-trip',
     title: 'PRIVATE & COMPANY TRIP',
     subtitle: 'Tour & Travel Management',
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72tlezTLfsdrCEgXaAn62NbUBoQ59RjA0LohWpoKrTav0uvc3Cyq46KNM8d7AlIk3IUt2E1g47ATfCUvcsFrQNxg-gLLJiKSWlvvzhS-WKMj1AzU_xZmifh55pvRk5lHvR8C9YbnK5kP5tBDvTLGlIDjq4Gf5mvptGv6pWaBhhP-E74DsDOm3SGCgXbwETB2iDcoa_1W1P9QwRjncXc0GrSgULl_OGMiAMxPDBFLk3g=w1280',
-    desc: 'Melalui layanan Tour & Travel, Pixi Creative membantu perusahaan dan instansi menyelenggarakan perjalanan dinas, incentive trip, gathering, maupun wisata kelompok dengan pengelolaan yang terorganisir.',
+    image: '/pixi/service-trip.jpg',
+    desc: 'Melalui layanan Tour & Travel, Pixi Creative membantu perusahaan dan instansi menyelenggarakan perjalanan dinas, incentive trip, gathering, maupun wisata kelompok.',
     points: [
       'Itinerary fleksibel & disesuaikan preferensi instansi',
-      'Armada bus pariwisata executive, HiAce, & driver berpengalaman',
-      'Outbound team building trainer & fun team bonding games',
-      'Konsumsi kuliner khas nusantara & tiket objek wisata lengkap',
+      'Armada bus pariwisata executive, HiAce, & driver handal',
+      'Outbound team building trainer & fun synergy games',
+      'Konsumsi kuliner khas nusantara & tiket wisata all-in',
     ],
   },
   {
     id: 'event-planner',
     title: 'EVENT PLANNER',
     subtitle: 'Concept, Budgeting & Vendor Sourcing',
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72uwKo5ajtzJLeNrGunqWPPCl7Mif83g4XsU3z2DO29hCIFtRBzxU7vAJlTZhdHedWKdvG2h66HG5XOJNX_c3jIQrztLC7B42GJSef7Wtzoj5m7LlDLrO4c9J4hrxktNX9viZqh7Jl-gOVy5lwL1jfqTgUi5YIbee2_clHZrN2dhf5aG6m1iar0vlJXAOvPGhnVV4n3ecxU4IbMj0zkPe0Z4Et6u1qRduQ4-PcmumgU=w1280',
-    desc: 'Mewujudkan ide menjadi pengalaman yang berkesan melalui perencanaan yang kreatif, terstruktur, dan profesional. Pixi Creative siap mendampingi setiap tahap acara, mulai dari konsep hingga pelaksanaan.',
+    image: '/pixi/service-planner.jpg',
+    desc: 'Mewujudkan ide menjadi pengalaman yang berkesan melalui perencanaan yang kreatif, terstruktur, dan profesional dari konsep awal hingga evaluasi akhir.',
     points: [
       'Pengembangan konsep kreatif, tema visual & moodboard',
       'Pemetaan alokasi anggaran yang efisien & transparan',
@@ -142,40 +208,40 @@ const services = [
 ];
 
 const pillars = [
-  'Pengalaman dan Profesionalisme',
-  'Kreativitas dan Inovasi',
-  'Manajemen yang Efisien',
-  'Kualitas Layanan',
-  'Detail-Oriented',
-  'Kesiapan Menghadapi Masalah',
-  'Pendekatan Personal',
-  'Harga yang Bersaing',
+  { title: 'Pengalaman dan Profesionalisme', desc: 'Rekam jejak terbukti mengelola agenda kementerian dan institusi besar.' },
+  { title: 'Kreativitas dan Inovasi', desc: 'Konsep acara segar, dinamis, dan tidak monoton untuk setiap tema kegiatan.' },
+  { title: 'Manajemen yang Efisien', desc: 'Rundown terstruktur, koordinasi cepat, dan alur operasional yang rapi.' },
+  { title: 'Kualitas Layanan Terstandar', desc: 'Standar hospitality bintang lima dari penyambutan tamu hingga evaluasi.' },
+  { title: 'Detail-Oriented & Presisi', desc: 'Memperhatikan setiap detail teknis panggung, konsumsi, dan kenyamanan peserta.' },
+  { title: 'Kesiapan Menghadapi Kendala', desc: 'Tim lapangan responsif dengan mitigasi risiko dan contingency plan.' },
+  { title: 'Pendekatan Personal', desc: 'Komunikasi intensif 1-on-1 dengan PIC instansi untuk hasil sesuai ekspektasi.' },
+  { title: 'Harga yang Bersaing & Transparan', desc: 'Simulasi biaya fleksibel, transparan tanpa biaya tersembunyi.' },
 ];
 
 const reviews = [
   {
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72v1tTokJ8JBHHYkacbf9Cd0uCYC18GTpog0Rnb4mPP9DkU5mf59aY14CDLpubZ5yFPndbLQEA7UeacC5VJkNoRiAxSyN0GqfoqbBKJS6i9adrwIIuP2nxGm9kkf8zkD09pWGUFXvlkD8eX2NdMyDOOv_pgtzP0xwiVP4OOFDLfJG-1crph1OLi_cvKagGCqbvN03Vzmmdp1DTUqYKSWiCIEPUMGRoa4dRM0_2_EUsY=w1280',
-    name: 'Kementerian Perumahan & Kawasan Permukiman (PKP)',
+    name: 'Kementerian PKP RI',
     event: 'Sosialisasi Program Nasional & FLPP',
-    feedback: 'Pelaksanaan acara berjalan sangat lancar, khidmat, dan koordinasi protokoler menteri tertata sangat rapi. Terima kasih Pixi Creative!',
+    feedback: 'Pelaksanaan acara berjalan sangat lancar, khidmat, dan koordinasi protokoler Menteri PKP tertata sangat rapi. Terima kasih Pixi Creative!',
+    initials: 'PKP',
   },
   {
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72uJ49wd4K8-x6mSRXSrGgnA4tiGpnbONQEcevOv2NkmGUKxc-MBekKffI5pxX7eMg2OC8wgWc-Hm3sb77QSWNMxoeJ4k-1KRz_nvRx6KgGefLgD-B5DsKxEMwYAtSItxP9NF7s-74SQh1wxq5SdWYZqRMmJkD2JXOlcw4M2CeLLlZFOCVNqlTJVr3ZGWFYoOVJCq9U5gapyRshE6-kv-wNxKffoGTRM5Lm6RSJxDNw=w1280',
     name: 'Puskesmas Kotagede Yogyakarta',
     event: 'Penggalangan Komitmen Pelayanan Kesehatan',
-    feedback: 'Acara penggalangan komitmen kami menjadi sangat dinamis, berkesan, dan seluruh peserta termotivasi dengan baik.',
+    feedback: 'Acara penggalangan komitmen kami menjadi sangat dinamis, berkesan, dan seluruh peserta termotivasi dengan baik sepanjang hari.',
+    initials: 'PKG',
   },
   {
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72sc7Ob45V4ZeiXKlYf8VRNb-YBOPZdsOKLOKalRE4yz57pkfujNm_HsmZzFqH1tcOk-a1eL60XUMJKzyQTxdBgOTLoiln4-6Kin52hGwweMbAeAe7jVkz3JGTiItUqowJyo6o-OwymLat0UZfDcTz8HPpFi-6ynRPqeOcrenTTln5TovxskIUVSIqXQrqkdej6KobKqRAIEc8i9DOdKK8ZPwb8prCVgA3o0dYqZcAY=w1280',
-    name: 'Puskesmas Ngaglik 2 Yogyakarta',
+    name: 'Puskesmas Ngaglik 2 Sleman',
     event: 'Employee Outing & Gathering Trip',
-    feedback: 'Konsep Small Group, Big Fun benar-benar terbukti! Kru Pixi sangat helpful dan ramah melayani semua staf kami.',
+    feedback: 'Konsep Small Group, Big Fun benar-benar terbukti! Kru Pixi sangat helpful, ramah, dan sigap melayani seluruh staf kami.',
+    initials: 'PN2',
   },
   {
-    image: 'https://sites.google.com/sitesv-images-rt/AMxu72u47qMvK8fH4DQoF4nzPBYyEJG-81d2NfKAdlLrwZYIi1qcODClgD4dwmdeB2evPC5QnVAmriFlBGifJlewbtGQekyb1Jf6hB-NOYD8iHNIhp2R1hXAaOHPluTcDDTUuLQ9NoEmr1QM_ehWO-q88SVLyPEQbqJnC6OJJW_xPuX-zEb-4dYgxcPyMpemYFAi76-VBxvVjTuU3yDbaNqjAY9MKPZCTWMNN1z-feOOqCs=w1280',
-    name: 'Penyelenggara Lokakarya Nasional',
+    name: 'Panitia Lokakarya Nasional',
     event: 'Lokakarya Pembaruan Hukum Pidana',
-    feedback: 'Manajemen venue convention hall, audio panggung, registrasi peserta sangat profesional. Rekomendasi EO terbaik di Jogja!',
+    feedback: 'Manajemen venue convention hall, sound system panggung, registrasi peserta sangat profesional. Rekomendasi EO terbaik di Jogja!',
+    initials: 'LKN',
   },
 ];
 
@@ -185,275 +251,285 @@ const portfolioProjects = [
     subtitle: 'Dihadiri langsung oleh Menteri PKP RI, Bapak Maruarar Sirait',
     date: 'November 2025',
     category: 'MICE / Agenda Kementerian',
-    images: [
-      'https://sites.google.com/sitesv-images-rt/AMxu72uy199yiUhVItM1g-1-vl7bdTp57vTi_Eqne2yFGewe2kHu_r5Z1uMlu33fU6FfYPV6OCliqojnxKZ-GuiOq_xGedsMwKN_5Ma2wLBARIYpzPoXFYa5VY723CfE-JegJ3PpWKhXqr0RFQArcdN6v-uhcNC5zRMNm-eRE-RXrMbvgzbSRGQDwd3YY5KTuQw=w1280',
-      'https://sites.google.com/sitesv-images-rt/AMxu72trhygX3wjFqlOGeRMWjzZROMJHAA_Z6-C0MuWGglQ0DdD_4CRDJC_4QaZ3TNgyWhuQMQO_utKqHbrRSGuNk0OsEOrT89UflYMzAH965cgKGh-8ufHzuF1NHPCgRu8oeTz_1Pf4bspEd1McRxM5x1wx5lKu8fAepSmjb3991PFvMiXi2ngzR6JKaSeXeJ4lHDBiUMDtvdn41T0EF35wB2KNqzNGOVkQr2IGN6vU=w1280',
-    ],
+    images: ['/pixi/portfolio-pkp-1.jpg', '/pixi/portfolio-pkp-2.jpg'],
+    desc: 'Menyelenggarakan sosialisasi program perumahan nasional dengan standar protokoler kementerian, panggung LED videotron, dan sound staging resmi.',
   },
   {
-    title: 'Penggalangan Komitmen Puskesmas Kotagede Yogyakarta',
-    subtitle: 'Penggalangan komitmen pelayanan & workshop mutu kesehatan',
+    title: 'Penggalangan Komitmen Puskesmas Kotagede',
+    subtitle: 'Workshop peningkatan mutu pelayanan & komitmen bersama staf kesehatan',
     date: 'Mei 2026',
     category: 'Workshop & Institusi Kesehatan',
-    images: [
-      'https://sites.google.com/sitesv-images-rt/AMxu72veVyFrDcCITELFMwsivaVlQVsOBIpqwksLIAcwbrbWUmsytTRQElCLFtbWa3QMM7MY5FxRSk4crTtrr68KQAaAC3L_NenS46y6dubIp-WqU9RrVfSwHX7jyjMoUCF5qMvrgS4J5hzk0QrwqZMhhmZp-UkE9lO2m-cwTrCQhWhj7G6t_BsMFLkOURv5vYo-qoGcvtm5ZEH4wYd3Q6tywq-8601IhT5O-v8qLU_ht6g=w1280',
-      'https://sites.google.com/sitesv-images-rt/AMxu72vwhXxaE_XXDGoywnhi2X0nnc-ZioFkhcCh0Fo6fed8q5gSwYbT-yRRiIXyT9wLBHvnQ04fi6V069IAq34AhlV6SoFDt_4G4fv4_aSiC3UI2EKSxSD9VWzBATpcUsmq0DrnAH805l3G2J0Su5jeRPb6IHHLsWvGFnTJc_2Hr41uabLlwq1Tw9qFsR88hFU=w1280',
-    ],
+    images: ['/pixi/portfolio-kotagede-1.jpg', '/pixi/portfolio-kotagede-2.jpg'],
+    desc: 'Konsep workshop interaktif yang memadukan sesi formal, penandatanganan komitmen, sesi foto bersama, dan jamuan prasmanan eksklusif.',
   },
   {
     title: 'Puskesmas Ngaglik 2 Yogyakarta',
-    subtitle: 'Small Group, Big Fun — Gathering & Outbound Tour',
+    subtitle: 'Small Group, Big Fun — Gathering, Outbound & Team Building Trip',
     date: 'Mei 2026',
     category: 'Private & Company Trip',
-    images: [
-      'https://sites.google.com/sitesv-images-rt/AMxu72tumUEQ_mudiCKtb84MLTNiwPZ9FTQ0LiqQl49rOn725kvqMRWW83OrscBDDoXhFZgBfVYVeOq6b76kvhnqNx1FkNlBhymvu22kIFxbFTgfmyXPJ2UzUc-znLgzzs0yJVuXkLfoPjyVP9sNYYJPieiXLrm2uFoOZM6X4AsOHe8uB0fP_dmGJqjaxECEtCo=w1280',
-      'https://sites.google.com/sitesv-images-rt/AMxu72t1RePFBrGa7TjBIH35yG0PlLQqKqtpuWkL9ksSjjYVJ6gGHsgG0uOQQCiI53QQ4sbMKjmN7PcZt6i2qrms_mafOdKsOjDgj9cVXqeyq26fdaro05XN37JbhY0Ex9wmCJWYFZiZlhm18B2jZ4_2fjD_P4REk_hCXfG4AtEXvXMMTmjbUnPyEaBJDv6jUb0=w1280',
-    ],
+    images: ['/pixi/portfolio-ngaglik-1.jpg', '/pixi/portfolio-ngaglik-2.jpg'],
+    desc: 'Program gathering penuh kehangatan dengan games outbound, ice breaking, tur wisata tematik, dan jamuan makan malam kebersamaan.',
   },
   {
     title: 'Lokakarya Nasional Pembaruan Hukum Pidana',
     subtitle: 'Langkah strategis dalam menyosialisasikan pembaruan hukum pidana nasional',
     date: 'Februari 2026',
     category: 'MICE / Seminar Nasional',
-    images: [
-      'https://sites.google.com/sitesv-images-rt/AMxu72vgc4SEHW-vu1-PYi9UIreq85WrJp7WsrYWzVQYb7G9G5O3KBuwpHxFALTpCACoSDeBQEzBM0DlV--04ER-WVF4UL9toztDh4DufQmsnF_MDVvaPBuNadvh7-i8swSVdrvc8oI9W9V9Ps29599qH0FxskEG6XU3L1iCHihkZuHcI5_0q52SYxX_XgoO=w1280',
-      'https://sites.google.com/sitesv-images-rt/AMxu72uDdnl0TJUK43egnIfSb0dYdIfxq709URVqiZl7ZM2cN50f9a_9J3y3Tf1RkYdOAEI-ci4hc5TxWA0Mfx8cYl3EYjhoQHMJGD3_44FQQeSRY6d_XTRaUpvEQZy8b6BRYMJN05f0O9kMrtKriYYLzYqPtR2qbY7dx20NU_xmCCgACkr1EzTs_qK9pbN7jqpfqrf7pnQ-1roJxBFkslbYlzmGZI4oZcYS38oA-PkOhOI=w1280',
-    ],
+    images: ['/pixi/portfolio-hukum-1.jpg', '/pixi/portfolio-hukum-2.jpg'],
+    desc: 'Konferensi nasional yang mempertemukan pakar hukum, akademisi, dan praktisi peradilan di auditorium bertaraf internasional.',
   },
   {
     title: 'Monitoring Progress Pelaksanaan BSPS',
     subtitle: 'Monitoring progres Bantuan Stimulan Perumahan Swadaya',
     date: 'November 2025',
     category: 'Government Evaluation Meeting',
-    images: [
-      'https://sites.google.com/sitesv-images-rt/AMxu72vOGy0LXYbVzfw1ReRI3nVTfWzr3Zx7sE45U8Sv8HGyv8j3VtU3AXEdFySazk8HFZoqVX2Nesf3yWSGPkf7vfM98ow8j-UiEjCAvuXCb9GJw_RMf4GpCf9c8EKtsKfWDhmBdYGLT8RptBGycU81Nc_6VTOmEiIXcJCP8QTp6A6QlPH8O681X5VUA6bZfUWqkbgSgSRxdVbIPKn2Hw9Fu4KR3Qbcblss7UzkKg=w1280',
-      'https://sites.google.com/sitesv-images-rt/AMxu72ug0Rnm0MIEEDRk5p-npK8e9fTgEXDVHL2KwjtiXVPwuQwLfibS0uAeZ6EncgBVD-c9HEyZjSxCoeTBa-IOUI1d-zyqhGFqtP0hACZAk1eBBqpfVWuiFE-T-oQQHFYQV5PHSX_o3p-iaTjlYA3BDFAgaa0jUKdui5Fse-Cb84kH4E-JiMxu7BMq8BiL=w1280',
-    ],
+    images: ['/pixi/portfolio-bsps-1.jpg', '/pixi/portfolio-bsps-2.jpg'],
+    desc: 'Rapat koordinasi dan evaluasi program bantuan perumahan swadaya dengan alur registrasi digital, materi rapat terpadu, dan fasilitas live hybrid.',
   },
 ];
 
 export default function PixiCreativePage() {
   return (
-    <div className="pixi-page min-h-screen">
+    <div className="pxc-page">
       {/* Schema Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pixiStructuredData) }}
       />
 
-      {/* HEADER / NAVIGATION BAR */}
-      <header className="sticky top-0 z-50 pixi-navbar">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Logo Brand */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors border border-slate-200"
-            >
-              <span>← Showcase</span>
-            </Link>
-            <div className="h-5 w-px bg-slate-200 hidden sm:block" />
-            <a href="#beranda" className="flex items-center gap-2.5">
-              {/* Official Pixi Creative Logo */}
-              <img
-                src="https://sites.google.com/sitesv-images-rt/AMxu72vuP_QxcSy9OkRb7yZVRy9oLfpDvsJlR5Zxk01Elid6YgIX7vLgbLIoaBK0JcwvEqAIX5sUJREZNqPrkz9JqEcnCrta80661KL750VWYyi04AQgWfDaHERNzL7sbRxfgMDPY9YgD-2kwahndY5q0DeZTZFALkM9vSIKuwm25YqQmDufp7RA_e04RTNr-70=w16383"
-                alt="PIXI CREATIVE"
-                className="h-10 sm:h-11 w-auto object-contain rounded-lg"
-              />
-              <span className="font-black text-slate-900 tracking-tight text-lg hidden md:inline">
-                PIXI <span className="text-orange-600 font-semibold">CREATIVE</span>
+      {/* FIXED TOP NAVIGATION BAR (ALWAYS PINNED) */}
+      <div className="pxc-top-fixed-bar">
+        {/* 1. TOP DEMO BAR */}
+        <div className="pxc-demo-bar">
+          <div className="pxc-wrap pxc-demo-inner">
+            <div className="pxc-demo-left">
+              <Link href="/" className="pxc-back-link">
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Naltech Studio Showcase</span>
+              </Link>
+              <span className="pxc-demo-tag">#37 PIXI CREATIVE</span>
+            </div>
+            <div className="pxc-demo-right">
+              <span>
+                <i className="pxc-pulse-dot" />
+                Official Event Organizer & Travel Agency
               </span>
-            </a>
-          </div>
-
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-700">
-            <a href="#beranda" className="hover:text-orange-600 transition-colors">BERANDA</a>
-            <a href="#tentang-kami" className="hover:text-orange-600 transition-colors">TENTANG KAMI</a>
-            <a href="#layanan" className="hover:text-orange-600 transition-colors">LAYANAN</a>
-            <a href="#simulasi" className="hover:text-orange-600 transition-colors text-orange-600 flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              SIMULASI BIAYA
-            </a>
-            <a href="#keunggulan" className="hover:text-orange-600 transition-colors">KEUNGGULAN</a>
-            <a href="#portofolio" className="hover:text-orange-600 transition-colors">PORTOFOLIO</a>
-            <a href="#kontak" className="hover:text-orange-600 transition-colors">KONTAK</a>
-          </nav>
-
-          {/* Header Action Button */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-600/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>FREE CONSULTATION</span>
-            </a>
+            </div>
           </div>
         </div>
-      </header>
 
-      {/* 1. HERO SECTION WITH REAL BANNER PHOTOGRAPHY & DIRECT QUOTE */}
-      <section id="beranda" className="pixi-hero-banner py-24 sm:py-32 lg:py-40 text-white text-center relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-orange-300 text-xs sm:text-sm font-semibold tracking-wide uppercase">
-            <span className="w-2 h-2 rounded-full bg-orange-500 pixi-pulse-ring" />
-            <span>Event Organizer & Travel Planner</span>
+        {/* 2. HEADER / NAVIGATION */}
+        <header className="pxc-header">
+          <div className="pxc-wrap pxc-header-inner">
+            <Link href="/demo/pixi-creative" className="pxc-brand">
+              <div className="pxc-logo-badge">
+                <span>P</span>
+              </div>
+              <div className="pxc-brand-info">
+                <span className="pxc-brand-text">
+                  PIXI <span>CREATIVE</span>
+                </span>
+                <small className="pxc-brand-sub">EVENT & TRAVEL PLANNER</small>
+              </div>
+            </Link>
+
+            <PixiHeaderNav />
+
+            <div className="pxc-header-cta">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pxc-btn-consult"
+              >
+                <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
+                <span>FREE CONSULTATION</span>
+              </a>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      {/* 3. HERO SECTION WITH REAL BANNER PHOTOGRAPHY & DIRECT QUOTE */}
+      <section id="beranda" className="pxc-hero">
+        <div className="pxc-wrap pxc-hero-content">
+          <div className="pxc-hero-badge">
+            <Sparkles className="w-3.5 h-3.5 text-orange-600" />
+            <span>EDITORIAL ISSUE 2026 • <strong>PIXI CREATIVE PLANNER</strong></span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight max-w-4xl mx-auto text-white">
-            &quot;Kami Tidak Sekadar Merancang Acara, <br className="hidden sm:inline" />
+          <h1 className="pxc-hero-title">
+            &quot;Kami Tidak Sekadar Merancang Acara, <br />
             Kami Menciptakan Kenangan Yang Akan Selalu Dikenang&quot;
           </h1>
 
-          <p className="text-base sm:text-xl text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed">
-            Solusi Acara yang Lengkap dan Profesional dengan <strong className="text-white font-semibold">Pixi Creative Event Planner</strong>
+          <p className="pxc-hero-desc">
+            Solusi Acara yang Lengkap dan Profesional dengan <strong>Pixi Creative Event Planner</strong>. Melayani MICE kementerian, gathering corporate, outbound team building, dan perjalanan wisata nusantara.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="pxc-hero-actions">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-900 font-extrabold text-sm sm:text-base shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 uppercase tracking-wide"
+              className="pxc-btn-primary"
             >
-              <Sparkles className="w-4 h-4 text-orange-600" />
-              <span>FREE EVENT CONSULTATION</span>
+              <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
+              <span>KONSULTASI GRATIS ACARA</span>
             </a>
-            <a
-              href="#simulasi"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-orange-600/90 hover:bg-orange-600 text-white font-bold text-sm sm:text-base backdrop-blur-md border border-orange-500/50 transition-colors uppercase tracking-wide"
-            >
+            <a href="#simulasi" className="pxc-btn-secondary">
+              <Sparkles className="w-4 h-4" />
               <span>Hitung Simulasi Anggaran</span>
               <ChevronRight className="w-4 h-4" />
             </a>
           </div>
-        </div>
-      </section>
 
-      {/* 2. TENTANG KAMI (ABOUT SECTION WITH REAL PHOTOGRAPHY) */}
-      <section id="tentang-kami" className="py-20 sm:py-28 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Narrative */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="pixi-pill pixi-pill-orange">
-                TENTANG KAMI
+          {/* Magazine Cover Showcase Image */}
+          <div className="pxc-hero-cover-media">
+            <img src="/pixi/hero-mice.jpg" alt="Pixi Creative Event Staging & Hospitality" />
+            <div className="pxc-hero-cover-overlay">
+              <div>
+                <span className="pxc-hero-cover-tag">MICE & EVENT PRODUCTION</span>
+                <h3 className="pxc-hero-cover-title">Professional Staging, VIP Hospitality & Nationwide Execution</h3>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                &quot;Creating Memorable Experiences, Delivering Exceptional Events.&quot;
-              </h2>
-              <div className="space-y-4 text-slate-600 text-base leading-relaxed">
-                <p>
-                  <strong className="text-slate-900 font-semibold">Pixi Creative Planner</strong> adalah penyedia layanan event planner profesional yang menghadirkan solusi kreatif untuk kebutuhan meeting, training, gathering, corporate event, dan perjalanan wisata.
-                </p>
-                <p>
-                  Dengan tim yang berpengalaman dan penuh dedikasi, kami berkomitmen menciptakan acara yang terencana dengan baik, berkesan, dan sesuai dengan kebutuhan setiap klien.
-                </p>
-                <p>
-                  Kami bangga telah dipercaya oleh ratusan kantor, instansi pemerintah, BUMN, rumah sakit, puskesmas, dan korporat swasta di seluruh Indonesia untuk mengatur dan menyelenggarakan berbagai acara serta perjalanan wisata berstandar tinggi.
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <a
-                  href="#layanan"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors"
-                >
-                  <span>Jelajahi Layanan Kami</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+              <div className="pxc-pill-tag" style={{ background: 'rgba(255,255,255,0.92)', color: '#18181b', margin: 0, fontWeight: 800 }}>
+                Yogyakarta & All Indonesia
               </div>
             </div>
+          </div>
 
-            {/* Right Photo Frame */}
-            <div className="lg:col-span-6">
-              <div className="pixi-img-zoom rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 relative">
-                <img
-                  src="https://sites.google.com/sitesv-images-rt/AMxu72sys7az6FcULelSEE69RkJcKG4GArykX80PZwx2v3mOKtp4PA1GnjAYjAAYGwAsc8pVLjE61Id_rYZOlvIudeRFUHor-9C3IXvhIYNTcM7lbcUY7j4oJ87bj4O6APzcgrjGVumZcU86eEcRO8XjfJSrZADPXUMQARp3b39fCD9T5voYxoau6pVrTnNnp58a-wpe-J89oGejrnzetF_mrm9wLuyoWqKP6XM5plE6=w1280"
-                  alt="Pixi Creative Team & Hospitality"
-                  className="w-full h-[360px] sm:h-[440px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-6">
-                  <div className="text-white">
-                    <div className="text-xs uppercase tracking-widest text-orange-400 font-bold">PIXI CREATIVE PRODUCTION</div>
-                    <div className="text-lg font-bold">Professional Team & Reliable Hospitality</div>
-                  </div>
-                </div>
-              </div>
+          {/* Editorial Quick Stats Strip */}
+          <div className="pxc-hero-stats">
+            <div className="pxc-stat-item">
+              <strong>100+</strong>
+              <span>Acara Sukses Terlaksana</span>
+            </div>
+            <div className="pxc-stat-item">
+              <strong>99.8%</strong>
+              <span>Kepuasan Klien & Instansi</span>
+            </div>
+            <div className="pxc-stat-item">
+              <strong>All-in</strong>
+              <span>MICE, EO & Tour Travel</span>
+            </div>
+            <div className="pxc-stat-item">
+              <strong>1-on-1</strong>
+              <span>Dedicated Event PIC</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. LAYANAN KAMI (4 PHOTO CARDS) */}
-      <section id="layanan" className="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="pixi-pill pixi-pill-orange">
+      {/* 4. TENTANG KAMI */}
+      <section id="tentang-kami" className="pxc-section">
+        <div className="pxc-wrap pxc-about-grid">
+          <div className="pxc-about-copy">
+            <div className="pxc-pill-tag">
+              TENTANG KAMI
+            </div>
+            <h2>
+              &quot;Creating Memorable Experiences, Delivering Exceptional Events.&quot;
+            </h2>
+            <p>
+              <strong>Pixi Creative Planner</strong> adalah penyedia layanan event planner profesional yang menghadirkan solusi kreatif untuk kebutuhan meeting, training, gathering, corporate event, dan perjalanan wisata.
+            </p>
+            <p>
+              Dengan tim yang berpengalaman dan penuh dedikasi, kami berkomitmen menciptakan acara yang terencana dengan baik, berkesan, dan sesuai dengan kebutuhan setiap klien.
+            </p>
+            <p>
+              Kami bangga telah dipercaya oleh ratusan kantor, instansi pemerintah, BUMN, dan korporat untuk mengatur dan menyelenggarakan berbagai acara dan perjalanan wisata di seluruh Indonesia.
+            </p>
+
+            <div className="pxc-about-features">
+              <div className="pxc-feat-badge">
+                <CheckCircle2 className="w-4 h-4 text-orange-500" />
+                <span>Rundown Acara Menit per Menit yang Presisi</span>
+              </div>
+              <div className="pxc-feat-badge">
+                <CheckCircle2 className="w-4 h-4 text-orange-500" />
+                <span>Koordinasi Vendor Terpercaya & Berpengalaman</span>
+              </div>
+              <div className="pxc-feat-badge">
+                <CheckCircle2 className="w-4 h-4 text-orange-500" />
+                <span>Transparansi Biaya Tanpa Biaya Tersembunyi</span>
+              </div>
+            </div>
+
+            <div style={{ marginTop: '16px' }}>
+              <a href="#layanan" className="pxc-btn-consult" style={{ display: 'inline-flex' }}>
+                <span>Jelajahi Layanan Kami</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="pxc-about-photo-card">
+            <img
+              src="/pixi/about-team.jpg"
+              alt="Pixi Creative Team & Hospitality"
+            />
+            <div className="pxc-about-photo-overlay">
+              <small>PIXI CREATIVE PRODUCTION</small>
+              <strong>Professional Team & Reliable Hospitality</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. LAYANAN KAMI (4 PHOTO CARDS) */}
+      <section id="layanan" className="pxc-section bg-subtle">
+        <div className="pxc-wrap">
+          <div className="pxc-section-header">
+            <div className="pxc-pill-tag">
               OUR SERVICES
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="pxc-section-title">
               Layanan Kami
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
+            <p className="pxc-section-desc">
               Solusi terpadu penyelenggaraan acara dan perjalanan wisata dengan standar mutu terbaik.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="pxc-services-grid">
             {services.map((srv) => (
-              <div
-                key={srv.id}
-                className="pixi-card flex flex-col justify-between overflow-hidden group"
-              >
-                <div>
-                  <div className="pixi-img-zoom h-48 w-full bg-slate-200 relative">
-                    <img
-                      src={srv.image}
-                      alt={srv.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      {srv.title}
-                    </div>
+              <div key={srv.id} className="pxc-service-card">
+                <div className="pxc-service-top-content">
+                  <div className="pxc-service-img-wrap">
+                    <img src={srv.image} alt={srv.title} />
+                    <span className="pxc-service-tag">{srv.title}</span>
                   </div>
 
-                  <div className="p-6 space-y-4">
-                    <div>
-                      <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-orange-600 transition-colors">
-                        {srv.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-orange-600 mt-0.5">
+                  <div className="pxc-service-body">
+                    <div className="pxc-service-head">
+                      <h3>{srv.title}</h3>
+                      <span className="pxc-service-sub">
                         {srv.subtitle}
-                      </p>
+                      </span>
                     </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {srv.desc}
-                    </p>
+                    <p className="pxc-service-text">{srv.desc}</p>
 
-                    <div className="pt-3 border-t border-slate-100 space-y-2">
+                    <ul className="pxc-service-points">
                       {srv.points.map((pt, pIdx) => (
-                        <div key={pIdx} className="flex items-start gap-2 text-[11px] text-slate-700">
-                          <Check className="w-3.5 h-3.5 text-orange-600 shrink-0 mt-0.5" />
+                        <li key={pIdx}>
+                          <Check className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
                           <span>{pt}</span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0">
+                <div className="pxc-service-footer">
                   <a
                     href={`https://wa.me/6285842345332?text=Halo%20Pixi%20Creative%2C%20saya%20tertarik%20konsultasi%20layanan%20${encodeURIComponent(srv.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-orange-50 hover:bg-orange-600 text-orange-700 hover:text-white font-bold text-xs transition-colors border border-orange-200"
+                    className="pxc-service-btn"
                   >
-                    <span>Konsultasikan Acara</span>
+                    <WhatsAppIcon className="w-3.5 h-3.5 fill-orange-600" />
+                    <span>Konsultasi WhatsApp</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -463,92 +539,88 @@ export default function PixiCreativePage() {
         </div>
       </section>
 
-      {/* 4. KENAPA HARUS PILIH KAMI ? (KEUNGGULAN KAMI WITH TEAM PHOTO) */}
-      <section id="keunggulan" className="py-20 sm:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Photo of Team Production */}
-            <div className="lg:col-span-5">
-              <div className="pixi-img-zoom rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-100">
-                <img
-                  src="https://sites.google.com/sitesv-images-rt/AMxu72tPj0qY3j8s4cynCPN0rVc3QS-bASsCGW-kOLm_mktGC9APF7-QFpivgr0voVqIiNTETXUg0054m0-n8SCVd7-iz24SCq-cJrrM2c8DbT0kLsUpRTcT-A6dGAuv4CXhxZQOdxyt2ddiYgsLmw6qRC6UwZYNz-Wiafn4H0f0_u2cdv9F7HNMk3y8GO-xUa-nrs1lot20QjSpGmcnE-81oqBtDERZu14FnrQXWA=w1280"
-                  alt="Pixi Creative Event Execution"
-                  className="w-full h-[480px] object-cover"
-                />
+      {/* 6. KENAPA HARUS PILIH KAMI ? */}
+      <section id="keunggulan" className="pxc-section">
+        <div className="pxc-wrap pxc-pillars-grid">
+          <div className="pxc-pillars-photo">
+            <img
+              src="/pixi/keunggulan-event.jpg"
+              alt="Pixi Creative Event Execution"
+            />
+            <div className="pxc-pillars-photo-badge">
+              <Award className="w-5 h-5 text-orange-400" />
+              <div>
+                <strong>Berpengalaman & Terpercaya</strong>
+                <span>Ratusan Instansi & Corporate Clients</span>
               </div>
             </div>
+          </div>
 
-            {/* Right Pillars List */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="pixi-pill pixi-pill-orange">
-                KEUNGGULAN KAMI
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                Kenapa Harus Pilih Kami ?
-              </h2>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Pixi Creative selalu memprioritaskan ketepatan waktu, kualitas teknis panggung, keramahan kru, dan transparansi anggaran demi kenyamanan penuh pihak penyelenggara.
-              </p>
+          <div className="pxc-pillars-content">
+            <div className="pxc-pill-tag">
+              KEUNGGULAN KAMI
+            </div>
+            <h2 className="pxc-section-title" style={{ textAlign: 'left' }}>
+              Kenapa Harus Pilih Kami ?
+            </h2>
+            <p className="pxc-section-desc" style={{ textAlign: 'left', marginBottom: '24px' }}>
+              Pixi Creative selalu memprioritaskan ketepatan waktu, kualitas teknis panggung, keramahan kru, dan transparansi anggaran demi kenyamanan penuh pihak penyelenggara.
+            </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                {pillars.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3 hover:border-orange-400 transition-colors"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-orange-600 text-white flex items-center justify-center font-black text-xs shrink-0">
-                      {idx + 1}
-                    </div>
-                    <span className="font-bold text-slate-800 text-xs sm:text-sm">
-                      {item}
-                    </span>
+            <div className="pxc-pillars-list">
+              {pillars.map((item, idx) => (
+                <div key={idx} className="pxc-pillar-item">
+                  <div className="pxc-pillar-num">{idx + 1}</div>
+                  <div className="pxc-pillar-info">
+                    <span className="pxc-pillar-name">{item.title}</span>
+                    <p className="pxc-pillar-desc">{item.desc}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
 
-              <div className="pt-4">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-orange-600/25 transition-all"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Diskusikan Kebutuhan Acara Anda</span>
-                </a>
-              </div>
+            <div style={{ marginTop: '24px' }}>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pxc-btn-consult"
+                style={{ display: 'inline-flex' }}
+              >
+                <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
+                <span>Diskusikan Kebutuhan Acara Anda</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. KREATIF & INOVATIF QUOTE BANNER */}
-      <section className="pixi-quote-banner py-20 sm:py-28 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider">
+      {/* 7. KREATIF & INOVATIF QUOTE BANNER */}
+      <section className="pxc-quote-banner">
+        <div className="pxc-wrap pxc-quote-inner">
+          <div className="pxc-hero-badge">
             KREATIF & INOVATIF
           </div>
-          <blockquote className="text-xl sm:text-3xl font-extrabold leading-snug tracking-tight text-white max-w-3xl mx-auto">
+          <p className="pxc-quote-text">
             &quot;Kami percaya bahwa setiap acara memiliki cerita yang unik. Karena itu, tim Pixi Creative selalu menghadirkan gagasan kreatif dan solusi inovatif yang mampu mengubah sebuah kegiatan menjadi pengalaman yang inspiratif dan tak terlupakan.&quot;
-          </blockquote>
-          <div className="text-xs text-orange-200 font-semibold tracking-wider uppercase">
+          </p>
+          <span className="pxc-quote-author">
             — PIXI CREATIVE EVENT & TRAVEL PLANNER
-          </div>
+          </span>
         </div>
       </section>
 
-      {/* 6. INTERACTIVE EVENT BUDGET SIMULATOR WIDGET */}
-      <section id="simulasi" className="py-20 sm:py-28 bg-slate-900 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
+      {/* 8. INTERACTIVE EVENT BUDGET SIMULATOR */}
+      <section id="simulasi" className="pxc-section pxc-simulator-section bg-subtle">
+        <div className="pxc-wrap">
+          <div className="pxc-section-header">
+            <div className="pxc-pill-tag">
               SIMULASI INTERAKTIF
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="pxc-section-title">
               Hitung Estimasi Anggaran Acara Anda
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base">
+            <p className="pxc-section-desc">
               Pilih jenis kegiatan, kapasitas peserta, durasi, destinasi, dan fasilitas pendukung untuk mendapatkan simulasi biaya secara instan dan mengirimkannya ke WhatsApp Pixi Creative.
             </p>
           </div>
@@ -557,146 +629,118 @@ export default function PixiCreativePage() {
         </div>
       </section>
 
-      {/* 7. PELANGGAN UNGGULAN (CLIENT LOGOS GRID) */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <div className="pixi-pill pixi-pill-orange">
+      {/* 9. PELANGGAN UNGGULAN (CLIENT BADGES GRID) */}
+      <section className="pxc-section">
+        <div className="pxc-wrap">
+          <div className="pxc-section-header">
+            <div className="pxc-pill-tag">
               PELANGGAN UNGGULAN
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="pxc-section-title">
               Beberapa Customer Yang Menggunakan Layanan Kami
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm">
+            <p className="pxc-section-desc">
               Telah dipercaya oleh berbagai kementerian negara, dinas kesehatan, rumah sakit, puskesmas, dan korporat.
             </p>
           </div>
 
-          {/* Grid of Client Logos */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 items-center">
-            {clientLogos.map((logo, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center hover:shadow-md transition-all h-28"
-                title={logo.name}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="max-h-14 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all"
-                />
+          <div className="pxc-logos-grid">
+            {clientLogos.map((client, idx) => (
+              <div key={idx} className="pxc-client-card">
+                <div className="pxc-client-top">
+                  <div className="pxc-client-icon-box">
+                    <Building2 className="w-5 h-5 text-orange-500" />
+                  </div>
+                  <span className="pxc-client-type-tag">{client.type}</span>
+                </div>
+                <h4 className="pxc-client-title">{client.name}</h4>
+                <p className="pxc-client-sub">{client.sub}</p>
+                <div className="pxc-client-badge">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>{client.badge}</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 8. CUSTOMERS REVIEWS (TESTIMONIALS WITH SCREENSHOT CARDS) */}
-      <section className="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
-            <div className="pixi-pill pixi-pill-orange">
+      {/* 10. CUSTOMERS REVIEWS */}
+      <section className="pxc-section bg-subtle">
+        <div className="pxc-wrap">
+          <div className="pxc-section-header">
+            <div className="pxc-pill-tag">
               CUSTOMERS REVIEWS
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="pxc-section-title">
               Temukan Pendapat Klien Tentang Layanan Kami
             </h2>
-            <p className="text-slate-600 text-sm">
+            <p className="pxc-section-desc">
               Ulasan otentik dari para penanggung jawab acara dan pimpinan instansi.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="pxc-reviews-grid">
             {reviews.map((rev, idx) => (
-              <div
-                key={idx}
-                className="pixi-card overflow-hidden flex flex-col justify-between"
-              >
-                <div>
-                  <div className="pixi-img-zoom h-44 w-full bg-slate-100 relative border-b border-slate-100">
-                    <img
-                      src={rev.image}
-                      alt={rev.name}
-                      className="w-full h-full object-cover"
-                    />
+              <div key={idx} className="pxc-review-card">
+                <div className="pxc-review-top">
+                  <div className="pxc-review-avatar">
+                    <span>{rev.initials}</span>
                   </div>
-                  <div className="p-5 space-y-3">
-                    <div className="flex items-center gap-1 text-amber-500">
-                      {[...Array(5)].map((_, sIdx) => (
-                        <Star key={sIdx} className="w-3.5 h-3.5 fill-amber-500" />
-                      ))}
-                    </div>
-                    <p className="text-xs text-slate-700 italic leading-relaxed">
-                      &quot;{rev.feedback}&quot;
-                    </p>
+                  <div className="pxc-review-author-info">
+                    <strong>{rev.name}</strong>
+                    <small>{rev.event}</small>
                   </div>
                 </div>
 
-                <div className="p-5 pt-0 border-t border-slate-100 mt-3">
-                  <div className="font-bold text-slate-900 text-xs">
-                    {rev.name}
-                  </div>
-                  <div className="text-[11px] text-orange-600 font-medium">
-                    {rev.event}
-                  </div>
+                <div className="pxc-stars">
+                  {[...Array(5)].map((_, sIdx) => (
+                    <Star key={sIdx} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
                 </div>
+
+                <p className="pxc-review-quote">&quot;{rev.feedback}&quot;</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 9. PORTOFOLIO SECTION (COMPLETE WITH REAL DOCUMENTATION PHOTOS) */}
-      <section id="portofolio" className="py-20 sm:py-28 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="pixi-pill pixi-pill-orange">
+      {/* 11. PORTOFOLIO SECTION */}
+      <section id="portofolio" className="pxc-section">
+        <div className="pxc-wrap">
+          <div className="pxc-section-header">
+            <div className="pxc-pill-tag">
               PORTOFOLIO ACARA
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="pxc-section-title">
               Dokumentasi & Rekam Jejak Acara
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
+            <p className="pxc-section-desc">
               Rangkaian momen penting dari berbagai kegiatan kementerian, lokakarya nasional, penggalangan komitmen, dan gathering yang sukses kami selenggarakan.
             </p>
           </div>
 
-          {/* Projects Gallery */}
-          <div className="space-y-16">
+          <div className="pxc-portfolio-list">
             {portfolioProjects.map((proj, pIdx) => (
-              <div
-                key={pIdx}
-                className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm space-y-6"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600 bg-orange-100 px-3 py-1 rounded-full">
-                      {proj.category}
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-2">
-                      {proj.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                      {proj.subtitle}
-                    </p>
+              <div key={pIdx} className="pxc-portfolio-card">
+                <div className="pxc-portfolio-header">
+                  <div className="pxc-portfolio-meta">
+                    <span className="pxc-portfolio-tag">{proj.category}</span>
+                    <h3 className="pxc-portfolio-title">{proj.title}</h3>
+                    <p className="pxc-portfolio-subtitle">{proj.subtitle}</p>
+                    <p className="pxc-portfolio-desc">{proj.desc}</p>
                   </div>
-                  <div className="text-xs font-mono font-bold text-slate-500 bg-white px-3.5 py-1.5 rounded-xl border border-slate-200 self-start sm:self-auto">
-                    {proj.date}
+                  <div className="pxc-portfolio-date-badge">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{proj.date}</span>
                   </div>
                 </div>
 
-                {/* 2-Column Photo Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="pxc-portfolio-images">
                   {proj.images.map((imgSrc, imgIdx) => (
-                    <div
-                      key={imgIdx}
-                      className="pixi-img-zoom rounded-2xl overflow-hidden shadow-md bg-slate-200 h-64 sm:h-80"
-                    >
-                      <img
-                        src={imgSrc}
-                        alt={`${proj.title} - Dokumentasi ${imgIdx + 1}`}
-                        className="w-full h-full object-cover"
-                      />
+                    <div key={imgIdx} className="pxc-portfolio-img-box">
+                      <img src={imgSrc} alt={`${proj.title} - Dokumentasi ${imgIdx + 1}`} />
                     </div>
                   ))}
                 </div>
@@ -704,193 +748,161 @@ export default function PixiCreativePage() {
             ))}
           </div>
 
-          <div className="mt-14 text-center p-8 rounded-3xl bg-orange-50 border border-orange-200">
-            <h3 className="text-xl font-bold text-slate-900">
-              KONSULTASI GRATIS BERSAMA PIXI CREATIVE
-            </h3>
-            <p className="text-slate-600 text-sm mt-1 max-w-xl mx-auto">
-              “Butuh EO profesional? Hubungi kami sekarang untuk diskusi lebih lanjut.”
+          <div className="pxc-portfolio-cta-banner">
+            <div className="pxc-cta-banner-content">
+              <h3>KONSULTASI GRATIS BERSAMA PIXI CREATIVE</h3>
+              <p>“Butuh EO profesional? Hubungi kami sekarang untuk diskusi lebih lanjut.”</p>
+            </div>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pxc-btn-consult"
+            >
+              <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
+              <span>Hubungi Kami via WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 12. YOUR EVENT, OUR MASTERPIECE */}
+      <section id="kontak" className="pxc-masterpiece-section">
+        <div className="pxc-wrap pxc-masterpiece-grid">
+          <div className="pxc-masterpiece-copy">
+            <div className="pxc-hero-badge" style={{ alignSelf: 'flex-start' }}>
+              YOUR EVENT, OUR MASTERPIECE
+            </div>
+            <h2>Pixi Creative</h2>
+            <p>
+              <strong>Pixi Creative</strong> adalah Event Organizer (EO) dan Agen Perjalanan Wisata yang sangat profesional dan telah membangun reputasi yang solid dalam industri ini.
             </p>
-            <div className="mt-5">
+            <p>
+              Kami bangga telah dipercaya oleh ratusan kantor, instansi, dan pemerintahan untuk mengatur dan menyelenggarakan berbagai acara dan perjalanan wisata.
+            </p>
+            <div className="pxc-masterpiece-actions">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm shadow-md transition-all"
+                className="pxc-btn-consult"
+                style={{ background: '#22c55e', boxShadow: '0 8px 20px rgba(34, 197, 94, 0.35)' }}
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Hubungi Kami via WhatsApp</span>
+                <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
+                <span>Chat WhatsApp ({phoneDisplay})</span>
+              </a>
+              <a
+                href={emailUrl}
+                className="pxc-btn-secondary"
+                style={{ background: 'rgba(255, 255, 255, 0.12)', border: '1px solid rgba(255, 255, 255, 0.2)' }}
+              >
+                <Mail className="w-4 h-4" />
+                <span>Kirim Email Resmi</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="pxc-contact-card">
+            <h4>CONTACT INFORMATION</h4>
+            <div className="pxc-contact-row">
+              <span className="pxc-contact-label">Call / Message:</span>
+              <span className="pxc-contact-val">{phoneDisplay}</span>
+            </div>
+            <div className="pxc-contact-row">
+              <span className="pxc-contact-label">Whatsapp:</span>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pxc-contact-val highlight"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+              >
+                <WhatsAppIcon className="w-4 h-4" fill="#22c55e" />
+                <span>{phoneDisplay}</span>
+              </a>
+            </div>
+            <div className="pxc-contact-row">
+              <span className="pxc-contact-label">Email:</span>
+              <a href={emailUrl} className="pxc-contact-val" style={{ color: '#ea580c' }}>
+                pixicreative01@gmail.com
+              </a>
+            </div>
+            <div className="pxc-contact-social">
+              <span className="pxc-contact-label">Follow Our Social Media:</span>
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pxc-social-btn"
+              >
+                <InstagramIcon className="w-4 h-4 text-orange-500" />
+                <span>@pixicreative.id</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 10. YOUR EVENT, OUR MASTERPIECE (FOOTER CTA WITH REAL BANNER) */}
-      <section id="kontak" className="pixi-masterpiece-banner py-20 sm:py-28 text-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/30 border border-orange-500/50 text-orange-400 text-xs font-bold uppercase tracking-wider">
-                YOUR EVENT, OUR MASTERPIECE
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                Pixi Creative
-              </h2>
-              <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl">
-                <p>
-                  <strong className="text-white font-semibold">Pixi Creative</strong> adalah Event Organizer (EO) dan Agen Perjalanan Wisata yang sangat profesional dan telah membangun reputasi yang solid dalam industri ini.
-                </p>
-                <p>
-                  Kami bangga telah dipercaya oleh ratusan kantor, instansi, dan pemerintahan untuk mengatur dan menyelenggarakan berbagai acara dan perjalanan wisata.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm sm:text-base shadow-2xl transition-all transform hover:-translate-y-0.5"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Chat WhatsApp (+62 8584 234 5332)</span>
-                </a>
-                <a
-                  href={emailUrl}
-                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base backdrop-blur-md border border-white/20 transition-colors"
-                >
-                  <Mail className="w-4 h-4 text-orange-400" />
-                  <span>Kirim Email</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Contact Card */}
-            <div className="lg:col-span-5 bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl space-y-6 shadow-2xl">
-              <div className="text-xs font-bold uppercase tracking-widest text-orange-400 border-b border-slate-800 pb-3">
-                CONTACT INFORMATION
-              </div>
-
-              <div className="space-y-4 text-sm">
-                <div>
-                  <div className="text-xs text-slate-400 font-semibold">Call / Message:</div>
-                  <div className="font-extrabold text-white text-base mt-0.5">{phoneDisplay}</div>
+      {/* 13. FOOTER */}
+      <footer className="pxc-footer">
+        <div className="pxc-wrap">
+          <div className="pxc-footer-grid">
+            <div className="pxc-footer-brand">
+              <div className="pxc-footer-brand-header">
+                <div className="pxc-logo-badge" style={{ width: '36px', height: '36px', fontSize: '18px' }}>
+                  <span>P</span>
                 </div>
-
-                <div>
-                  <div className="text-xs text-slate-400 font-semibold">Whatsapp:</div>
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-extrabold text-emerald-400 text-base mt-0.5 hover:underline block"
-                  >
-                    {phoneDisplay}
-                  </a>
-                </div>
-
-                <div>
-                  <div className="text-xs text-slate-400 font-semibold">Email:</div>
-                  <a
-                    href={emailUrl}
-                    className="font-extrabold text-orange-400 text-base mt-0.5 hover:underline block"
-                  >
-                    pixicreative01@gmail.com
-                  </a>
-                </div>
+                <span className="pxc-footer-logo-title">
+                  PIXI <span>CREATIVE</span>
+                </span>
               </div>
-
-              <div className="pt-4 border-t border-slate-800">
-                <div className="text-xs text-slate-400 mb-2 font-semibold">Follow Our Social Media:</div>
-                <a
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-xs hover:opacity-90 transition-opacity"
-                >
-                  <img
-                    src="https://sites.google.com/sitesv-images-rt/AMxu72tmfJ9sTKJWBSbqYcFDSfmbDIC33zDRPd1YeeJKYO9fukc15hitS_2d0d-yWrew2a03PiqQ_OEiUeqHjrn7bpr1Su4sw60aQfJg8URO3NCnzdlIvkb0Fbvq8mMzGA3bGw-i1_HBtWzhzO0ltwiBLp2kCMgrbz4QnJGNO0wBrXbpBmBJlrWhabUem_htQd5R_9hwpSa054oAgdDsbQGl"
-                    alt="Instagram"
-                    className="w-5 h-5 object-contain"
-                  />
-                  <span>@pixicreative.id</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 11. FOOTER OVERVIEW & SITEMAP */}
-      <footer className="bg-slate-950 text-slate-400 py-12 text-xs border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="col-span-2 space-y-3">
-              <div className="flex items-center gap-2">
-                <img
-                  src="https://sites.google.com/sitesv-images-rt/AMxu72vuP_QxcSy9OkRb7yZVRy9oLfpDvsJlR5Zxk01Elid6YgIX7vLgbLIoaBK0JcwvEqAIX5sUJREZNqPrkz9JqEcnCrta80661KL750VWYyi04AQgWfDaHERNzL7sbRxfgMDPY9YgD-2kwahndY5q0DeZTZFALkM9vSIKuwm25YqQmDufp7RA_e04RTNr-70=w16383"
-                  alt="PIXI CREATIVE"
-                  className="h-9 w-auto object-contain rounded"
-                />
-                <span className="font-bold text-white text-sm">PIXI CREATIVE</span>
-              </div>
-              <p className="text-slate-400 text-xs max-w-sm leading-relaxed">
-                Event Organizer (EO) dan Agen Perjalanan Wisata profesional. Dipercaya ratusan instansi, pemerintahan, dan perusahaan.
+              <p>
+                Event Organizer (EO) dan Agen Perjalanan Wisata yang sangat profesional. Dipercaya ratusan kantor, instansi, dan pemerintahan di seluruh Indonesia.
               </p>
             </div>
 
-            <div>
-              <div className="font-bold text-white text-xs uppercase tracking-wider mb-3">
-                Overview
-              </div>
-              <ul className="space-y-2">
-                <li><a href="#beranda" className="hover:text-white transition-colors">HOME</a></li>
-                <li><a href="#tentang-kami" className="hover:text-white transition-colors">Tentang Kami</a></li>
-                <li><a href="#portofolio" className="hover:text-white transition-colors">Portofolio</a></li>
-                <li><a href="#simulasi" className="hover:text-white transition-colors">Simulasi Biaya</a></li>
+            <div className="pxc-footer-col">
+              <h5>Overview</h5>
+              <ul>
+                <li><a href="#beranda">HOME</a></li>
+                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="#portofolio">Portofolio</a></li>
+                <li><a href="#simulasi">Costumer Review</a></li>
               </ul>
             </div>
 
-            <div>
-              <div className="font-bold text-white text-xs uppercase tracking-wider mb-3">
-                Our Services
-              </div>
-              <ul className="space-y-2">
-                <li><a href="#layanan" className="hover:text-white transition-colors">MICE</a></li>
-                <li><a href="#layanan" className="hover:text-white transition-colors">Event Organizer</a></li>
-                <li><a href="#layanan" className="hover:text-white transition-colors">Private & Company Trip</a></li>
-                <li><a href="#layanan" className="hover:text-white transition-colors">Event Planner</a></li>
+            <div className="pxc-footer-col">
+              <h5>Our Services</h5>
+              <ul>
+                <li><a href="#layanan">MICE</a></li>
+                <li><a href="#layanan">Event Organizer</a></li>
+                <li><a href="#layanan">Private & Company</a></li>
+                <li><a href="#layanan">Event Planner</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-            <div>
-              © {new Date().getFullYear()} PIXI CREATIVE. All Rights Reserved.
-            </div>
-            <div className="flex items-center gap-4">
-              <Link href="/" className="hover:text-slate-300 transition-colors">
-                Naltech Studio Portfolio Showcase
-              </Link>
-            </div>
+          <div className="pxc-footer-bottom">
+            <span>© {new Date().getFullYear()} PIXI CREATIVE. All Rights Reserved.</span>
+            <Link href="/" style={{ color: '#64748b', textDecoration: 'none' }}>
+              Naltech Studio Showcase
+            </Link>
           </div>
         </div>
       </footer>
 
-      {/* FLOATING ACTION BUTTON */}
-      <aside aria-label="Aksi Cepat WhatsApp" className="fixed bottom-6 right-6 z-50">
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow-2xl shadow-emerald-950/60 transition-all transform hover:scale-105 active:scale-95"
-        >
-          <span className="w-2 h-2 rounded-full bg-white pixi-pulse-ring" />
-          <MessageCircle className="w-4 h-4" />
-          <span className="hidden sm:inline">WhatsApp Pixi Creative</span>
-        </a>
-      </aside>
+      {/* 14. FLOATING WHATSAPP BUTTON */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="pxc-float-wa"
+        aria-label="Chat WhatsApp Pixi Creative"
+      >
+        <span className="pxc-float-dot" />
+        <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
+        <span>WhatsApp (+62 8584 234 5332)</span>
+      </a>
     </div>
   );
 }
