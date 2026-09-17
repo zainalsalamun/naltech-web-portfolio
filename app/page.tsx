@@ -49,6 +49,7 @@ const projects = [
   { slug: 'nala-mobile', type: 'Mobile Showroom', name: 'Nala Mobile', result: 'Smartphone showroom landing experience', theme: 'mobile', number: '34' },
   { slug: 'nala-auto', type: 'Car Showroom', name: 'Nala Auto', result: 'Premium used-car showroom experience', theme: 'auto', number: '35' },
   { slug: 'nala-soda', type: 'Food & Beverage', name: 'Nala Soda', result: 'Interactive beverage launch experience', theme: 'soda', number: '36' },
+  { slug: 'pixi-creative', type: 'Event Organizer & MICE Planner', name: 'PIXI CREATIVE', result: 'Interactive event budget simulator & MICE planner', theme: 'pixi', number: '37' },
 ];
 
 const services = [
