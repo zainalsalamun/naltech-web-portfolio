@@ -319,11 +319,10 @@
   min-height: 58px;
   padding: 7px 12px 7px 9px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 13px;
   border-radius: 13px;
-  cursor: pointer;
   transition: background .18s ease;
   -webkit-tap-highlight-color: transparent;
 }
@@ -338,6 +337,15 @@
   height: 1px;
   overflow: hidden;
   opacity: 0;
+}
+
+.um-item-check {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 13px;
+  cursor: pointer;
 }
 
 .um-checkbox {
@@ -380,6 +388,100 @@
   font-size: 9px;
   font-weight: 800;
   white-space: nowrap;
+}
+
+.um-item-delete {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #96939c;
+  cursor: pointer;
+  transition: background .18s, color .18s, transform .18s;
+}
+
+.um-item-delete:hover {
+  background: #ffe7e5;
+  color: #c23b32;
+  transform: scale(1.04);
+}
+
+.um-category-empty {
+  margin: 4px 0 14px;
+  padding: 18px;
+  border: 1px dashed #d4d1c9;
+  border-radius: 13px;
+  color: #777582;
+  font-size: 11px;
+  text-align: center;
+}
+
+.um-add-item {
+  margin-top: 12px;
+  padding: 7px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 7px;
+  border: 1px solid #d8dce9;
+  border-radius: 14px;
+  background: white;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+.um-add-item:focus-within {
+  border-color: #9cb0f5;
+  box-shadow: 0 0 0 3px rgba(38, 87, 255, .1);
+}
+
+.um-add-item input {
+  min-width: 0;
+  padding: 0 10px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--um-ink);
+  font-size: 12px;
+}
+
+.um-add-item input::placeholder {
+  color: #9997a0;
+}
+
+.um-add-item button {
+  min-height: 40px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--um-blue);
+  color: white;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.um-restore-items {
+  margin-top: 12px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  color: #6b7190;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.um-restore-items:hover {
+  color: var(--um-blue);
 }
 
 .um-note {
@@ -828,6 +930,10 @@
   .um-item {
     min-height: 61px;
     padding-inline: 5px;
+    gap: 8px;
+  }
+
+  .um-item-check {
     gap: 11px;
   }
 
@@ -840,6 +946,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 8px;
+  }
+
+  .um-item-delete {
+    width: 34px;
+    height: 34px;
+  }
+
+  .um-add-item button {
+    padding-inline: 12px;
   }
 
   .um-note {

@@ -6,13 +6,15 @@ import {
   Check,
   ChevronDown,
   Clipboard,
+  Plus,
   RotateCcw,
   Share2,
   Sparkles,
+  Trash2,
   X,
 } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import { checklistData, getItemId, type Gender } from './checklist-data';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from 'react';
+import { checklistData, getItemId, type ChecklistItem, type Gender } from './checklist-data';
 
 const STORAGE_KEY = 'umrah-checklist-10-days';
 const whatsappContact = 'https://wa.me/6281573550017?text=Halo%20Naltech%2C%20saya%20ingin%20konsultasi%20tentang%20website.';
@@ -20,7 +22,14 @@ const whatsappContact = 'https://wa.me/6281573550017?text=Halo%20Naltech%2C%20sa
 interface StoredChecklist {
   gender: Gender;
   checkedItems: string[];
+  customItems: CustomChecklistItems;
+  removedItems: Record<Gender, string[]>;
 }
+
+type CustomChecklistItems = Record<Gender, Record<string, ChecklistItem[]>>;
+
+const emptyCustomItems = (): CustomChecklistItems => ({ male: {}, female: {} });
+const emptyRemovedItems = (): Record<Gender, string[]> => ({ male: [], female: [] });
 
 function isGender(value: unknown): value is Gender {
   return value === 'male' || value === 'female';
@@ -33,6 +42,9 @@ export function calculateProgress(completed: number, total: number) {
 export default function UmrahChecklistClient() {
   const [gender, setGender] = useState<Gender>('male');
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
+  const [customItems, setCustomItems] = useState<CustomChecklistItems>(emptyCustomItems);
+  const [removedItems, setRemovedItems] = useState<Record<Gender, string[]>>(emptyRemovedItems);
+  const [itemDrafts, setItemDrafts] = useState<Record<string, string>>({});
   const [storageReady, setStorageReady] = useState(false);
   const [openCategories, setOpenCategories] = useState<Record<Gender, string[]>>({
     male: ['pakaian'],
@@ -45,6 +57,8 @@ export default function UmrahChecklistClient() {
   useEffect(() => {
     let storedGender: Gender = 'male';
     let storedItems: string[] = [];
+    let storedCustomItems = emptyCustomItems();
+    let storedRemovedItems = emptyRemovedItems();
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (stored) {
@@ -53,32 +67,49 @@ export default function UmrahChecklistClient() {
         if (Array.isArray(parsed.checkedItems)) {
           storedItems = parsed.checkedItems.filter((id): id is string => typeof id === 'string');
         }
+        if (parsed.customItems && typeof parsed.customItems === 'object') {
+          storedCustomItems = { ...storedCustomItems, ...parsed.customItems };
+        }
+        if (parsed.removedItems && typeof parsed.removedItems === 'object') {
+          storedRemovedItems = { ...storedRemovedItems, ...parsed.removedItems };
+        }
       }
     } catch {
       // The checklist remains usable in memory when storage is unavailable.
     }
 
-    const frame = window.requestAnimationFrame(() => {
+    const storageTimer = window.setTimeout(() => {
       setGender(storedGender);
       setCheckedItems(storedItems);
+      setCustomItems(storedCustomItems);
+      setRemovedItems(storedRemovedItems);
       setStorageReady(true);
-    });
+    }, 0);
 
-    return () => window.cancelAnimationFrame(frame);
+    return () => window.clearTimeout(storageTimer);
   }, []);
 
   useEffect(() => {
     if (!storageReady) return;
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ gender, checkedItems }));
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ gender, checkedItems, customItems, removedItems }));
     } catch {
       // Browsers may block storage; state still works for the current session.
     }
-  }, [checkedItems, gender, storageReady]);
+  }, [checkedItems, customItems, gender, removedItems, storageReady]);
 
   useEffect(() => () => window.clearTimeout(toastTimerRef.current), []);
 
-  const categories = checklistData[gender];
+  const categories = useMemo(() => {
+    const removedSet = new Set(removedItems[gender]);
+    return checklistData[gender].map((category) => ({
+      ...category,
+      items: [
+        ...category.items.filter((entry) => !removedSet.has(getItemId(gender, category.id, entry.id))),
+        ...(customItems[gender][category.id] ?? []),
+      ],
+    }));
+  }, [customItems, gender, removedItems]);
   const checkedSet = useMemo(() => new Set(checkedItems), [checkedItems]);
   const totalItems = useMemo(
     () => categories.reduce((total, category) => total + category.items.length, 0),
@@ -114,6 +145,60 @@ export default function UmrahChecklistClient() {
         ? Array.from(new Set([...current[gender], categoryId]))
         : current[gender].filter((id) => id !== categoryId),
     }));
+  };
+
+  const addItem = (event: FormEvent<HTMLFormElement>, categoryId: string) => {
+    event.preventDefault();
+    const draftKey = `${gender}-${categoryId}`;
+    const name = itemDrafts[draftKey]?.trim();
+    if (!name) return;
+
+    setCustomItems((current) => {
+      const categoryItems = current[gender][categoryId] ?? [];
+      let sequence = categoryItems.length + 1;
+      while (categoryItems.some((item) => item.id === `custom-${sequence}`)) sequence += 1;
+
+      return {
+        ...current,
+        [gender]: {
+          ...current[gender],
+          [categoryId]: [...categoryItems, { id: `custom-${sequence}`, name }],
+        },
+      };
+    });
+    setItemDrafts((current) => ({ ...current, [draftKey]: '' }));
+    showToast('Item baru ditambahkan.');
+  };
+
+  const removeItem = (categoryId: string, entry: ChecklistItem) => {
+    const id = getItemId(gender, categoryId, entry.id);
+    const isCustomItem = entry.id.startsWith('custom-');
+
+    setCheckedItems((current) => current.filter((itemId) => itemId !== id));
+    if (isCustomItem) {
+      setCustomItems((current) => ({
+        ...current,
+        [gender]: {
+          ...current[gender],
+          [categoryId]: (current[gender][categoryId] ?? []).filter((item) => item.id !== entry.id),
+        },
+      }));
+    } else {
+      setRemovedItems((current) => ({
+        ...current,
+        [gender]: Array.from(new Set([...current[gender], id])),
+      }));
+    }
+    showToast('Item dihapus dari checklist.');
+  };
+
+  const restoreCategoryItems = (categoryId: string) => {
+    const prefix = `${gender}-${categoryId}-`;
+    setRemovedItems((current) => ({
+      ...current,
+      [gender]: current[gender].filter((id) => !id.startsWith(prefix)),
+    }));
+    showToast('Item bawaan berhasil dipulihkan.');
   };
 
   const buildShareText = () => {
@@ -176,13 +261,8 @@ export default function UmrahChecklistClient() {
 
   const resetChecklist = () => {
     setCheckedItems([]);
-    try {
-      window.localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // State reset remains effective when storage is unavailable.
-    }
     dialogRef.current?.close();
-    showToast('Checklist berhasil direset.');
+    showToast('Progress checklist berhasil direset.');
   };
 
   const ringStyle = { '--progress': `${progress * 3.6}deg` } as CSSProperties;
@@ -248,7 +328,9 @@ export default function UmrahChecklistClient() {
             const categoryCompleted = category.items.filter((entry) =>
               checkedSet.has(getItemId(gender, category.id, entry.id)),
             ).length;
-            const isComplete = categoryCompleted === category.items.length;
+            const isComplete = category.items.length > 0 && categoryCompleted === category.items.length;
+            const removedCount = removedItems[gender].filter((id) => id.startsWith(`${gender}-${category.id}-`)).length;
+            const draftKey = `${gender}-${category.id}`;
 
             return (
               <details
@@ -278,14 +360,42 @@ export default function UmrahChecklistClient() {
                     const id = getItemId(gender, category.id, entry.id);
                     const checked = checkedSet.has(id);
                     return (
-                      <label className={`um-item${checked ? ' checked' : ''}`} key={id}>
-                        <input type="checkbox" checked={checked} onChange={() => toggleItem(id)} />
-                        <span className="um-checkbox" aria-hidden="true"><Check size={16} /></span>
-                        <span className="um-item-name">{entry.name}</span>
+                      <div className={`um-item${checked ? ' checked' : ''}`} key={id}>
+                        <label className="um-item-check">
+                          <input type="checkbox" checked={checked} onChange={() => toggleItem(id)} />
+                          <span className="um-checkbox" aria-hidden="true"><Check size={16} /></span>
+                          <span className="um-item-name">{entry.name}</span>
+                        </label>
                         {entry.quantity && <span className="um-quantity">{entry.quantity}</span>}
-                      </label>
+                        <button
+                          className="um-item-delete"
+                          type="button"
+                          onClick={() => removeItem(category.id, entry)}
+                          aria-label={`Hapus ${entry.name}`}
+                          title={`Hapus ${entry.name}`}
+                        >
+                          <Trash2 size={16} aria-hidden="true" />
+                        </button>
+                      </div>
                     );
                   })}
+                  {category.items.length === 0 && (
+                    <p className="um-category-empty">Belum ada item di kategori ini.</p>
+                  )}
+                  <form className="um-add-item" onSubmit={(event) => addItem(event, category.id)}>
+                    <input
+                      value={itemDrafts[draftKey] ?? ''}
+                      onChange={(event) => setItemDrafts((current) => ({ ...current, [draftKey]: event.target.value }))}
+                      placeholder="Tambah item baru…"
+                      aria-label={`Tambah item ke kategori ${category.title}`}
+                    />
+                    <button type="submit"><Plus size={17} aria-hidden="true" /> Tambah</button>
+                  </form>
+                  {removedCount > 0 && (
+                    <button className="um-restore-items" type="button" onClick={() => restoreCategoryItems(category.id)}>
+                      <RotateCcw size={14} aria-hidden="true" /> Pulihkan {removedCount} item bawaan
+                    </button>
+                  )}
                 </div>
               </details>
             );
