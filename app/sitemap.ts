@@ -17,6 +17,11 @@ const siteRoutes: RouteConfig[] = [
     images: [`${siteUrl}/og.png`, `${siteUrl}/naltech-logo.png`],
   },
   {
+    path: '/umrah-checklist',
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  },
+  {
     path: '/demo/senja-coffee',
     changeFrequency: 'monthly',
     priority: 0.85,
