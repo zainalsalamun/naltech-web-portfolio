@@ -1,6 +1,6 @@
 /* Intentional motion language for the studio homepage: quick entrances, slow ambient drift. */
 .nl-page{--nl-ease:cubic-bezier(.22,1,.36,1)}
-.nl-header{position:static!important;z-index:auto!important}
+.nl-header{position:sticky!important;top:0;z-index:50!important;width:100%;margin-inline:0;padding-inline:max(24px,calc((100% - 1280px)/2));background:rgba(252,251,248,.88);border-bottom:1px solid rgba(23,24,42,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .nl-header{animation:nl-header-in .75s var(--nl-ease) both}
 .nl-hero-copy{animation:nl-copy-in .9s .08s var(--nl-ease) both}
 .nl-showcase{animation:nl-showcase-in 1s .16s var(--nl-ease) both}

@@ -50,6 +50,7 @@ const projects = [
   { slug: 'nala-auto', type: 'Car Showroom', name: 'Nala Auto', result: 'Premium used-car showroom experience', theme: 'auto', number: '35' },
   { slug: 'nala-soda', type: 'Food & Beverage', name: 'Nala Soda', result: 'Interactive beverage launch experience', theme: 'soda', number: '36' },
   { slug: 'pixi-creative', type: 'Event Organizer & MICE Planner', name: 'PIXI CREATIVE', result: 'Interactive event budget simulator & MICE planner', theme: 'pixi', number: '37' },
+  { slug: 'umrah-checklist', type: 'Travel Utility', name: 'Checklist Umrah', result: 'Interactive 10-day preparation checklist', theme: 'umrah', number: '38', href: '/umrah-checklist' },
 ];
 
 const services = [
@@ -324,7 +325,7 @@ export default function Home() {
         <p className="nl-swipe">Geser untuk melihat project lainnya →</p>
         <div className="nl-projects">
           {projects.map((project) => (
-            <Link className="nl-project" href={`/demo/${project.slug}`} key={project.slug}>
+            <Link className="nl-project" href={project.href ?? `/demo/${project.slug}`} key={project.slug}>
               <div className={`nl-project-art ${project.theme}`}>
                 <span>{project.number}</span>
                 <div className="nl-project-browser">
