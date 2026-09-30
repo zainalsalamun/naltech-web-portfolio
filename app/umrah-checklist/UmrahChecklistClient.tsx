@@ -13,7 +13,7 @@ import {
   Trash2,
   X,
 } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { checklistData, getItemId, type ChecklistItem, type Gender } from './checklist-data';
 
 const STORAGE_KEY = 'umrah-checklist-10-days';
@@ -147,11 +147,13 @@ export default function UmrahChecklistClient() {
     }));
   };
 
-  const addItem = (event: FormEvent<HTMLFormElement>, categoryId: string) => {
-    event.preventDefault();
+  const addItem = (categoryId: string) => {
     const draftKey = `${gender}-${categoryId}`;
     const name = itemDrafts[draftKey]?.trim();
-    if (!name) return;
+    if (!name) {
+      showToast('Tulis nama item terlebih dahulu.');
+      return;
+    }
 
     setCustomItems((current) => {
       const categoryItems = current[gender][categoryId] ?? [];
@@ -312,6 +314,7 @@ export default function UmrahChecklistClient() {
           <div>
             <p className="um-section-label">Checklist pribadi</p>
             <h2 id="checklist-title">Siapkan satu per satu,<br /><em>berangkat lebih tenang.</em></h2>
+            <p className="um-customize-copy">Centang yang sudah siap, tambahkan kebutuhan pribadi, atau hapus item yang tidak diperlukan.</p>
           </div>
           <div className="um-gender-control" role="group" aria-label="Pilih checklist">
             <button type="button" className={gender === 'male' ? 'active' : ''} onClick={() => setGender('male')} aria-pressed={gender === 'male'}>
@@ -359,12 +362,13 @@ export default function UmrahChecklistClient() {
                   {category.items.map((entry) => {
                     const id = getItemId(gender, category.id, entry.id);
                     const checked = checkedSet.has(id);
+                    const isCustomItem = entry.id.startsWith('custom-');
                     return (
-                      <div className={`um-item${checked ? ' checked' : ''}`} key={id}>
+                      <div className={`um-item${checked ? ' checked' : ''}${isCustomItem ? ' custom' : ''}`} key={id}>
                         <label className="um-item-check">
                           <input type="checkbox" checked={checked} onChange={() => toggleItem(id)} />
                           <span className="um-checkbox" aria-hidden="true"><Check size={16} /></span>
-                          <span className="um-item-name">{entry.name}</span>
+                          <span className="um-item-name">{entry.name}{isCustomItem && <small>Tambahan Anda</small>}</span>
                         </label>
                         {entry.quantity && <span className="um-quantity">{entry.quantity}</span>}
                         <button
@@ -382,15 +386,28 @@ export default function UmrahChecklistClient() {
                   {category.items.length === 0 && (
                     <p className="um-category-empty">Belum ada item di kategori ini.</p>
                   )}
-                  <form className="um-add-item" onSubmit={(event) => addItem(event, category.id)}>
-                    <input
-                      value={itemDrafts[draftKey] ?? ''}
-                      onChange={(event) => setItemDrafts((current) => ({ ...current, [draftKey]: event.target.value }))}
-                      placeholder="Tambah item baru…"
-                      aria-label={`Tambah item ke kategori ${category.title}`}
-                    />
-                    <button type="submit"><Plus size={17} aria-hidden="true" /> Tambah</button>
-                  </form>
+                  <div className="um-add-panel">
+                    <div className="um-add-copy">
+                      <strong>Tambah kebutuhan sendiri</strong>
+                      <span>Tersimpan otomatis di perangkat ini.</span>
+                    </div>
+                    <div className="um-add-item">
+                      <input
+                        type="text"
+                        value={itemDrafts[draftKey] ?? ''}
+                        onChange={(event) => setItemDrafts((current) => ({ ...current, [draftKey]: event.target.value }))}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter') {
+                            event.preventDefault();
+                            addItem(category.id);
+                          }
+                        }}
+                        placeholder="Contoh: kacamata baca"
+                        aria-label={`Tambah item ke kategori ${category.title}`}
+                      />
+                      <button type="button" onClick={() => addItem(category.id)}><Plus size={17} aria-hidden="true" /> Tambah</button>
+                    </div>
+                  </div>
                   {removedCount > 0 && (
                     <button className="um-restore-items" type="button" onClick={() => restoreCategoryItems(category.id)}>
                       <RotateCcw size={14} aria-hidden="true" /> Pulihkan {removedCount} item bawaan
