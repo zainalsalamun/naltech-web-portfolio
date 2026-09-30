@@ -205,22 +205,22 @@ export default function UmrahChecklistClient() {
 
   const buildShareText = () => {
     const lines = [
-      'CHECKLIST UMRAH 10 HARI',
+      '🕋 *CHECKLIST UMRAH 10 HARI*',
       '',
-      gender === 'male' ? 'PRIA' : 'WANITA',
+      `Untuk: *${gender === 'male' ? 'Pria' : 'Wanita'}*`,
       '',
     ];
 
-    categories.forEach((category) => {
-      lines.push(category.title.toUpperCase());
+    categories.forEach((category, categoryIndex) => {
+      lines.push(`*${categoryIndex + 1}. ${category.title.toUpperCase()}*`);
       category.items.forEach((item) => {
         const id = getItemId(gender, category.id, item.id);
-        lines.push(`${checkedSet.has(id) ? '☑' : '☐'} ${item.name}${item.quantity ? ` — ${item.quantity}` : ''}`);
+        lines.push(`${checkedSet.has(id) ? '✅' : '⬜'} ${item.name}${item.quantity ? ` — ${item.quantity}` : ''}`);
       });
       lines.push('');
     });
 
-    lines.push(`Progress: ${progress}% (${completedItems}/${totalItems})`);
+    lines.push(`📊 *Progress: ${progress}%* (${completedItems}/${totalItems} selesai)`);
     lines.push('');
     lines.push('Checklist ini dibuat untuk persiapan pribadi umrah 10 hari.');
     return lines.join('\n');
@@ -359,33 +359,42 @@ export default function UmrahChecklistClient() {
                   <ChevronDown className="um-chevron" size={21} aria-hidden="true" />
                 </summary>
                 <div className="um-category-content">
-                  {category.items.map((entry) => {
-                    const id = getItemId(gender, category.id, entry.id);
-                    const checked = checkedSet.has(id);
-                    const isCustomItem = entry.id.startsWith('custom-');
-                    return (
-                      <div className={`um-item${checked ? ' checked' : ''}${isCustomItem ? ' custom' : ''}`} key={id}>
-                        <label className="um-item-check">
-                          <input type="checkbox" checked={checked} onChange={() => toggleItem(id)} />
-                          <span className="um-checkbox" aria-hidden="true"><Check size={16} /></span>
-                          <span className="um-item-name">{entry.name}{isCustomItem && <small>Tambahan Anda</small>}</span>
-                        </label>
-                        {entry.quantity && <span className="um-quantity">{entry.quantity}</span>}
-                        <button
-                          className="um-item-delete"
-                          type="button"
-                          onClick={() => removeItem(category.id, entry)}
-                          aria-label={`Hapus ${entry.name}`}
-                          title={`Hapus ${entry.name}`}
-                        >
-                          <Trash2 size={16} aria-hidden="true" />
-                        </button>
-                      </div>
-                    );
-                  })}
-                  {category.items.length === 0 && (
-                    <p className="um-category-empty">Belum ada item di kategori ini.</p>
-                  )}
+                  <div className="um-item-table" role="table" aria-label={`Daftar ${category.title}`}>
+                    <div className="um-item-table-head" role="row">
+                      <span role="columnheader">Barang atau kebutuhan</span>
+                      <span role="columnheader">Jumlah</span>
+                      <span aria-hidden="true" />
+                    </div>
+                    {category.items.map((entry) => {
+                      const id = getItemId(gender, category.id, entry.id);
+                      const checked = checkedSet.has(id);
+                      const isCustomItem = entry.id.startsWith('custom-');
+                      return (
+                        <div className={`um-item${checked ? ' checked' : ''}${isCustomItem ? ' custom' : ''}`} key={id} role="row">
+                          <label className="um-item-check" role="cell">
+                            <input type="checkbox" checked={checked} onChange={() => toggleItem(id)} />
+                            <span className="um-checkbox" aria-hidden="true"><Check size={16} /></span>
+                            <span className="um-item-name">{entry.name}{isCustomItem && <small>Tambahan Anda</small>}</span>
+                          </label>
+                          <span className="um-quantity-cell" role="cell">
+                            {entry.quantity ? <span className="um-quantity">{entry.quantity}</span> : <span className="um-no-quantity">—</span>}
+                          </span>
+                          <button
+                            className="um-item-delete"
+                            type="button"
+                            onClick={() => removeItem(category.id, entry)}
+                            aria-label={`Hapus ${entry.name}`}
+                            title={`Hapus ${entry.name}`}
+                          >
+                            <Trash2 size={16} aria-hidden="true" />
+                          </button>
+                        </div>
+                      );
+                    })}
+                    {category.items.length === 0 && (
+                      <p className="um-category-empty">Belum ada item di kategori ini.</p>
+                    )}
+                  </div>
                   <div className="um-add-panel">
                     <div className="um-add-copy">
                       <strong>Tambah kebutuhan sendiri</strong>
